@@ -1,0 +1,43 @@
+/*  Splash Navigation */
+.splashNavWrapper {
+	background-color: lightcoral;
+	height: 65px;
+}
+
+.splashNavContainer {
+	display: flex;
+	list-style-type: none;
+	justify-content: space-between;
+}
+
+.splashNavLeft{
+	display: flex;
+	gap: 20px;
+}
+
+.splashNavRight{
+	display: flex;
+	gap: 20px;
+}
+
+/*  Logged in Navigation */
+.test {
+	background-color: aqua;
+	height: 65px;
+} 
+
+.navContainer {
+	display: flex;
+	list-style-type: none;
+	justify-content: space-between;
+}
+
+.navLeft{
+	display: flex;
+	gap: 20px;
+}
+
+.navRight{
+	display: flex;
+	gap: 20px;
+}
