@@ -6,8 +6,11 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/User/UsersList';
+import User from './components/User/User';
+import Portfolio from './components/Portfolio';
+import Splash from './components/Splash';
+import StockDetail from './components/StockDetail';
 import { authenticate } from './store/session';
 
 function App() {
@@ -39,6 +42,10 @@ function App() {
           <SignUpForm />
         </Route>
 
+        <ProtectedRoute path='/stocks/ticker' exact={true} >
+          <StockDetail/>
+        </ProtectedRoute>
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
@@ -48,7 +55,7 @@ function App() {
         </ProtectedRoute>
 
         <Route path='/' exact={true} >
-          {sessionUser? (<h1>My Home Page</h1>) : (<h1>splash</h1>)}
+          {sessionUser? (<Portfolio/>) : (<Splash/>)}
         </Route>
 
         <Route>
