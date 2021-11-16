@@ -14,13 +14,13 @@ const NavBar = () => {
         <nav className='test'>
           <div className='navContainer'>
             <div className='navLeft'>
-              <NavLink to='/' exact={true} activeClassName='active'>Green Arrow login</NavLink>
+              <NavLink to='/' exact={true} activeClassName='active'>Green Arrow</NavLink>
               <div>Search Bar Here</div>
             </div>
             <div className='navRight'>
               <div>LinkedIn</div>
               <div>Github</div>
-              <div>Portfolio</div>
+              <NavLink to='/' exact={true} activeClassName='active'>Portfolio</NavLink>
               <div>Account</div>
               <NavLink to='/users' exact={true} activeClassName='active'>Users</NavLink>
               <LogoutButton />
