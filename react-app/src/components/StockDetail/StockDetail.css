@@ -1,0 +1,32 @@
+.sdWrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.sdContainer {
+	display: flex;
+	width: 1050px;
+	border: 1px solid black;
+}
+
+/************ STOCK FEED *************/
+
+.sdStockFeed {
+	border: 1px solid black;
+  flex: 0.7;
+}
+
+/*********** PORTFOLIO LIST ***********/
+
+.sdSidePanel {
+  border: 1px solid black;
+	flex: 0.3;
+}
+
+.sdOrder {
+	border: 1px solid black;
+}
+
+.sdAddToWatch {
+	border: 1px solid black;
+}
