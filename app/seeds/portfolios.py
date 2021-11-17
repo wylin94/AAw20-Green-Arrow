@@ -3,9 +3,25 @@ from app.models import db, Portfolio
 
 def seed_portfolios():
     portfolio1 = Portfolio(
-        user_id=1, ticker='appl', share=10, purchase_price=150.93)
+        user_id=1, ticker='AAPL', share=10, purchase_price=150.93)
+    portfolio2 = Portfolio(
+        user_id=1, ticker='FB', share=20, purchase_price=342.55)
+    portfolio3 = Portfolio(
+        user_id=1, ticker='AMZN', share=10, purchase_price=3543.50)
+
+    portfolio4 = Portfolio(
+        user_id=2, ticker='FEYE', share=10, purchase_price=17.27)
+    portfolio5 = Portfolio(
+        user_id=2, ticker='MRVL', share=20, purchase_price=73.82)
+    portfolio6 = Portfolio(
+        user_id=2, ticker='AAPL', share=10, purchase_price=149.99)
 
     db.session.add(portfolio1)
+    db.session.add(portfolio2)
+    db.session.add(portfolio3)
+    db.session.add(portfolio4)
+    db.session.add(portfolio5)
+    db.session.add(portfolio6)
 
     db.session.commit()
 

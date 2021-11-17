@@ -12,6 +12,8 @@ import Portfolio from './components/Portfolio';
 import Splash from './components/Splash';
 import StockDetail from './components/StockDetail';
 import { authenticate } from './store/session';
+import { getPortfolios } from './store/portfolio';
+import { getWatchlists } from './store/watchlist';
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -21,6 +23,8 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getPortfolios());
+      await dispatch(getWatchlists());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -42,7 +46,7 @@ function App() {
           <SignUpForm />
         </Route>
 
-        <ProtectedRoute path='/stocks/ticker' exact={true} >
+        <ProtectedRoute path='/stocks/:ticker' exact={true} >
           <StockDetail/>
         </ProtectedRoute>
 
