@@ -15,7 +15,9 @@ const NavBar = () => {
           <div className='navContainer'>
             <div className='navLeft'>
               <NavLink to='/' exact={true} activeClassName='active'>Green Arrow</NavLink>
-              <div>Search Bar Here</div>
+              <div>
+                <input placeholder='Search' type='text'></input>
+              </div>
             </div>
             <div className='navRight'>
               <div>LinkedIn</div>

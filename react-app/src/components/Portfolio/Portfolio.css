@@ -1,0 +1,49 @@
+.pfWrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.pfContainer {
+	display: flex;
+	width: 1050px;
+	border: 1px solid black;
+}
+
+/************ STOCK FEED *************/
+
+.pfStockFeed {
+	border: 1px solid black;
+  flex: 0.7;
+	background-color: red;
+}
+
+/*********** PORTFOLIO LIST ***********/
+
+
+.pfPortfolioList {
+  border: 1px solid black;
+	flex: 0.3;
+}
+
+/* STOCKLIST */
+
+.pfStockListHeader {
+	font-weight: bold;
+}
+
+.pfStockListItemContainer {
+
+}
+
+.pfStockListItem {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid black;
+	background-color: aqua;
+}
+
+/* WATCHLIST */
+
+.pfWatchlistHeader {
+	font-weight: bold;
+}
