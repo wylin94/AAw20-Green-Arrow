@@ -13,7 +13,7 @@ import './StockDetail.css'
 function StockDetail() {
 	const dispatch = useDispatch();
 	const { ticker } = useParams();
-  const user = useSelector(state => state.session.user);
+	const user = useSelector(state => state.session.user);
 	const stock = useSelector(state => state.stockDetail);
 
 	useEffect(() => {
@@ -35,7 +35,7 @@ function StockDetail() {
 					<div className='sdGraphSection'>
 						<div className='sdGraphBalance'>
 							<div>{stock?.companyName}</div>
-							<div>${(stock?.iexAskPrice !== 0) ? stock?.iexAskprice : stock?.iexClose}</div>
+							<div>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2)}</div>
 							<div>{stock.change} ({stock.changePercent * 100}%) Today</div>
 						</div>
 						<div className='sdStockGraph'>
@@ -56,7 +56,7 @@ function StockDetail() {
 
 					<div className='sdOrder'>
             <div>
-              <BuyForm />
+				<BuyForm />
             </div>
             
 						{/* <div>
@@ -68,7 +68,7 @@ function StockDetail() {
 						<div>Marekt Price</div>
 						<div>Estimated Cost</div>
 						<button>Review Order</button> */}
-						<div>${user.buying_power.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
+						<div>${user.buying_power?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
 					</div>
 
 					<div className='sdAddToWatch'>

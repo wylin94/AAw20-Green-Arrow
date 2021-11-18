@@ -32,8 +32,6 @@ export const createPortfolio = (stock) => async (dispatch) => {
 	})
 	if (response.ok) {
 		const newPortfolio = await response.json();
-		console.log('***************')
-		console.log(newPortfolio)
 		dispatch(create(newPortfolio));
 		return newPortfolio;
 	}

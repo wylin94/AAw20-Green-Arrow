@@ -13,8 +13,8 @@ def validation_errors_to_error_messages(validation_errors):
 	"""
 	errorMessages = []
 	for field in validation_errors:
-			for error in validation_errors[field]:
-					errorMessages.append(f'{field} : {error}')
+		for error in validation_errors[field]:
+			errorMessages.append(f'{field} : {error}')
 	return errorMessages
 
 
@@ -26,27 +26,13 @@ def getPortfolios():
 
 @portfolio_routes.route('/', methods=['POST'])
 def createPortfolio():
-	print(1)
-	print(request)
 	form = NewPortfolioForm()
-	print(form)
-	print(2)
 	form["csrf_token"].data = request.cookies["csrf_token"]
-    # Reserve for add Spot form/modal
-	print(3)
 	if form.validate_on_submit():
-		print(4)
-		# newPortfolio = Portfolio(
-		# 	user_id = request.json['user_id'],
-		# 	ticker = form.data['ticker'],
-		# 	share = form.data['share'],
-		# 	purchase_price = form.data['purchase_price']
-		# )
 		data = Portfolio()
 		form.populate_obj(data)
 		db.session.add(data)
 		db.session.commit()
-
 		return data.to_dict()
 
 	# else:
