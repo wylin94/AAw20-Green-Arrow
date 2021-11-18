@@ -5,7 +5,8 @@
 
 .pfContainer {
 	display: flex;
-	width: 1050px;
+	min-width: 1050px;
+	max-width: 1050px;
 	border: 1px solid black;
 }
 
@@ -13,14 +14,15 @@
 
 .pfStockFeed {
 	border: 1px solid black;
-  flex: 0.7;
+	flex: 0.7;
+	/* background-color: red; */
 }
 
 /*********** PORTFOLIO LIST ***********/
 
 
 .pfPortfolioList {
-  border: 1px solid black;
+	border: 1px solid black;
 	flex: 0.3;
 }
 

@@ -5,7 +5,8 @@
 
 .sdContainer {
 	display: flex;
-	width: 1050px;
+	min-width: 1050px;
+  max-width: 1050px;
 	border: 1px solid black;
 }
 
@@ -13,17 +14,19 @@
 
 .sdStockFeed {
 	border: 1px solid black;
-  flex: 0.7;
+	flex: 0.7;
+	/* background-color: blue; */
 }
 
 /*********** PORTFOLIO LIST ***********/
 
 .sdSidePanel {
-  border: 1px solid black;
+	border: 1px solid black;
 	flex: 0.3;
 }
 
 .sdOrder {
+  width: 100%;
 	border: 1px solid black;
 }
 

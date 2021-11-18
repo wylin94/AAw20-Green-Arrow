@@ -6,20 +6,22 @@ import { getAllStock } from '../../store/stock';
 import { getOneStock } from '../../store/stockDetail';
 import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists } from '../../store/watchlist';
+import BuyForm from './buyForm';
 import Graph from '../Graph'
 import './StockDetail.css'
 
 function StockDetail() {
 	const dispatch = useDispatch();
-  const { ticker } = useParams();
-  const stock = useSelector(state => state.stockDetail);
+	const { ticker } = useParams();
+  const user = useSelector(state => state.session.user);
+	const stock = useSelector(state => state.stockDetail);
 
 	useEffect(() => {
 		dispatch(getPortfolios());
-    dispatch(getWatchlists());
-    dispatch(getAllStock());
+		dispatch(getWatchlists());
+		dispatch(getAllStock());
 		dispatch(getOneStock(ticker.toLowerCase()));
-  }, [dispatch]);
+	}, [dispatch]);
 
 	return(
 		<div className='sdWrapper'>
@@ -33,9 +35,7 @@ function StockDetail() {
 					<div className='sdGraphSection'>
 						<div className='sdGraphBalance'>
 							<div>{stock?.companyName}</div>
-							<div>${
-								(stock?.iexAskPrice !== 0) ? stock?.iexAskprice : stock?.iexClose
-							}</div>
+							<div>${(stock?.iexAskPrice !== 0) ? stock?.iexAskprice : stock?.iexClose}</div>
 							<div>{stock.change} ({stock.changePercent * 100}%) Today</div>
 						</div>
 						<div className='sdStockGraph'>
@@ -55,7 +55,11 @@ function StockDetail() {
 				<div className='sdSidePanel'>
 
 					<div className='sdOrder'>
-						<div>
+            <div>
+              <BuyForm />
+            </div>
+            
+						{/* <div>
 							<button>buy</button>
 							<button>sell</button>
 						</div>
@@ -63,8 +67,8 @@ function StockDetail() {
 						<div>Shares</div>
 						<div>Marekt Price</div>
 						<div>Estimated Cost</div>
-						<button>Review Order</button>
-						<div>buying power available</div>
+						<button>Review Order</button> */}
+						<div>${user.buying_power.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
 					</div>
 
 					<div className='sdAddToWatch'>
