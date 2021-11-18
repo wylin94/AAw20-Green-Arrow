@@ -17,9 +17,9 @@ function Portfolio() {
 
 	useEffect(() => {
 		dispatch(getPortfolios());
-    dispatch(getWatchlists());
-    dispatch(getAllStock());
-  }, [dispatch]);
+		dispatch(getWatchlists());
+		dispatch(getAllStock());
+	}, [dispatch]);
 
 	return(
 		<div className='pfWrapper'>

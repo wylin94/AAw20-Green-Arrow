@@ -47,11 +47,11 @@ function App() {
         </Route>
 
         <ProtectedRoute path='/stocks/:ticker' exact={true} >
-          <StockDetail/>
+          <StockDetail />
         </ProtectedRoute>
 
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
 
         <ProtectedRoute path='/users/:userId' exact={true} >
@@ -59,7 +59,7 @@ function App() {
         </ProtectedRoute>
 
         <Route path='/' exact={true} >
-          {sessionUser? (<Portfolio/>) : (<Splash/>)}
+          {sessionUser? (<Portfolio />) : (<Splash />)}
         </Route>
 
         <Route>
