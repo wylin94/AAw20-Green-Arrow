@@ -1,0 +1,27 @@
+.bfWrapper {
+
+}
+
+.bfForm {
+	padding: 20px;
+}
+
+.bfInvestIn {
+	display: flex;
+	justify-content: space-between;
+}
+
+.bfShares {
+	display: flex;
+	justify-content: space-between;
+}
+
+.bfMarketPrice {
+	display: flex;
+	justify-content: space-between;
+}
+
+.bfEstimatedCost {
+	display: flex;
+	justify-content: space-between;
+}
