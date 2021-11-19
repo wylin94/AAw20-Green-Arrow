@@ -27,11 +27,14 @@ const SellForm = () => {
 		e.preventDefault();
 		for (let i = 0; i < portfolios.length; i++) {
 			const portfolio_id = portfolios[i].id
+
 			if (sharesToSell !== 0) {
+
 				if (portfolios[i].ticker === ticker && portfolios[i].share <= sharesToSell) {
 					await dispatch(removePortfolio(portfolios[i].id))
 					sharesToSell = sharesToSell - portfolios[i].share
 					// i = 0
+
 				} else if (portfolios[i].ticker === ticker && portfolios[i].share > sharesToSell) {
 					const share = portfolios[i].share - sharesToSell
 					const last = await dispatch(editPortfolio({portfolio_id, share}))
@@ -39,7 +42,8 @@ const SellForm = () => {
 						console.log('need to increase buying power')
 						// await dispatch(buyingPower({user_id, new_buying_power}));
 					}
-					setShares('');
+					
+					// setShares('');
 					break
 				}
 			}
