@@ -72,7 +72,6 @@ function Portfolio() {
 							<Graph />
 						</div>
 					</div>
-
 					<div className='pfNewsSection'>
 					</div>
 				</div>
@@ -91,7 +90,7 @@ function Portfolio() {
 											<div className='pfStockListItem'>
 												<div>
 													<div>{portfolio.ticker}</div>
-													<div>{portfolio.share} shares</div>
+													<div>{portfolio.share.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} share{portfolio.share > 1 && 's'}</div>
 												</div>
 												<div>chart</div>
 												<div>

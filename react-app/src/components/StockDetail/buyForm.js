@@ -35,7 +35,7 @@ const BuyForm = () => {
 			setDisableBuy(true);
 		}
 	} else if (disableBuy === true) {
-		if (purchase_price * shares < current_buying_power)
+		if (purchase_price * shares <= current_buying_power)
 			setDisableBuy(false)
 	}
 
@@ -60,6 +60,7 @@ const BuyForm = () => {
 				<div className='bfMarketPrice'>
 					<div>Market Price</div>
 					<div>${purchase_price?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					{/* <div>${Number(parseFloat(purchase_price)?.toFixed(2)).toLocaleString('en')}</div> */}
 				</div>
 				<div className='bfEstimatedCost'>
 					<div>Estimated Cost</div>
