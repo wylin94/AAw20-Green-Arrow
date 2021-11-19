@@ -32,6 +32,7 @@ export const getPortfolios = () => async (dispatch) => {
 	const response = await fetch(`/api/portfolios`);
 	if (response.ok) {
 		const portfolios = await response.json();
+		portfolios.portfolios.sort((first, second) => first.id - second.id )
 		dispatch(loadPortfolios(portfolios));
 	}
 };
@@ -64,16 +65,16 @@ export const removePortfolio = (id) => async (dispatch) => {
 
 export const editPortfolio = ({portfolio_id, share}) => async (dispatch) => {
 	const response = await fetch(`/api/portfolios/${portfolio_id}`, {
-    method: 'PATCH',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(share)
-  });
-  if (response.ok) {
-    const booking = await response.json();
-    dispatch(editBooking(booking));
-		console.log('booking', booking)
-    return booking;
-  }
+		method: 'PATCH',
+		headers: {'Content-Type': 'application/json'},
+		body: JSON.stringify(share)
+	});
+	if (response.ok) {
+		const booking = await response.json();
+		dispatch(editBooking(booking));
+			console.log('booking', booking)
+		return booking;
+	}
 };
 
 ////////// REDUCER //////////////
