@@ -39,7 +39,8 @@ function StockDetail() {
 							<div>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 							<div>{stock.change?.toString()[0] === '-' && '-'}
 								${(stock.change?.toString()[0] === '-') ? stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
-								{' '}({(stock.changePercent * 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}%) Today</div>
+								{' '}({(stock.changePercent * 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}%) Today
+							</div>
 						</div>
 						<div className='sdStockGraph'>
 							<Graph />
