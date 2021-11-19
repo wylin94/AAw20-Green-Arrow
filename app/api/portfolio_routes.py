@@ -34,7 +34,22 @@ def createPortfolio():
 		db.session.add(data)
 		db.session.commit()
 		return data.to_dict()
-
 	# else:
 		# return form.errors
 	return {"errors": validation_errors_to_error_messages(form.errors)}
+
+
+@portfolio_routes.route('/<int:portfolio_id>', methods=['DELETE'])
+def deletePortfolio(portfolio_id):
+	removePortfolio = Portfolio.query.get(portfolio_id)
+	db.session.delete(removePortfolio)
+	db.session.commit()
+	return removePortfolio.to_dict()
+
+
+@portfolio_routes.route('/<int:id>', methods=['PATCH'])
+def editPortfolio(id):
+	editPortfolio = Portfolio.query.get(id)
+	editPortfolio.share = request.json
+	db.session.commit()
+	return editPortfolio.to_dict()

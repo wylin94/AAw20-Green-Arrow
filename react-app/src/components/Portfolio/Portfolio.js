@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { getAllStock } from '../../store/stock';
 import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists } from '../../store/watchlist';
+import { getOneStock } from '../../store/stockDetail';
 import Graph from '../Graph'
 import './Portfolio.css'
 
@@ -88,14 +89,18 @@ function Portfolio() {
 									<div className='pfStockListItemContainer' key={portfolio.id}>
 										<NavLink to={`/stocks/${portfolio.ticker}`}>
 											<div className='pfStockListItem'>
-												<div>{portfolio.ticker}</div>
-												<div>{portfolio.share} shares</div>
+												<div>
+													<div>{portfolio.ticker}</div>
+													<div>{portfolio.share} shares</div>
+												</div>
 												<div>chart</div>
-												<div>{
-													((stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice !== 0) ?
-														stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice : 
-														stocks.find(stock => stock.symbol === portfolio.ticker)?.lastSalePrice)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-												}</div>
+												<div>
+													<div>{
+														((stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice !== 0) ?
+															stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice : 
+															stocks.find(stock => stock.symbol === portfolio.ticker)?.lastSalePrice)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+													}</div>
+												</div>
 											</div>
 										</NavLink>
 									</div>

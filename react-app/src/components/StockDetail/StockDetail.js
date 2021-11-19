@@ -6,7 +6,8 @@ import { getAllStock } from '../../store/stock';
 import { getOneStock } from '../../store/stockDetail';
 import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists } from '../../store/watchlist';
-import BuyForm from './buyForm';
+import BuyForm from './BuyForm';
+import SellForm from './SellForm';
 import Graph from '../Graph'
 import './StockDetail.css'
 
@@ -21,7 +22,7 @@ function StockDetail() {
 		dispatch(getWatchlists());
 		dispatch(getAllStock());
 		dispatch(getOneStock(ticker.toLowerCase()));
-	}, [dispatch]);
+	}, [dispatch, ticker]);
 
 	return(
 		<div className='sdWrapper'>
@@ -35,7 +36,7 @@ function StockDetail() {
 					<div className='sdGraphSection'>
 						<div className='sdGraphBalance'>
 							<div>{stock?.companyName}</div>
-							<div>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2)}</div>
+							<div>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 							<div>{stock.change} ({stock.changePercent * 100}%) Today</div>
 						</div>
 						<div className='sdStockGraph'>
@@ -56,19 +57,11 @@ function StockDetail() {
 
 					<div className='sdOrder'>
             <div>
-				<BuyForm />
+							<BuyForm />
             </div>
-            
-						{/* <div>
-							<button>buy</button>
-							<button>sell</button>
+						<div>
+							<SellForm />
 						</div>
-						<div>Invest In</div>
-						<div>Shares</div>
-						<div>Marekt Price</div>
-						<div>Estimated Cost</div>
-						<button>Review Order</button> */}
-						<div>${user.buying_power?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
 					</div>
 
 					<div className='sdAddToWatch'>

@@ -1,0 +1,27 @@
+.sfWrapper {
+
+}
+
+.sfForm {
+	padding: 20px;
+}
+
+.sfInvestIn {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sfShares {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sfMarketPrice {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sfEstimatedCredit {
+	display: flex;
+	justify-content: space-between;
+}
