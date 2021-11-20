@@ -6,7 +6,7 @@ class Watchlist(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    name = db.Column(db.String(50), nullable=False)
+    # name = db.Column(db.String(50), nullable=False)
     ticker = db.Column(db.String(5), nullable=False)
 
     user = db.relationship("User", back_populates="watchlists")
@@ -15,6 +15,6 @@ class Watchlist(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'name': self.name,
+            # 'name': self.name,
             'ticker': self.ticker,
         }

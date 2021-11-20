@@ -22,8 +22,6 @@ def user(id):
 @user_routes.route('/<int:user_id>/buyingpower', methods=['PATCH'])
 def editBuyingPower(user_id):
     editUser = User.query.get(user_id)
-    # print(request.json)
-    # editUser.buying_power = request.json['buying_power']
     editUser.buying_power = request.json
     db.session.commit()
     return editUser.to_dict()

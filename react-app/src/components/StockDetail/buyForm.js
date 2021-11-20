@@ -64,7 +64,7 @@ const BuyForm = () => {
 				</div>
 				<div className='bfEstimatedCost'>
 					<div>Estimated Cost</div>
-					<div>${(purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div>${!shares ? 0:(purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				{disableBuy && <div>Not Enough Buying Power</div>}
 				<button disabled={disableBuy} type='submit'>Buy</button>

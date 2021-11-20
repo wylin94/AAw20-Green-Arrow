@@ -11,43 +11,42 @@ import './Portfolio.css'
 
 function Portfolio() {
 	const dispatch = useDispatch();
+
+	// USER VARIABLE //
 	const user = useSelector(state => state.session.user);
 
+	// STOCK VARIABLE //
 	const stocks = useSelector(state => Object.values(state.stock));
 	const findStockPrice = ticker => {
-		const stock = stocks?.find(stock => stock.symbol === ticker)
+		const stock = stocks?.find(stock => stock.symbol === ticker);
 		return (stock?.askPrice !== 0) ? stock?.askPrice:stock?.lastSalePrice;
 	}
 
+	// PORTFORLIOS VARIABLE //
 	const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
-	// const portfoliosRunningBalance = portfolios?.reduce((a, b) => a + (b.purchase_price * b.share), 0)
-	const portfoliosRunningBalance = portfolios?.reduce((a, b) => a + (findStockPrice(b.ticker) * b.share), 0)
-	
-
+	const portfoliosRunningBalance = portfolios?.reduce((a, b) => a + (findStockPrice(b.ticker) * b.share), 0);
 	const combinedPortfolios = () => {
-		let result = []
+		let result = [];
 		for (let i = 0; i < portfolios?.length; i++) {
 			if (result.length === 0) {
-				result.push({...portfolios[i]})
+				result.push({...portfolios[i]});
 				continue;
 			}
 			if (result.find(ele => ele.ticker === portfolios[i].ticker)) {
 				result.forEach(ele => {
 					if (ele.ticker === portfolios[i].ticker) {
-						ele.share = ele.share + portfolios[i].share
+						ele.share = ele.share + portfolios[i].share;
 					}
 				})
 			} else {
-				result.push({...portfolios[i]})
+				result.push({...portfolios[i]});
 			}
 		}
 		return result;
 	}
-	
 
-
-
-	const watchlists = useSelector(state => state.watchlist.watchlists);
+	// WATCHLIST VARIABLE //
+	const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
 	
 
 	useEffect(() => {
@@ -59,9 +58,6 @@ function Portfolio() {
 	return(
 		<div className='pfWrapper'>
 			<div className='pfContainer'>
-
-
-
 				<div className='pfStockFeed'>
 					<div className='pfgraphSection'>
 						<div className='pfgraphBalance'>
@@ -75,11 +71,7 @@ function Portfolio() {
 					<div className='pfNewsSection'>
 					</div>
 				</div>
-
-
-
 				<div className='pfPortfolioList'>
-
 					<div className='pfStockList'>
 						<div className='pfStockListHeader'>Stocks</div>
 						<div className='pfStockListBody'>
@@ -104,25 +96,31 @@ function Portfolio() {
 										</NavLink>
 									</div>
 								)
-							})}														
+							})}
 						</div>
 					</div>
-
 					<div className='pfWatchlist'>
-						<div className='pfWatchlistHeader'>Lists</div>
+						<div className='pfWatchlistHeader'>Watchlist</div>
 							<div className='pfWatchlistBody'>
 								{watchlists?.map(watchlist => {
 									return (
-										<div key={watchlist.id}>{watchlist.name}</div>
+										<div className='pfWatchlistItemContainer' key={watchlist.id}>
+											<NavLink to={`/stocks/${watchlist.ticker}`}>
+												<div className='pfWatchlistItem'>
+													<div >{watchlist.ticker}</div>
+													<div>{
+														((stocks.find(stock => stock.symbol === watchlist.ticker)?.askPrice !== 0) ?
+															stocks.find(stock => stock.symbol === watchlist.ticker)?.askPrice : 
+															stocks.find(stock => stock.symbol === watchlist.ticker)?.lastSalePrice)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+													}</div>
+												</div>
+											</NavLink>
+										</div>
 									)
-								})}														
+								})}
 							</div>
 					</div>
-
 				</div>
-
-
-
 			</div>
 		</div>
 	)

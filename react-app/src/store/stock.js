@@ -16,8 +16,6 @@ export const getAllStock = () => async (dispatch) => {
 	// const response = await fetch('https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_b594792b9ef34e0e96c77e7d19984f80');
 	if (response.ok) {
 		const stocks = await response.json();
-		// console.log('*******ALL STOCK')
-		// console.log(stocks)
 		dispatch(loadStock(stocks));
 	}
 };
