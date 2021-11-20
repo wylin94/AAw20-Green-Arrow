@@ -1,39 +1,37 @@
-//////////// TYPE ////////////
+// TYPE //
 const LOAD = 'portfolio/LOAD'
 const CREATE = 'portfolio/CREATE'
 const DELETE = 'portfolio/DELETE'
 const EDIT = 'portfolio/EDIT'
 
-/////////// ACTION /////////////
-
-const loadPortfolios = portfolios => ({
+// ACTION //
+const load = portfolios => ({
 	type: LOAD,
 	portfolios
-})
+});
 
 const create = portfolio => ({
 	type: CREATE,
 	portfolio
-})
+});
 
-const deletePortfolio = portfolio => ({
+const remove = portfolio => ({
 	type: DELETE,
 	portfolio
-})
+});
 
-const editBooking = portfolio => ({
+const edit = portfolio => ({
 	type: EDIT,
 	portfolio
-})
+});
 
-/////////// THUNK /////////////
-
+// THUNK //
 export const getPortfolios = () => async (dispatch) => {
 	const response = await fetch(`/api/portfolios`);
 	if (response.ok) {
 		const portfolios = await response.json();
 		portfolios.portfolios.sort((first, second) => first.id - second.id )
-		dispatch(loadPortfolios(portfolios));
+		dispatch(load(portfolios));
 	}
 };
 
@@ -51,15 +49,12 @@ export const createPortfolio = (stock) => async (dispatch) => {
 };
 
 export const removePortfolio = (id) => async (dispatch) => {
-	console.log(333)
 	const response = await fetch(`/api/portfolios/${id}`, {
 		method: "DELETE",
 	});
-	console.log(444)
 	if (response.ok) {
-		console.log(555)
 		const toDelete = await response.json();
-		dispatch(deletePortfolio(toDelete))
+		dispatch(remove(toDelete))
 	}
 };
 
@@ -70,15 +65,13 @@ export const editPortfolio = ({portfolio_id, share}) => async (dispatch) => {
 		body: JSON.stringify(share)
 	});
 	if (response.ok) {
-		const booking = await response.json();
-		dispatch(editBooking(booking));
-			console.log('booking', booking)
-		return booking;
+		const toEdit = await response.json();
+		dispatch(edit(toEdit));
+		return toEdit;
 	}
 };
 
-////////// REDUCER //////////////
-
+// REDUCER //
 const portfolioReducer = (state = {}, action) => {
 	switch (action.type) {
 		case LOAD:
@@ -92,7 +85,6 @@ const portfolioReducer = (state = {}, action) => {
 					newState.portfolios.splice(index, 1)
 				} 
 			})
-			// delete newState.portfolios[action.portfolio.id]
 			return newState
 		case EDIT:
 			let editState = {...state}
@@ -106,6 +98,6 @@ const portfolioReducer = (state = {}, action) => {
 		default:
 			return state;
 	}
-}
+};
 
 export default portfolioReducer;

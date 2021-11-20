@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllStock } from '../../store/stock';
 import { getOneStock } from '../../store/stockDetail';
 import { getPortfolios } from '../../store/portfolio';
-import { getWatchlists } from '../../store/watchlist';
+import { getWatchlists, createWatchlist, removeWatchlist } from '../../store/watchlist';
 import BuyForm from './BuyForm';
 import SellForm from './SellForm';
 import Graph from '../Graph'
@@ -15,7 +15,9 @@ function StockDetail() {
 	const dispatch = useDispatch();
 	const { ticker } = useParams();
 	const user = useSelector(state => state.session.user);
+	const user_id = user.id;
 	const stock = useSelector(state => state.stockDetail);
+	const watchlist = useSelector(state => state.watchlist.watchlists?.find(ele => ele.ticker === ticker))
 
 	useEffect(() => {
 		dispatch(getPortfolios());
@@ -24,15 +26,28 @@ function StockDetail() {
 		dispatch(getOneStock(ticker.toLowerCase()));
 	}, [dispatch, ticker]);
 
+	const handleAddToWatchlist = async (e) => {
+		e.preventDefault();
+		if (!watchlist) {
+			const watchlist = await dispatch(createWatchlist({user_id, ticker}));
+			if (watchlist) {
+				console.log('do something')
+			}
+		}
+	}
+
+	const handleRemoveFromWatchlist = async (e) => {
+		e.preventDefault();
+		const watchlistToDelete = await dispatch(removeWatchlist(watchlist.id));
+		if (watchlistToDelete) {
+			console.log('do something')
+		}
+	}
+
 	return(
 		<div className='sdWrapper'>
 			<div className='sdContainer'>
-
-
-
-
 				<div className='sdStockFeed'>
-
 					<div className='sdGraphSection'>
 						<div className='sdGraphBalance'>
 							<div>{stock?.companyName}</div>
@@ -46,39 +61,24 @@ function StockDetail() {
 							<Graph />
 						</div>
 					</div>
-					
 					<div className='sdNewsSection'>
 					</div>
-
 				</div>
-
-
-
-
-
 				<div className='sdSidePanel'>
-
 					<div className='sdOrder'>
-            <div>
-							<BuyForm />
-            </div>
-						<div>
-							<SellForm />
-						</div>
+						<BuyForm />
+						<SellForm />
 					</div>
-
 					<div className='sdAddToWatch'>
-						<button>Add to Lists</button>
+						{/* <button onSubmit={handleAddToWatchlist}>Add to Lists</button> */}
+						<form onSubmit={handleAddToWatchlist}>
+							<button>Add to List</button>
+						</form>
+						<form onSubmit={handleRemoveFromWatchlist}>
+							<button>Remove from List</button>
+						</form>
 					</div>
-
 				</div>
-
-
-
-
-
-
-
 			</div>
 		</div>
 

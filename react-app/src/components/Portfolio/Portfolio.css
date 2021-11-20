@@ -48,3 +48,10 @@
 .pfWatchlistHeader {
 	font-weight: bold;
 }
+
+.pfWatchlistItem {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid black;
+	background-color: aqua;
+}

@@ -3,26 +3,26 @@ from app.models import db, Watchlist
 
 def seed_watchlists():
     watchlist1 = Watchlist(
-        user_id=1, name='tech', ticker='AAPL')
+        user_id=1, ticker='AAPL')
     watchlist2 = Watchlist(
-        user_id=1, name='tech', ticker='FB')
+        user_id=1, ticker='FB')
     watchlist3 = Watchlist(
-        user_id=1, name='tech', ticker='AMZN')
+        user_id=1, ticker='AMZN')
     watchlist4 = Watchlist(
-        user_id=1, name='tech', ticker='NFLX')
+        user_id=1, ticker='NFLX')
     watchlist5 = Watchlist(
-        user_id=1, name='tech', ticker='UBER')
+        user_id=1, ticker='UBER')
 
     watchlist6 = Watchlist(
-        user_id=2, name='tech', ticker='BABA')
+        user_id=2, ticker='BABA')
     watchlist7 = Watchlist(
-        user_id=2, name='tech', ticker='FEYE')
+        user_id=2, ticker='FEYE')
     watchlist8 = Watchlist(
-        user_id=2, name='tech', ticker='SQ')
+        user_id=2, ticker='SQ')
     watchlist9 = Watchlist(
-        user_id=2, name='tech', ticker='MRVL')
+        user_id=2, ticker='MRVL')
     watchlist10 = Watchlist(
-        user_id=2, name='tech', ticker='AAPL')
+        user_id=2, ticker='AAPL')
 
     db.session.add(watchlist1)
     db.session.add(watchlist2)

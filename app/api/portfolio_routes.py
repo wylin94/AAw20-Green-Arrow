@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import Portfolio, db
-from app.forms.Portfolio_Form import NewPortfolioForm
+from app.forms.portfolio_form import PortfolioForm
 
 
 portfolio_routes = Blueprint('portfolios', __name__)
@@ -26,7 +26,7 @@ def getPortfolios():
 
 @portfolio_routes.route('/', methods=['POST'])
 def createPortfolio():
-	form = NewPortfolioForm()
+	form = PortfolioForm()
 	form["csrf_token"].data = request.cookies["csrf_token"]
 	if form.validate_on_submit():
 		data = Portfolio()
@@ -34,8 +34,6 @@ def createPortfolio():
 		db.session.add(data)
 		db.session.commit()
 		return data.to_dict()
-	# else:
-		# return form.errors
 	return {"errors": validation_errors_to_error_messages(form.errors)}
 
 

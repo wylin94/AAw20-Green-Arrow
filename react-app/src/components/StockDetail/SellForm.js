@@ -22,7 +22,7 @@ const SellForm = () => {
 	const new_buying_power = current_buying_power + (sell_price * shares);
 	const [disableSell, setDisableSell] = useState(false)
 
-  let sharesToSell = shares;
+	let sharesToSell = shares;
 	const handleSellSubmit = async (e) => {
 		e.preventDefault();
 		for (let i = 0; i < portfolios.length; i++) {
@@ -31,6 +31,9 @@ const SellForm = () => {
 				if (portfolios[i].ticker === ticker && portfolios[i].share <= sharesToSell) {
 					await dispatch(removePortfolio(portfolios[i].id))
 					sharesToSell = sharesToSell - portfolios[i].share
+					if (sharesToSell === 0) {
+						await dispatch(buyingPower({user_id, new_buying_power}));
+					}
 					// i = 0
 				} else if (portfolios[i].ticker === ticker && portfolios[i].share > sharesToSell) {
 					const share = portfolios[i].share - sharesToSell
@@ -38,7 +41,7 @@ const SellForm = () => {
 					if (last) {
 						await dispatch(buyingPower({user_id, new_buying_power}));
 					}
-					// setShares('');
+					setShares('');
 					break
 				}
 			}
@@ -79,7 +82,7 @@ const SellForm = () => {
 				</div>
 				<div className='sfEstimatedCredit'>
 					<div>Estimated Credit</div>
-					<div>${(sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div>${!shares ? 0:(sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				{disableSell && <div>Not Enough Shares</div>}
 				<button disabled={disableSell} type='submit'>Sell</button>
