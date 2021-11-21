@@ -1,0 +1,389 @@
+.splashWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* FIRST SECTION */
+
+.splashFirstSection {
+    display: flex;
+    background-color: rgb(195, 245, 60);
+    height: 655px;
+    justify-content: center;
+}
+
+.splashFirstSectionContainer {
+    display: flex;
+    width: 80%;
+    /* gap: 100px; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.splashFirstLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 600px;
+    min-width: 420px;
+    justify-content: center;
+    /* background-color: green; */
+}
+
+.splashFirstSloganContainer {
+    width: 270px;
+}
+
+.splashFirstSlogan {
+    font-size: 50px;
+    font-weight: bold;
+    font-style: normal;
+    font-weight: 450;
+}
+
+.splashFirstDec {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    line-height: 36px;
+}
+
+.splashFirstSignUp {
+    background-color: black;
+    color: white;
+    width: 140px;
+    padding: 16px 39px 16px 39px;
+	border-radius: 100px;
+    font-size: 17px;
+	text-decoration: none;
+	font-weight: bold;
+    /* overflow: hidden; */
+    white-space: nowrap;
+}
+
+.splashFirstSignUp:hover {
+    background-color: rgb(45, 45, 45);
+}
+
+.splashFirstDiscloseContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.splashFirstDiscloseIcon {
+    display: flex;
+    font-size: 32px;
+}
+
+.splashFirstDiscloseText {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.splashFirstRight {
+    /* background-color: yellow; */
+}
+
+.splashFirstImage {
+    margin: 25px;
+    width: 450px;
+}
+
+/* SECOND SECTION */
+
+.splashSecondSection {
+    display: flex;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 94px;
+    justify-content: center;
+    align-items: center;
+}
+
+.splashSecondSectionText {
+    font-size: 19px;
+}
+
+/* THIRD SECTION */
+
+.splashThirdSection {
+    display: flex;
+    background-color: white;
+    height: 800px;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+.splashThirdSectionContainer {
+    display: flex;
+    width: 80%;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.splashThirdLeft {
+    display: flex;
+    flex-direction: column;
+    /* gap: 35px; */
+    /* max-width: 600px; */
+    /* min-width: 420px; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
+}
+
+.splashThirdImage {
+    width: 350px;
+}
+
+.splashThirdRight {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 600px;
+    min-width: 420px;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+
+.splashThirdHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.splashThirdHeader {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.splashThirdHeaderText {
+    font-size: 18px;
+    /* letter-spacing: 0.5px; */
+    line-height: 25px;
+}
+
+.splashThirdBodyOne, .splashThirdBodyTwo, .splashThirdBodyThree {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.splashThirdBodyOneHeader, .splashThirdBodyTwoHeader, .splashThirdBodyThreeHeader {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.splashThirdBodyOneText, .splashThirdBodyTwoText, .splashThirdBodyThreeText {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.splashThirdDiscloseContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.splashThirdDiscloseIcon {
+    display: flex;
+    font-size: 32px;
+    color: #6A7278;
+}
+
+.splashThirdDiscloseText {
+    font-size: 19px;
+    font-weight: 600;
+    color: #6A7278;
+}
+
+/* FOURTH SECTION */
+
+.splashFourthSection {
+    display: flex;
+    background-color: #F0EBE6;
+    height: 555px;
+    justify-content: center;
+}
+
+.splashFourthSectionContainer {
+    display: flex;
+    width: 80%;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.splashFourthLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    min-width: 600px;
+    /* justify-content: center; */
+    /* background-color: yellow; */
+}
+
+.splashFourthHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.splashFourthHeader {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.splashFourthHeaderNameContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.splashFourthHeaderName {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.splashFourthGithub, .splashFourthLinkedIn {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.splashFourthGithub:hover {
+    color: rgb(0, 200, 5);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.splashFourthLinkedIn:hover {
+    color: rgb(0, 99, 220);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.splashFourthBodyContainer {
+    display: flex;
+    gap: 50px;
+    /* background-color: red; */
+}
+
+.splashFourthBodyOne, .splashFourthBodyTwo, .splashFourthBodyThree {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.splashFourthBodyOneHeader, .splashFourthBodyTwoHeader, .splashFourthBodyThreeHeader {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.splashFourthBodyOneText, .splashFourthBodyTwoText, .splashFourthBodyThreeText {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.splashFourthDiscloseContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.splashFourthDiscloseIcon {
+    display: flex;
+    font-size: 32px;
+    color: #6A7278;
+}
+
+.splashFourthDiscloseText {
+    font-size: 19px;
+    font-weight: 600;
+    color: #6A7278;
+}
+
+
+.splashFourthRight {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: green; */
+}
+
+.splashFourthImage {
+    width: 300px;
+    border-radius: 300px;
+}
+
+/* FIFTH SECTION */
+
+.splashFifthSection {
+    display: flex;
+    background-color: black;
+    height: 680px;
+    justify-content: center;
+}
+
+.splashFifthSectionContainer {
+    display: flex;
+    width: 80%;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.splashFifthLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* max-width: 900px; */
+    /* min-width: 500px; */
+}
+
+.splashFifthImage {
+    width: 500px;
+}
+
+.splashFifthRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.splashFifthHeader {
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.splashFifthIconContainer {
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    /* min-width: 700px;  */
+    /* background-color: blue;; */
+}
+
+.splashFifthIconGroup1, .splashFifthIconGroup2 {
+    display: flex;
+    font-size: 70px;
+    color: white;
+    gap: 50px;
+    margin: 20px;
+}
