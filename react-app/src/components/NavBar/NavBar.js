@@ -8,6 +8,11 @@ import './NavBar.css'
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
 
+  const handleMeetClick = (e) => {
+    const albumNav = document.querySelector("#meetDeveloper");
+    albumNav.scrollIntoView({behavior: "smooth"});
+  }
+
   return (
     <>
       {sessionUser ? (
@@ -33,13 +38,17 @@ const NavBar = () => {
         <nav className='splashNavWrapper'>
           <div className='splashNavContainer'>
             <div className='splashNavLeft'>
-              <NavLink to='/' exact={true} activeClassName='active'>Green Arrow</NavLink>
-              <div>Products</div>
-              <div>Who we are</div>
+              <NavLink className='splashNavLogoContainer' to='/' exact={true} activeClassName='active'>
+                <img className='splashNavLogoImage' src='/images/logo.png' alt='GreenArrow Logo'></img>
+                <div className='splashNavLogoText'>GreenArrow</div>
+              </NavLink>
+              <a className='splashNavGitHub' href='https://github.com/wylin94'>GitHub</a>
+              <a className='splashNavLinkedIn' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
+              <button className='splashNavMeet' onClick={handleMeetClick}>Meet the developer</button>
             </div>
-            <div className='navRight'>
-              <NavLink to='/login' exact={true} activeClassName='active'>Login</NavLink>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
+            <div className='splashNavRight'>
+              <NavLink className='splashNavLogIn' to='/login' exact={true} activeClassName='active'>Log In</NavLink>
+              <NavLink className='splashNavSignUp' to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
             </div>
           </div>
         </nav>

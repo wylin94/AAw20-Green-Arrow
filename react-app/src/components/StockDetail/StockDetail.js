@@ -14,10 +14,9 @@ import './StockDetail.css'
 function StockDetail() {
 	const dispatch = useDispatch();
 	const { ticker } = useParams();
-	const user = useSelector(state => state.session.user);
-	const user_id = user.id;
+	const user_id = useSelector(state => state.session.user).id;
 	const stock = useSelector(state => state.stockDetail);
-	const watchlist = useSelector(state => state.watchlist.watchlists?.find(ele => ele.ticker === ticker))
+	const watchlist = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user_id))?.find(ele => ele.ticker === ticker);
 
 	useEffect(() => {
 		dispatch(getPortfolios());
@@ -38,9 +37,11 @@ function StockDetail() {
 
 	const handleRemoveFromWatchlist = async (e) => {
 		e.preventDefault();
-		const watchlistToDelete = await dispatch(removeWatchlist(watchlist.id));
-		if (watchlistToDelete) {
-			console.log('do something')
+		if (watchlist) {
+			const watchlistToDelete = await dispatch(removeWatchlist(watchlist.id));
+			if (watchlistToDelete) {
+				console.log('do something')
+			}
 		}
 	}
 
@@ -54,7 +55,7 @@ function StockDetail() {
 							<div>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 							<div>{stock.change?.toString()[0] === '-' && '-'}
 								${(stock.change?.toString()[0] === '-') ? stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
-								{' '}({(stock.changePercent * 100).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}%) Today
+								{' '}({(stock.changePercent * 100).toFixed(2)}%) Today
 							</div>
 						</div>
 						<div className='sdStockGraph'>

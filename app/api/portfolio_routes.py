@@ -1,8 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import Portfolio, db
-from app.forms.portfolio_form import PortfolioForm
-
+from app.forms import PortfolioForm
 
 portfolio_routes = Blueprint('portfolios', __name__)
 
