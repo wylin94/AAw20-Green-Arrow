@@ -1,22 +1,37 @@
 .sdWrapper {
 	display: flex;
 	justify-content: center;
+	height: auto;
 }
 
 .sdContainer {
 	display: flex;
 	min-width: 1050px;
-  max-width: 1050px;
-	border: 1px solid black;
+	max-width: 1050px;
+	margin-top: 38px;
 }
 
 /************ STOCK FEED *************/
 
 .sdStockFeed {
-	border: 1px solid black;
-	flex: 0.7;
+	/* border: 1px solid black; */
+	width: 68%;
 	/* background-color: blue; */
 }
+
+.sdGraphSection {
+	padding: 0 20px;
+}
+
+.sdGraphBalanceContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	background-color: yellow;
+}
+
+
+
 
 /*********** PORTFOLIO LIST ***********/
 
@@ -26,7 +41,7 @@
 }
 
 .sdOrder {
-  width: 100%;
+	width: 100%;
 	border: 1px solid black;
 }
 

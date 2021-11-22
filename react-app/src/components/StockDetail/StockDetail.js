@@ -8,8 +8,8 @@ import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists, createWatchlist, removeWatchlist } from '../../store/watchlist';
 import BuyForm from './BuyForm';
 import SellForm from './SellForm';
-import Graph from '../Graph'
-import './StockDetail.css'
+import Graph from '../Graph';
+import './StockDetail.css';
 
 function StockDetail() {
 	const dispatch = useDispatch();
@@ -48,28 +48,44 @@ function StockDetail() {
 	return(
 		<div className='sdWrapper'>
 			<div className='sdContainer'>
+
 				<div className='sdStockFeed'>
 					<div className='sdGraphSection'>
-						<div className='sdGraphBalance'>
-							<div>{stock?.companyName}</div>
-							<div>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-							<div>{stock.change?.toString()[0] === '-' && '-'}
+						<div className='sdGraphBalanceContainer'>
+
+							<div className='sdGraphCompanyName'>{stock?.companyName}</div>
+							<div className='sdGraphStockPrice'>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+							<div className='sdGraphStockChange'>{stock.change?.toString()[0] === '-' && '-'}
 								${(stock.change?.toString()[0] === '-') ? stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
 								{' '}({(stock.changePercent) ? (stock.changePercent * 100).toFixed(2) : 0}%) Today
 							</div>
+
 						</div>
 						<div className='sdStockGraph'>
 							<Graph />
 						</div>
+
+						<div className='pfGraphShareOwnedStatContainer'>
+							<div className='pfGraphMarketValueContainer'>Your market value</div>
+							<div className='pfGraphAverageContainer'>Your average cost</div>
+						</div>
+
 					</div>
 					<div className='sdNewsSection'>
 					</div>
 				</div>
+
 				<div className='sdSidePanel'>
+					<div className='sdSidePanelBuySellButtonContainer'>
+						<div>Buy</div>
+						<div>Sell</div>
+					</div>
+
 					<div className='sdOrder'>
 						<BuyForm />
 						<SellForm />
 					</div>
+
 					<div className='sdAddToWatch'>
 						{/* <button onSubmit={handleAddToWatchlist}>Add to Lists</button> */}
 						<form onSubmit={handleAddToWatchlist}>
@@ -79,6 +95,7 @@ function StockDetail() {
 							<button>Remove from List</button>
 						</form>
 					</div>
+					
 				</div>
 			</div>
 		</div>

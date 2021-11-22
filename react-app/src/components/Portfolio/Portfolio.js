@@ -60,41 +60,39 @@ function Portfolio() {
 			<div className='pfContainer'>
 
 				<div className='pfStockFeed'>
-
 					<div className='pfGraphSection'>
 						<div className='pfGraphBalanceContainer'>
+
 							<div className='pfGraphBalanceTotal'>${(portfoliosRunningBalance) ? (user.buying_power + portfoliosRunningBalance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}</div>
 							<div className='pfGraphBalanceChangeContainer'>
 								<div className='pfGraphBalanceChangeAmount'>change here</div>
 								<div className='pfGraphBalanceChangeToday'>Today</div>
 							</div>
+
 						</div>
 						<div className='pfGraphStockGraph'>
 							<Graph />
 						</div>
+
 						<div className='pfGraphBuyingPowerContainer'>
 							<div className='pfGraphBuyingPowerText'>Buying Power</div>
 							<div className='pfGraphBuyingPowerAmount'>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 						</div>
 					</div>
-
+					
 					<div className='pfNewsSection'>
 					</div>
-
 				</div>
 
 				<div className='pfPortfolioList'>
-
 					<div className='pfStockListHeaderContainer'>
 						<div className='pfStockListHeader'>Stocks</div>
 					</div>
-
 					<div className='pfStockListBody'>
 						{combinedPortfolios()?.map(portfolio => {
 							return (
 								<NavLink className='pfStockListItemNav' key={portfolio.id} to={`/stocks/${portfolio.ticker}`}>
 									<div className='pfStockListItem'>
-
 										<div className='pfStockListItemLeft'>
 											<div className='pfStockListItemTickerContainer'>
 												<div className='pfStockListItemTicker'>{portfolio.ticker}</div>
@@ -102,7 +100,6 @@ function Portfolio() {
 											</div>
 											<div className='pfStockListItemChart'>chart here</div>
 										</div>
-
 										<div className='pfStockListItemPriceContainer'>
 											<div className='pfStockListItemPrice'>{
 												((stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice !== 0) ?
@@ -110,17 +107,14 @@ function Portfolio() {
 													stocks.find(stock => stock.symbol === portfolio.ticker)?.lastSalePrice)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 											}</div>
 										</div>
-
 									</div>
 								</NavLink>
 							)
 						})}
 					</div>
-
 					<div className='pfWatchListHeaderContainer'>
 						<div className='pfWatchlistHeader'>Watchlist</div>
 					</div>
-
 					<div className='pfWatchlistBody'>
 						{watchlists?.map(watchlist => {
 							return (
@@ -144,12 +138,9 @@ function Portfolio() {
 							)
 						})}
 					</div>
-
 				</div>
-
 			</div>
 		</div>
-
 	)
 }
 
