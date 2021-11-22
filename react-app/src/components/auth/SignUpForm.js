@@ -11,13 +11,14 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const buying_power = 1000000;
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, buying_power));
       if (data) {
         setErrors(data)
       }
@@ -26,7 +27,7 @@ const SignUpForm = () => {
 
   const handleDemoSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('demo@aa.io', 'password'));
+    const data = await dispatch(login('warrenbuffett@aa.io', 'password'));
     if (data) {
       setErrors(data)
     }

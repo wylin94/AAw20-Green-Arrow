@@ -22,7 +22,7 @@ const LoginForm = () => {
 
   const handleDemoSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('demo@aa.io', 'password'));
+    const data = await dispatch(login('warrenbuffett@aa.io', 'password'));
     if (data) {
       setErrors(data)
     }

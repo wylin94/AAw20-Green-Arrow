@@ -68,7 +68,7 @@ const BuyForm = () => {
 				</div>
 				{disableBuy && <div>Not Enough Buying Power</div>}
 				<button disabled={disableBuy} type='submit'>Buy</button>
-				<div>${user.buying_power?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
+				<div>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
 			</form>
 		</div>
 	)

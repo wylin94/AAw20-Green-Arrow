@@ -111,7 +111,7 @@ function Splash() {
 			<div className='splashFifthSection'>
 				<div className='splashFifthSectionContainer'>
 					<div className='splashFifthLeft'>
-						<img className='splashFifthImage' src='/images/splashFifthSection.png' alt='POW!'></img>
+						<img className='splashFifthImage' src='/images/SplashFifthSection.png' alt='POW!'></img>
 					</div>
 					<div className='splashFifthRight'>
 						<div className='splashFifthHeader'>GreenArrow is built with these technologies</div>
