@@ -1,0 +1,176 @@
+.signUpFormWrapper {
+    display: flex;
+
+}
+
+.signUpFormLeft {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 60%;
+    /* background-color: lightblue; */
+}
+
+.signUpFormLeftContainer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    /* padding: 40px 125px; */
+    /* background-color: lightgreen; */
+    margin: 50px 0;
+}
+
+.signUpFormLogoContainer {
+	display: flex;
+	gap: 10px;
+	text-decoration: none;
+    margin-bottom: 40px;
+    /* background-color: blue; */
+}
+
+.signUpFormLogoImage {
+    width: 40px;
+}
+
+.signUpFormLogoText {
+	font-size: 25px;
+}
+
+.signUpFormHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 40px 0px;
+}
+
+.signUpFormHeader {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.signUpFormHeaderText {
+
+}
+
+.signUpFormForm {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    /* background-color: lightblue; */
+}
+
+.signUpFormFormDes {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.signUpFormInput {
+    /* max-width: 470px; */
+    min-width: 100%;
+    height: 36px;
+    /* border: 1px solid rgb(228, 228, 228); */
+    border: none;
+    border-radius: 5px;
+    background-color: #F5F8Fa;
+    text-indent: 10px;
+    outline-color: #00C805;
+}
+
+.signUpFormInput::placeholder {
+    color: rgb(187, 187, 187);
+    font-size: 12px;
+}
+
+.signUpFormInput:hover {
+    border: 1px solid rgb(200, 200, 200);
+    background-color: white;
+    text-indent: 9px;
+}
+
+.signUpFormSubmitButton {
+    border: none;
+	background-color: #00C805;
+	padding: 17px 39px 17px 39px;
+	border-radius: 5px;
+    color: white;
+    width: 148px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.signUpFormAlreadyStarted {
+    font-size: 13px;
+}
+
+.signUpFormAlreadyStartedLink {
+    font-size: 13px;
+    font-weight: bold;
+    color: #00C805;
+    text-decoration: none;
+}
+
+.signUpFormDemoButton {
+    border: none;
+	background-color: #00C805;
+	padding: 17px 39px 17px 39px;
+	border-radius: 5px;
+    color: white;
+    width: 148px;
+    font-size: 13px;
+    font-weight: bold;
+    position:relative;
+    left: 170px;
+    bottom: 109px;
+}
+
+.signUpFormSubmitButton:hover, .signUpFormDemoButton:hover {
+	background-color: rgb(0, 181, 6);
+	cursor: pointer;
+}
+
+.signUpFormDisclosure {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signUpFormDisclosureDetail{
+    font-size: 13px;
+    line-height: 19px;
+    color: #B4BdC2;
+}
+
+.signUpFormRight {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: #F5F8FA;
+    width: 40%;
+}
+
+.SignUpFormRightWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 80%;
+    margin-top: 180px;
+}
+
+.signUpformRightContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 270px;
+}
+
+.signUpFormRightHeader {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.signUpFormRightBody {
+    font-size: 15px;
+    line-height: 25px;
+}

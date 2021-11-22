@@ -1,0 +1,77 @@
+.profileButtonWrapper {
+    display: flex;
+
+}
+
+.profileButton {
+    font-size: 13px;
+	font-weight: 700;
+	text-decoration: none;
+    border: none;
+    background-color: white;
+}
+
+.profileButton:hover {
+    color: rgb(68, 205, 88);
+	cursor: pointer;
+}
+
+.profileDropdownContainer {
+    position: absolute;
+    display: block;
+    top: 45px;
+    background-color: blue;
+    /* width: 400px; */
+    /* left: 1500px; */
+    /* left: 1500px; */
+    /* right: 0px; */
+}
+
+.profileDropdown {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    list-style-type: none;
+    width: 300px;
+    right: 270px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, .1);
+    /* margin: 30px; */
+    /* padding: 20px; */
+}
+
+.profileDropdownName {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.profileDropdownValueContainer {
+    display: flex;
+    /* background-color: red; */
+    border-bottom: 1px solid rgb(210, 210, 210);
+    padding: 0px 20px 10px 20px;
+    gap: 25px;
+}
+
+.profileDropdownPortfolioValueAmount, .profileDropdownBuyingPowerAmount {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profileDropdownPortfolioValueText, .profileDropdownBuyingPowerText {
+    font-size: 13px;
+}
+
+.profileDropdownLogout {
+    display: flex;
+    padding: 10px 20px 20px 20px;
+}
+
+.profileDropdownLogoutIcon {
+    font-size: 25px;
+}

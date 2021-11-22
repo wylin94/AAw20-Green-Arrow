@@ -113,7 +113,7 @@
 .splashThirdSection {
     display: flex;
     background-color: white;
-    height: 800px;
+    height: 722px;
     justify-content: center;
     border-bottom: 1px solid black;
 }
@@ -210,7 +210,7 @@
 .splashFourthSection {
     display: flex;
     background-color: #F0EBE6;
-    height: 555px;
+    height: 530px;
     justify-content: center;
 }
 
@@ -226,7 +226,7 @@
 .splashFourthLeft {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 55px;
     max-width: 900px;
     min-width: 600px;
     /* justify-content: center; */
@@ -236,22 +236,17 @@
 .splashFourthHeaderContainer {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.splashFourthHeader {
-    font-size: 30px;
-    font-weight: 500;
+    gap: 20px;
 }
 
 .splashFourthHeaderNameContainer {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .splashFourthHeaderName {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 500;
 }
 
@@ -259,6 +254,10 @@
     display: flex;
     align-items: center;
     font-size: 30px;
+}
+
+.splashFourthLinkedIn {
+    font-size: 26px;
 }
 
 .splashFourthGithub:hover {
@@ -273,6 +272,12 @@
     cursor: pointer;
 }
 
+.splashFourthHeader {
+    font-size: 18px;
+    color: grey;
+    /* font-weight: 500; */
+}
+
 .splashFourthBodyContainer {
     display: flex;
     gap: 50px;
@@ -282,6 +287,8 @@
 .splashFourthBodyOne, .splashFourthBodyTwo, .splashFourthBodyThree {
     display: flex;
     flex-direction: column;
+    max-width: 250px;
+    /* background-color: blue; */
     /* align-items: center; */
 }
 
@@ -341,7 +348,7 @@
 .splashFifthSectionContainer {
     display: flex;
     width: 80%;
-    gap: 0px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     /* background-color: blue; */
@@ -377,7 +384,7 @@
     flex-direction: column;
     /* gap: 20px; */
     /* min-width: 700px;  */
-    /* background-color: blue;; */
+    /* background-color: blue; */
 }
 
 .splashFifthIconGroup1, .splashFifthIconGroup2 {
@@ -385,5 +392,5 @@
     font-size: 70px;
     color: white;
     gap: 50px;
-    margin: 20px;
+    margin: 20px 0px 20px 0px;
 }
