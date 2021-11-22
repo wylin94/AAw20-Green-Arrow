@@ -1,0 +1,112 @@
+.loginFormWrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.loginFormLeft {
+    width: 50%;
+    background-position: center center;
+    background-size: cover;
+}
+
+.loginFormRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    /* background-color: yellow; */
+    padding: 0 50px;
+    width: 50%;
+}
+
+.loginFormWelcome {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.loginFormForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* background-color: rgb(219, 232, 237); */
+}
+
+.loginFormEmailSection, .loginFormPasswordSection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.loginFormLabel {
+    font-size: 14px;
+}
+
+.loginFormInput {
+    max-width: 470px;
+    min-width: 280px;
+    height: 36px;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 5px;
+    outline-color: #00C805;
+}
+
+.loginFormInput:hover {
+    border: 1px solid rgb(200, 200, 200);
+}
+
+/* .loginFormInput:active {
+	border: 1px solid rgb(0, 181, 6);
+} */
+
+.loginFormForgot {
+    color: #00C805;
+    font-size: 13px;
+}
+
+.loginFormError {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+}
+
+.loginFormButton {
+    border: none;
+	background-color: #00C805;
+	padding: 17px 39px 17px 39px;
+	border-radius: 5px;
+    color: white;
+    width: 140px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.loginFormDemoButton {
+    border: none;
+	background-color: #00C805;
+	padding: 17px 39px 17px 39px;
+	border-radius: 5px;
+    color: white;
+    width: 140px;
+    font-size: 13px;
+    font-weight: bold;
+    position:relative;
+    left: 170px;
+    bottom: 105px;
+}
+
+.loginFormButton:hover, .loginFormDemoButton:hover {
+	background-color: rgb(0, 181, 6);
+	cursor: pointer;
+}
+
+.loginFormCreateAccount {
+    font-size: 13px;
+}
+
+.loginFormCreateAccountLink {
+    font-size: 13px;
+    font-weight: bold;
+    color: #00C805;
+    text-decoration: none;
+}

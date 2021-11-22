@@ -11,6 +11,7 @@ import User from './components/User/User';
 import Portfolio from './components/Portfolio';
 import Splash from './components/Splash';
 import StockDetail from './components/StockDetail';
+import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 // import { getPortfolios } from './store/portfolio';
 // import { getWatchlists } from './store/watchlist';
@@ -23,8 +24,6 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      // await dispatch(getPortfolios());
-      // await dispatch(getWatchlists());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -35,38 +34,35 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
-
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-
         <ProtectedRoute path='/stocks/:ticker' exact={true} >
+          <NavBar />
           <StockDetail />
         </ProtectedRoute>
-
         <ProtectedRoute path='/users' exact={true} >
+          <NavBar />
           <UsersList />
         </ProtectedRoute>
-
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
-
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
-          {sessionUser? (<Portfolio />) : (<Splash />)}
+          <NavBar />
+          {sessionUser ? (<Portfolio />):(<Splash />)}
         </Route>
-
         <Route>
-					<div>Page not found</div>
+          <NavBar />
+					<PageNotFound />
 				</Route>
-        
       </Switch>
+
     </BrowserRouter>
   );
 }

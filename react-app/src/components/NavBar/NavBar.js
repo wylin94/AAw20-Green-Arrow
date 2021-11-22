@@ -1,36 +1,42 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { CgSearch } from "react-icons/cg";
 
-import LogoutButton from '../auth/LogoutButton';
+import ProfileButton from './ProfileButton';
 import './NavBar.css'
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory();
 
   const handleMeetClick = (e) => {
     const albumNav = document.querySelector("#meetDeveloper");
+    history.push('/');
     albumNav.scrollIntoView({behavior: "smooth"});
   }
 
   return (
     <>
       {sessionUser ? (
-        <nav className='test'>
+        <nav className='navWrapper'>
           <div className='navContainer'>
             <div className='navLeft'>
-              <NavLink to='/' exact={true} activeClassName='active'>Green Arrow</NavLink>
-              <div>
-                <input placeholder='Search' type='text'></input>
+              <NavLink to='/' exact={true} activeClassName='active'>
+                <img className='navLogoImage' src='/images/logo.png' alt='GreenArrow Logo'></img>
+              </NavLink>
+              <div className='navSerachBarContainer'>
+                <div className='navSearchBarIcon'><CgSearch /></div>
+                <input className='navSearchBar' placeholder='Search' type='text'></input>
               </div>
             </div>
             <div className='navRight'>
-              <div>LinkedIn</div>
-              <div>Github</div>
-              <NavLink to='/' exact={true} activeClassName='active'>Portfolio</NavLink>
-              <div>Account</div>
-              <NavLink to='/users' exact={true} activeClassName='active'>Users</NavLink>
-              <LogoutButton />
+              <a className='navGitHub' href='https://github.com/wylin94'>GitHub</a>
+              <a className='navLinkedIn' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
+              <NavLink className='navPortfolio' to='/' exact={true} activeClassName='active'>Portfolio</NavLink>
+              <ProfileButton />
+              {/* <NavLink to='/users' exact={true} activeClassName='active'>Users</NavLink> */}
             </div>
           </div>
         </nav>

@@ -18,7 +18,7 @@ function Splash() {
 						<NavLink className='splashFirstSignUp' to='/sign-up' exact={true} activeClassName='active'>Sign Up</NavLink>
 						<div className='splashFirstDiscloseContainer'>
 							<div className='splashFirstDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashFirstDiscloseText'>Not a real trading site</div>
+							<div className='splashFirstDiscloseText'>Not a real trading platform</div>
 						</div>
 					</div>
 					<div className='splashFirstRight'>
@@ -37,7 +37,7 @@ function Splash() {
 					<div className='splashThirdRight'>
 						<div className='splashThirdHeaderContainer'>
 							<div className='splashThirdHeader'>Introducing the New Way to Invest</div>
-							<div className='splashThirdHeaderText'>Get in the action. Now, you can become one of the first public investors in our brand new site.</div>
+							<div className='splashThirdHeaderText'>Get in the action. Now, you can become one of the first public investors to experience our game-changing trading platform.</div>
 						</div>
 						<div className='splashThirdBodyOne'>
 							<div>
@@ -45,7 +45,7 @@ function Splash() {
 							</div>
 							<div>
 								<div className='splashThirdBodyOneHeader'>It's your turn</div>
-								<div className='splashThirdBodyOneText'>Invest with confident and with money you do not have, RISK FREE! </div>
+								<div className='splashThirdBodyOneText'>Invest with confidence and with money you do not have, RISK FREE! </div>
 							</div>
 						</div>
 						<div className='splashThirdBodyTwo'>
@@ -54,7 +54,7 @@ function Splash() {
 							</div>
 							<div>
 								<div className='splashThirdBodyTwoHeader'>Be one of the first</div>
-								<div className='splashThirdBodyTwoText'>Experience the game-changing trading platform. </div>
+								<div className='splashThirdBodyTwoText'>Join now and start trading before the world crash our site.</div>
 							</div>
 						</div>
 						<div className='splashThirdBodyThree'>
@@ -63,44 +63,44 @@ function Splash() {
 							</div>
 							<div>
 								<div className='splashThirdBodyThreeHeader'>Get a fair shot</div>
-								<div className='splashThirdBodyThreeText'>All user receive $1,000,000 sign up bonus. Everyone is a millionair. World wealth inequaltiy solved.</div>
+								<div className='splashThirdBodyThreeText'>All user receive $1,000,000 sign up bonus. Everyone is a millionaire. Wealth inequality problem solved.</div>
 							</div>
 						</div>
 						<div className='splashThirdDiscloseContainer'>
 							<div className='splashThirdDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashThirdDiscloseText'>Not a real trading site</div>
+							<div className='splashThirdDiscloseText'>Not a real trading platform</div>
 						</div>
 					</div>
-				</div>s
+				</div>
 			</div>
 			<div className='splashFourthSection' id='meetDeveloper'>
 				<div className='splashFourthSectionContainer'>
 					<div className='splashFourthLeft'>
 						<div className='splashFourthHeaderContainer'>
-							<div className='splashFourthHeader'>Meet the Developer</div>
 							<div className='splashFourthHeaderNameContainer'>
-								<div className='splashFourthHeaderName'>Jack Lin</div>
+								<div className='splashFourthHeaderName'>Introducing Jack Lin</div>
 								<a className='splashFourthGithub' href='https://github.com/wylin94'><AiOutlineGithub/></a>
 								<a className='splashFourthLinkedIn' href='https://www.linkedin.com/in/wylin94/'><BsLinkedin /></a>
 							</div>
+							<div className='splashFourthHeader'>Invest in Jack and collect your profit</div>
 						</div>
 						<div className='splashFourthBodyContainer'>
 							<div className='splashFourthBodyOne'>
-								<div className='splashFourthBodyOneHeader'>Invest in Jack</div>
-								<div className='splashFourthBodyOneText'>Choose how much you want to invest and you will recieve the highest possible return from Jack.</div>
+								<div className='splashFourthBodyOneHeader'>Invest in the Best </div>
+								<div className='splashFourthBodyOneText'>Choose how much you want to invest, and you will recieve your maximum return from Jack.</div>
 							</div>
 							<div className='splashFourthBodyTwo'>
-								<div className='splashFourthBodyTwoHeader'>Build your company</div>
+								<div className='splashFourthBodyTwoHeader'>Build Your Company</div>
 								<div className='splashFourthBodyTwoText'>Customize your team by placing Jack in the appropriate role and watch your company grow.</div>
 							</div>
 							<div className='splashFourthBodyThree'>
 								<div className='splashFourthBodyThreeHeader'>Work in Real Time</div>
-								<div className='splashFourthBodyThreeText'>Jack work from market open to market close, after-hours working is now available. </div>
+								<div className='splashFourthBodyThreeText'>Jack works from market open to market close, after-hours working is now available. You can always count on him.</div>
 							</div>
 						</div>
 						<div className='splashFourthDiscloseContainer'>
 							<div className='splashFourthDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashFourthDiscloseText'>A real and serious developer</div>
+							<div className='splashFourthDiscloseText'>A real and a serious developer</div>
 						</div>
 					</div>
 					<div className='splashFourthRight'>
