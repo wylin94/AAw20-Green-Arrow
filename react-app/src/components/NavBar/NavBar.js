@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { CgSearch } from "react-icons/cg";
 
 import ProfileButton from './ProfileButton';
@@ -9,13 +9,24 @@ import './NavBar.css'
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
-  const history = useHistory();
+  const location = useLocation();
 
-  const handleMeetClick = (e) => {
-    const albumNav = document.querySelector("#meetDeveloper");
-    history.push('/');
-    albumNav.scrollIntoView({behavior: "smooth"});
-  }
+  // const handleMeetClick = (e) => {
+  //   const albumNav = document.querySelector("#meetDeveloper");
+  //   albumNav.scrollIntoView({behavior: "smooth"})
+  // }
+
+  // USELOCATION TO SCROLL TO MEET DEVELOPER WHEN ON DIFFERENT PAGE//
+  useEffect(()=> {
+    if (location.hash) {
+        let elem = document.getElementById(location.hash.slice(1))
+        if (elem) {
+          elem.scrollIntoView({behavior: "smooth"})
+        }
+    } else {
+    window.scrollTo({top:0,left:0, behavior: "smooth"})
+    }
+  }, [location,])
 
   return (
     <>
@@ -26,10 +37,10 @@ const NavBar = () => {
               <NavLink to='/' exact={true} activeClassName='active'>
                 <img className='navLogoImage' src='/images/logo.png' alt='GreenArrow Logo'></img>
               </NavLink>
-              <div className='navSerachBarContainer'>
-                <div className='navSearchBarIcon'><CgSearch /></div>
-                <input className='navSearchBar' placeholder='Search' type='text'></input>
-              </div>
+            </div>
+            <div className='navSearchBarContainer'>
+              <input className='navSearchBar' placeholder='Search' type='text'></input>
+              <div className='navSearchBarIcon'><CgSearch /></div>
             </div>
             <div className='navRight'>
               <a className='navGitHub' href='https://github.com/wylin94'>GitHub</a>
@@ -50,7 +61,7 @@ const NavBar = () => {
               </NavLink>
               <a className='splashNavGitHub' href='https://github.com/wylin94'>GitHub</a>
               <a className='splashNavLinkedIn' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
-              <button className='splashNavMeet' onClick={handleMeetClick}>Meet the developer</button>
+              <NavLink className='splashNavMeet' to='/#meetDeveloper'>Meet the developer</NavLink>
             </div>
             <div className='splashNavRight'>
               <NavLink className='splashNavLogIn' to='/login' exact={true} activeClassName='active'>Log In</NavLink>

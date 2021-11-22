@@ -16,7 +16,7 @@
 	justify-content: space-between;
 	width: 100%;
 	align-items: center;
-	margin: 0px 60px 0px 60px;
+	margin: 0px 50px 0px 50px;
 }
 
 .navLeft{
@@ -30,30 +30,38 @@
 	width: 40px;
 }
 
-.navSerachBarContainer {
+.navSearchBarContainer {
 	display: flex;
+	min-width: 760px;
+	align-items: center;
 }
 
 .navSearchBarIcon {
 	display: flex;
 	position: relative;
 	font-size: 24px;
-	left: 220px;
+	right: 470px;
 	color: grey;
 }
 
 .navSearchBar {
-	margin-left: 140px;
+	/* margin-left: 140px; */
     border: 1px solid rgb(228, 228, 228);
 	border-radius: 5px;
 	width: 480px;
 	height: 35px;
 	text-indent: 40px;
+	outline-width: 0px;
+}
+
+.navSearchBar:hover {
+	border: none;
+	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
 }
 
 .navRight{
 	display: flex;
-	gap: 30px;
+	gap: 25px;
 }
 
 .navGitHub, .navLinkedIn, .navPortfolio {
