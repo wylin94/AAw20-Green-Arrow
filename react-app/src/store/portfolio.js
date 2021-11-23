@@ -27,7 +27,7 @@ const edit = portfolio => ({
 
 // THUNK //
 export const getPortfolios = () => async (dispatch) => {
-	const response = await fetch(`/api/portfolios`);
+	const response = await fetch(`/api/portfolios/`);
 	if (response.ok) {
 		const portfolios = await response.json();
 		portfolios.portfolios.sort((first, second) => first.id - second.id )
