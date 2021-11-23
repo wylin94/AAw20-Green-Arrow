@@ -57,6 +57,16 @@ const watchlistReducer = (state = {}, action) => {
 		case LOAD:
 			let newState = {...state, ...action.watchlists};
 			return newState;
+		case CREATE:
+			return {...state, watchlists: [...state.watchlists, action.watchlist]};
+		case DELETE:
+			const toDelete = {...state};
+			toDelete.watchlists.forEach((ele, index) => {
+				if (ele.id === action.watchlist.id) {
+					toDelete.watchlists.splice(index, 1)
+				} 
+			})
+			return toDelete
 		default:
 			return state;
 	}

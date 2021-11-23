@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
+import { AiOutlineCheck, AiOutlinePlus } from "react-icons/ai";
 
 import { getAllStock } from '../../store/stock';
 import { getOneStock } from '../../store/stockDetail';
@@ -17,6 +18,11 @@ function StockDetail() {
 	const user_id = useSelector(state => state.session.user).id;
 	const stock = useSelector(state => state.stockDetail);
 	const watchlist = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user_id))?.find(ele => ele.ticker === ticker);
+	const onWatchlist = watchlist ? true : false;
+
+	const [buyForm, setBuyForm] = useState(true);
+	const [sellForm, setSellForm] = useState(false);
+	const [check, setCheck] = useState(onWatchlist);
 
 	useEffect(() => {
 		dispatch(getPortfolios());
@@ -25,23 +31,26 @@ function StockDetail() {
 		dispatch(getOneStock(ticker.toLowerCase()));
 	}, [dispatch, ticker]);
 
-	const handleAddToWatchlist = async (e) => {
+	const handleShowBuyForm = () => {
+		setSellForm(false)
+		setBuyForm(true)
+	}
+
+	const handleShowSellForm =() => {
+		setBuyForm(false)
+		setSellForm(true)
+	}
+
+	const handleShuffleToWatchlist = async (e) => {
 		e.preventDefault();
 		if (!watchlist) {
 			const watchlist = await dispatch(createWatchlist({user_id, ticker}));
-			if (watchlist) {
-				console.log('do something')
-			}
-		}
-	}
-
-	const handleRemoveFromWatchlist = async (e) => {
-		e.preventDefault();
-		if (watchlist) {
+			setCheck(true);
+			// if (watchlist) {console.log('do something')};
+		} else {
 			const watchlistToDelete = await dispatch(removeWatchlist(watchlist.id));
-			if (watchlistToDelete) {
-				console.log('do something')
-			}
+			setCheck(false);
+			// if (watchlistToDelete) {console.log('do something')};
 		}
 	}
 
@@ -55,19 +64,40 @@ function StockDetail() {
 
 							<div className='sdGraphCompanyName'>{stock?.companyName}</div>
 							<div className='sdGraphStockPrice'>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-							<div className='sdGraphStockChange'>{stock.change?.toString()[0] === '-' && '-'}
-								${(stock.change?.toString()[0] === '-') ? stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
-								{' '}({(stock.changePercent) ? (stock.changePercent * 100).toFixed(2) : 0}%) Today
+							<div className='sdGraphBalanceChangeContainer'>
+								<div className='sdGraphBalanceChangeAmount'>{stock.change?.toString()[0] === '-' && '-'}
+									${(stock.change?.toString()[0] === '-') ? stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
+									{' '}({(stock.changePercent) ? (stock.changePercent * 100).toFixed(2) : 0}%)
+								</div>
+								<div className='sdGraphBalanceChangeToday'>Today</div>
 							</div>
 
 						</div>
-						<div className='sdStockGraph'>
+						<div className='sdGraphStockGraph'>
 							<Graph />
 						</div>
 
 						<div className='pfGraphShareOwnedStatContainer'>
-							<div className='pfGraphMarketValueContainer'>Your market value</div>
-							<div className='pfGraphAverageContainer'>Your average cost</div>
+							<div className='pfGraphMarketValueContainer'>
+								<div>Your market value</div>
+								<div>amount</div>
+								<div>
+									<div>Today's return</div>
+									<div>amount</div>
+								</div>
+								<div>
+									<div>Total return</div>
+									<div>amount</div>
+								</div>
+							</div>
+							<div className='pfGraphAverageContainer'>
+								<div>Your average cost</div>
+								<div>amount</div>
+								<div>
+									<div>shares</div>
+									<div>amount</div>
+								</div>
+							</div>
 						</div>
 
 					</div>
@@ -76,27 +106,23 @@ function StockDetail() {
 				</div>
 
 				<div className='sdSidePanel'>
-					<div className='sdSidePanelBuySellButtonContainer'>
-						<div>Buy</div>
-						<div>Sell</div>
+					<div className='sdBuySellFormContainer'>
+						<div className='sdSidePanelBuySellButtonContainer'>
+							<button className='sdSidePanelBuy' id={buyForm?'sdSidePanelBuyHighlight':''} onClick={handleShowBuyForm}>Buy {stock.symbol}</button>
+							<button className='sdSidePanelSell' id={!buyForm?'sdSidePanelSellHighlight':''} onClick={handleShowSellForm}>Sell {stock.symbol}</button>
+						</div>
+
+						<div className='sdOrder'>
+							{buyForm && <BuyForm />}
+							{sellForm && <SellForm />}
+						</div>
 					</div>
 
-					<div className='sdOrder'>
-						<BuyForm />
-						<SellForm />
+					<div className='sdAddToWatchContainer'>
+						<button className='sdAddToWatchButton' onClick={handleShuffleToWatchlist}>{check?(<div><AiOutlineCheck /></div>):(<div><AiOutlinePlus /></div>)} Add to Watchlist</button>
 					</div>
 
-					<div className='sdAddToWatch'>
-						{/* <button onSubmit={handleAddToWatchlist}>Add to Lists</button> */}
-						<form onSubmit={handleAddToWatchlist}>
-							<button>Add to List</button>
-						</form>
-						<form onSubmit={handleRemoveFromWatchlist}>
-							<button>Remove from List</button>
-						</form>
-					</div>
-					
-				</div>
+				</div>	
 			</div>
 		</div>
 

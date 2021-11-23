@@ -1,27 +1,115 @@
-.sfWrapper {
-
-}
 
 .sfForm {
-	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	/* gap: 10px; */
+	padding: 25px 0px;
 }
 
 .sfInvestIn {
 	display: flex;
 	justify-content: space-between;
+	margin: 0 25px 25px 25px; 
+}
+
+.sfInvestInHeader, .sfInvestInText, .sfSharesHeader, .sfMarketPriceHeader {
+	font-size: 14px;
+}
+
+.sfInvestInText {
+	font-weight: bold;
 }
 
 .sfShares {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
+	margin: 0 25px 25px 25px; 
+}
+
+.sfSharesInput {
+	border: none;
+	background-color: #F5F8FA;
+	height: 35px;
+	width: 80px;
+	text-align: right;
+	padding-right: 10px;
+	border-radius: 5px;
+	outline-color: #00C805;
+}
+
+.sfSharesInput::placeholder {
+	color: rgb(187, 187, 187);
+    font-size: 14px;
+}
+
+.sfSharesInput::-webkit-outer-spin-button, .sfSharesInput::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	/* margin: 0; */
+}
+
+.sfSharesInput:hover {
+	border: 1px solid rgb(200, 200, 200);
+    background-color: white;
+    /* text-indent: 9px; */
 }
 
 .sfMarketPrice {
 	display: flex;
 	justify-content: space-between;
+	/* background-color: green; */
+	border-bottom: 1px solid rgb(228, 228, 228);
+	margin: 0px 25px; 
+	padding-bottom: 15px; 
+}
+
+.sfMarketPriceText, .sfEstimatedCreditText {
+	font-size: 13px;
+	font-weight: bold;
 }
 
 .sfEstimatedCredit {
 	display: flex;
 	justify-content: space-between;
+	padding: 15px 25px 15px 25px; 
+}
+
+.sfEstimatedCreditHeader {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.sfSellButton {
+    border: none;
+	background-color: #00C805;
+	padding: 17px 50px 17px 50px;
+	border-radius: 5px;
+    color: white;
+    /* width: 80%; */
+    font-size: 13px;
+    font-weight: bold;
+	margin: 20px 25px 35px 25px;
+}
+
+.sfsellButton:hover {
+	background-color: rgb(0, 181, 6);
+	cursor: pointer;
+}
+
+#sfSellDisable {
+	background-color: rgb(138, 255, 140);
+	cursor: default;
+}
+
+.sfShareAvailableContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid rgb(228, 228, 228);
+	height: 51px;
+	/* background-color: rgb(208, 195, 177); */
+}
+
+.sfShareAvailable {
+	font-size: 13px;
 }

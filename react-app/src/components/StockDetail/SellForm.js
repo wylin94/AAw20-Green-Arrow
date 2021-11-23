@@ -59,16 +59,16 @@ const SellForm = () => {
 	}
 	
 	return(
-		<div className='sfWrapper'>
+		<>
 			<form className='sfForm' onSubmit={handleSellSubmit}>
-				<div className='sfHeader'>Sell {stock.symbol}</div>
 				<div className='sfInvestIn'>
-					<div>Invest In</div>
-					<div>Shares</div>
+					<div className='sfInvestInHeader'>Invest In</div>
+					<div className='sfInvestInText'>Shares</div>
 				</div>
 				<div className='sfShares'>
-					<label>Shares</label>
+					<label className='sfSharesHeader'>Shares</label>
 					<input
+						className='sfSharesInput'
 						type='number'
 						min="1"
 						required
@@ -77,18 +77,20 @@ const SellForm = () => {
 						placeholder='0' />
 				</div>
 				<div className='sfMarketPrice'>
-					<div>Market Price</div>
-					<div>${sell_price?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div className='sfMarketPriceHeader'>Market Price</div>
+					<div className='sfMarketPriceText'>${sell_price?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				<div className='sfEstimatedCredit'>
-					<div>Estimated Credit</div>
-					<div>${!shares ? 0:(sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div className='sfEstimatedCreditHeader'>Estimated Credit</div>
+					<div className='sfEstimatedCreditText'>${!shares ? 0:(sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				{disableSell && <div>Not Enough Shares</div>}
-				<button disabled={disableSell} type='submit'>Sell</button>
-				<div>{shareAvailable?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Share{shareAvailable > 1 && 's'} Available</div>
+				<button className='sfSellButton' id={disableSell?'sfSellDisable':''} disabled={disableSell} type='submit'>Sell</button>
+				<div className='sfShareAvailableContainer'>
+					<div className='sfShareAvailable'>{shareAvailable?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Share{shareAvailable > 1 && 's'} Available</div>
+				</div>
 			</form>
-		</div>
+		</>
 	)
 }
 

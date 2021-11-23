@@ -16,7 +16,6 @@
 .sdStockFeed {
 	/* border: 1px solid black; */
 	width: 68%;
-	/* background-color: blue; */
 }
 
 .sdGraphSection {
@@ -30,21 +29,118 @@
 	background-color: yellow;
 }
 
+.sdGraphCompanyName, .sdGraphStockPrice {
+	font-size: 30px;
+	font-weight: 500;
+}
 
+.sdGraphBalanceChangeContainer {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+}
 
+.sdGraphBalanceChangeAmount {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.sdGraphBalanceChangeToday {
+	font-size: 13px;
+	color: #6A7278;
+}
+
+.sdGraphStockGraph {
+	background-color: lightcyan;
+}
+
+.pfGraphShareOwnedStatContainer {
+	display: flex;
+	gap: 13px;
+}
+
+.pfGraphMarketValueContainer, .pfGraphAverageContainer {
+	border: 1px solid rgb(228, 228, 228);
+	width: 331px;
+	height: 179px;
+}
 
 /*********** PORTFOLIO LIST ***********/
 
+
 .sdSidePanel {
-	border: 1px solid black;
-	flex: 0.3;
+	width: 26.2%;
+	margin-left: 55px;
+
 }
+
+.sdBuySellFormContainer {
+	border: 1px solid rgb(228, 228, 228);
+	border-radius: 5px;
+	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
+	height: 416px;
+}
+
+.sdSidePanelBuySellButtonContainer {
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	height: 52px;
+	border-bottom: 1px solid rgb(228, 228, 228);
+	padding-left: 20px;
+	gap: 10px;
+}
+
+.sdSidePanelBuy, .sdSidePanelSell {
+	border: none;
+	background-color: white;
+	font-size: 15px;
+	font-weight: bold;
+	height: 100%;
+}
+
+.sdSidePanelBuy:hover, .sdSidePanelSell:hover {
+	color: #00C805;
+	cursor: pointer;
+}
+
+#sdSidePanelBuyHighlight, #sdSidePanelSellHighlight {
+	color: #00C805;
+	border-bottom: 1px solid #00C805;
+	/* margin-bottom: 10px; */
+}
+
 
 .sdOrder {
 	width: 100%;
-	border: 1px solid black;
+
 }
 
-.sdAddToWatch {
-	border: 1px solid black;
+.sdAddToWatchContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 95px;
+}
+
+.sdAddToWatchButton {
+	display: flex;
+	align-items: center;
+	border: 1px solid #00C805;
+	background-color: white;
+	padding: 17px 50px 17px 50px;
+	border-radius: 5px;
+    color: #00C805;
+    /* width: 80%; */
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.sdAddToWatchButton:hover {
+	cursor: pointer;
+	background-color:  #e6f2e6;
+}
+
+.sdAddToWatchButton:active {
+	background-color:  #cfebcf;
 }

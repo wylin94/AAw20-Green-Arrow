@@ -24,12 +24,12 @@ import { Line } from 'react-chartjs-2';
 
 
 const data = {
-  datasets: [
-    {
+	datasets: [
+		{
 			type: 'line',
 			data: [{x: 10, y: 20}, {x: 15, y: 10}, {x: 12, y: 4}],
-      backgroundColor: 'rgb(255, 255, 255)',
-      borderColor: '#5AC53B',
+			backgroundColor: 'rgb(255, 255, 255)',
+			borderColor: '#5AC53B',
 			borderWidth: 2,
 			pointBorderColor: 'rgb(0, 0, 0, 0)',
 			pointBackgroundColor: 'rgb(0, 0, 0, 0)',
@@ -37,9 +37,8 @@ const data = {
 			pointHoverBorderColor: '#000000',
 			pointHoverBorderWidth: 4,
 			pointHoverRadius: 6,
-
-    },
-  ],
+		},
+	],
 };
 
 const options = {
@@ -49,8 +48,8 @@ const options = {
 	tooltips: {
 		mode: 'index',
 		intersect: false
-	},
-  scales: {
+	},	
+	scales: {
     y: {
 			gridLines: {
 				display: false
@@ -64,7 +63,7 @@ const options = {
 				display: false
 			}
     }
-  }
+	}
 	// scales: {
 	// 	yAxes: [{
 	// 		gridLines: {
