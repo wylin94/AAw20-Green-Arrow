@@ -118,7 +118,7 @@ function Portfolio() {
 					<div className='pfWatchlistBody'>
 						{watchlists?.map(watchlist => {
 							return (
-								<NavLink className='pfWatchlistItemNav' to={`/stocks/${watchlist.ticker}`}>
+								<NavLink className='pfWatchlistItemNav' key={watchlist.id}to={`/stocks/${watchlist.ticker}`}>
 									<div className='pfWatchlistItem'>
 										<div className='pfWatchlistItemLeft'>
 											<div className='pfWatchlistItemTickerContainer'>
