@@ -22,7 +22,7 @@ function Splash() {
 						</div>
 					</div>
 					<div className='splashFirstRight'>
-						<img className='splashFirstImage' src={'/images/SplashFirstSection.png'} alt='splashFirstImage'></img>
+						<img className='splashFirstImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFirstSection.png'} alt='splashFirstImage'></img>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@ function Splash() {
 			<div className='splashThirdSection'>
 				<div className='splashThirdSectionContainer'>
 					<div className='splashThirdLeft'>
-						<img className='splashThirdImage' src={'/images/SplashThirdSection.png'} alt='splashThirdImage'></img>
+						<img className='splashThirdImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashThirdSection.png'} alt='splashThirdImage'></img>
 					</div>
 					<div className='splashThirdRight'>
 						<div className='splashThirdHeaderContainer'>
@@ -41,7 +41,7 @@ function Splash() {
 						</div>
 						<div className='splashThirdBodyOne'>
 							<div>
-								<img className='splashThirdIcon1' src={'/images/SplashThirdSectionIcon1.svg'} alt='splashThirdIcon1'></img>
+								<img className='splashThirdIcon1' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashThirdSectionIcon1.svg'} alt='splashThirdIcon1'></img>
 							</div>
 							<div>
 								<div className='splashThirdBodyOneHeader'>It's your turn</div>
@@ -50,7 +50,7 @@ function Splash() {
 						</div>
 						<div className='splashThirdBodyTwo'>
 							<div>
-								<img className='splashThirdIcon1' src={'/images/SplashThirdSectionIcon2.svg'} alt='splashThirdIcon1'></img>
+								<img className='splashThirdIcon1' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashThirdSectionIcon2.svg'} alt='splashThirdIcon1'></img>
 							</div>
 							<div>
 								<div className='splashThirdBodyTwoHeader'>Be one of the first</div>
@@ -59,7 +59,7 @@ function Splash() {
 						</div>
 						<div className='splashThirdBodyThree'>
 							<div>
-								<img className='splashThirdIcon1' src={'/images/SplashThirdSectionIcon3.svg'} alt='splashThirdIcon1'></img>
+								<img className='splashThirdIcon1' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashThirdSectionIcon3.svg'} alt='splashThirdIcon1'></img>
 							</div>
 							<div>
 								<div className='splashThirdBodyThreeHeader'>Get a fair shot</div>
@@ -104,14 +104,14 @@ function Splash() {
 						</div>
 					</div>
 					<div className='splashFourthRight'>
-						<img className='splashFourthImage' src={'images/jack.jpeg'} alt='Jack'></img>
+						<img className='splashFourthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/jack.jpeg'} alt='Jack'></img>
 					</div>
 				</div>
 			</div>
 			<div className='splashFifthSection'>
 				<div className='splashFifthSectionContainer'>
 					<div className='splashFifthLeft'>
-						<img className='splashFifthImage' src={'/images/SplashFifthSection.png'} alt='POW!'></img>
+						<img className='splashFifthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSection.png'} alt='POW!'></img>
 					</div>
 					<div className='splashFifthRight'>
 						<div className='splashFifthHeader'>GreenArrow is built with these technologies</div>

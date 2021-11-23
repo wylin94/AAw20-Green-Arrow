@@ -35,7 +35,7 @@ const NavBar = () => {
           <div className='navContainer'>
             <div className='navLeft'>
               <NavLink to='/' exact={true} activeClassName='active'>
-                <img className='navLogoImage' src={'/images/logo.png'} alt='GreenArrow Logo'></img>
+                <img className='navLogoImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/logo.png'} alt='GreenArrow Logo'></img>
               </NavLink>
             </div>
             <div className='navSearchBarContainer'>
@@ -56,7 +56,7 @@ const NavBar = () => {
           <div className='splashNavContainer'>
             <div className='splashNavLeft'>
               <NavLink className='splashNavLogoContainer' to='/' exact={true} activeClassName='active'>
-                <img className='splashNavLogoImage' src={'/images/logo.png'} alt='GreenArrow Logo'></img>
+                <img className='splashNavLogoImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/logo.png'} alt='GreenArrow Logo'></img>
                 <div className='splashNavLogoText'>GreenArrow</div>
               </NavLink>
               <a className='splashNavGitHub' href='https://github.com/wylin94'>GitHub</a>

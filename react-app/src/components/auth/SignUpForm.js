@@ -58,7 +58,7 @@ const SignUpForm = () => {
       <div className='signUpFormLeft'>
         <div className='signUpFormLeftContainer'>
           <div className='signUpFormLogoContainer'>
-            <img className='signUpFormLogoImage' src={'/images/logo.png'} alt='GreenArrow Logo'></img>
+            <img className='signUpFormLogoImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/logo.png'} alt='GreenArrow Logo'></img>
             <div className='signUpFormLogoText'>GreenArrow</div>
           </div>
           <div className='signUpFormHeaderContainer'>

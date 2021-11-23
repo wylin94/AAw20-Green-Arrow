@@ -42,7 +42,7 @@ const LoginForm = () => {
 
   return (
     <div className='loginFormWrapper'>
-      <div className='loginFormLeft' style={{backgroundImage: 'url(/images/LoginForm.jpeg)'}}></div>
+      <div className='loginFormLeft' style={{backgroundImage: 'url(https://wyl-greenarrow.s3.us-west-1.amazonaws.com/LoginForm.jpeg)'}}></div>
       <div className='loginFormRight'>
         <div className='loginFormWelcome'>Welcome to GreenArrow</div>
         <form className='loginFormForm' onSubmit={onLogin}>
