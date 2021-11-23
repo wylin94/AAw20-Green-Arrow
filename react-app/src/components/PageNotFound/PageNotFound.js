@@ -14,7 +14,7 @@ function PageNotFound() {
 					<NavLink className='PNFGoHomeButton' to='/' exact={true} activeClassName='active'>Go Home</NavLink>
 				</div>
 				<div className='PNFRight'>
-					<img className='PNFImage' src='/images/PageNotFound.png' alt='Boom'></img>
+					<img className='PNFImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/PageNotFound.png'} alt='Boom'></img>
 				</div>
 			</div>
 		</div>
