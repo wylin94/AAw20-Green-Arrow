@@ -6,25 +6,41 @@ import { getAllStock } from '../../store/stock';
 import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists } from '../../store/watchlist';
 import { getOneStock } from '../../store/stockDetail';
+import { getStockDetailAll } from '../../store/stockDetailAll';
 import Graph from '../Graph'
 import './Portfolio.css'
 
 function Portfolio() {
 	const dispatch = useDispatch();
-
-	// USER VARIABLE //
 	const user = useSelector(state => state.session.user);
-
-	// STOCK VARIABLE //
 	const stocks = useSelector(state => Object.values(state.stock));
+	const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
+	const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
+	const stockDetailAll = useSelector(state => state.stockDetailAll);
+
+	// TOTAL PROFOLIO BALANCE //
 	const findStockPrice = ticker => {
 		const stock = stocks?.find(stock => stock.symbol === ticker);
-		return (stock?.askPrice !== 0) ? stock?.askPrice:stock?.lastSalePrice;
+		return (stock?.askPrice !== 0) ? stock?.askPrice : stock?.lastSalePrice;
 	}
-
-	// PORTFORLIOS VARIABLE //
-	const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
 	const portfoliosRunningBalance = portfolios?.reduce((a, b) => a + (findStockPrice(b.ticker) * b.share), 0);
+
+
+
+
+	// COMBINED TOTAL CHANGE OF PORTFOLIO //
+	// const findStockChange = async ticker => {
+	// 	dispatch(getOneStock(ticker.toLowerCase()))
+		
+	// }
+
+	// const totalChange = portfolios?.reduce((a, b) => a + (findStockChange(b.ticker).change * b.share), 0);
+	// console.log('totalChange', totalChange)
+	
+
+
+
+	// TO COMBINE MULTIPLE LINE OF PORFOLIOS WITH SAME TICKER //
 	const combinedPortfolios = () => {
 		let result = [];
 		for (let i = 0; i < portfolios?.length; i++) {
@@ -44,9 +60,6 @@ function Portfolio() {
 		}
 		return result;
 	}
-
-	// WATCHLIST VARIABLE //
-	const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
 	
 
 	useEffect(() => {
@@ -65,7 +78,7 @@ function Portfolio() {
 
 							<div className='pfGraphBalanceTotal'>${(portfoliosRunningBalance) ? (user.buying_power + portfoliosRunningBalance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}</div>
 							<div className='pfGraphBalanceChangeContainer'>
-								<div className='pfGraphBalanceChangeAmount'>change here</div>
+								<div className='pfGraphBalanceChangeAmount'>change percentage</div>
 								<div className='pfGraphBalanceChangeToday'>Today</div>
 							</div>
 

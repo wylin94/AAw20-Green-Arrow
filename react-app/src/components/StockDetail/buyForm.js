@@ -40,16 +40,16 @@ const BuyForm = () => {
 	}
 
 	return(
-		<div className='bfWrapper'>
+		<>
 			<form className='bfForm' onSubmit={handleBuySubmit}>
-				<div className='bfHeader'>Buy {stock.symbol}</div>
 				<div className='bfInvestIn'>
-					<div>Invest In</div>
-					<div>Shares</div>
+					<div className='bfInvestInHeader'>Invest In</div>
+					<div className='bfInvestInText'>Shares</div>
 				</div>
 				<div className='bfShares'>
-					<label>Shares</label>
+					<label className='bfSharesHeader'>Shares</label>
 					<input
+						className='bfSharesInput'
 						type='number'
 						min="1"
 						required
@@ -58,19 +58,22 @@ const BuyForm = () => {
 						placeholder='0' />
 				</div>
 				<div className='bfMarketPrice'>
-					<div>Market Price</div>
-					<div>${purchase_price?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div className='bfMarketPriceHeader'>Market Price</div>
+					<div className='bfMarketPriceText'>${purchase_price?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 					{/* <div>${Number(parseFloat(purchase_price)?.toFixed(2)).toLocaleString('en')}</div> */}
 				</div>
+
 				<div className='bfEstimatedCost'>
-					<div>Estimated Cost</div>
-					<div>${!shares ? 0:(purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div className='bfEstimatedCostHeader'>Estimated Cost</div>
+					<div className='bfEstimatedCostText'>${!shares ? 0:(purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				{disableBuy && <div>Not Enough Buying Power</div>}
-				<button disabled={disableBuy} type='submit'>Buy</button>
-				<div>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
+				<button className='bfBuyButton' id={disableBuy?'bfBuyDisable':''} disabled={disableBuy} type='submit'>Buy</button>
+				<div className='bfBuyingPowerAvailableContainer'>
+					<div className='bfBuyingPowerAvailable'>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
+				</div>
 			</form>
-		</div>
+		</>
 	)
 }
 

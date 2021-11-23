@@ -1,7 +1,6 @@
 .pfWrapper {
 	display: flex;
 	justify-content: center;
-	/* background-color: lightgreen; */
 	height: auto;
 }
 
@@ -9,7 +8,6 @@
 	display: flex;
 	min-width: 1050px;
 	max-width: 1050px;
-	/* background-color: lightblue; */
 	margin-top: 38px;
 }
 
@@ -19,7 +17,6 @@
 	/* border: 1px solid black; */
 	/* flex: 0.7; */
 	width: 68%;
-	/* background-color: red; */
 }
 
 .pfGraphSection {
@@ -44,7 +41,7 @@
 	align-items: center;
 }
 
-.pfGraphBalanceChangeAmount {
+.pfGraphBalanceChangeAmount, .pfGraphBalanceChangePercent {
 	font-size: 14px;
 	font-weight: bold;
 	color: red;

@@ -125,7 +125,7 @@
 }
 
 .splashNavGitHub:hover, .splashNavLinkedIn:hover, .splashNavMeet:hover {
-	color: rgb(68, 205, 88);
+	color: #00C805;
 	cursor: pointer;
 }
 
@@ -154,12 +154,12 @@
 }
 
 .splashNavLogIn:hover {
-	color: rgb(68, 205, 88);
+	color: #00C805;
 	cursor: pointer;
 }
 
 .splashNavSignUp {
-	background-color: rgb(0, 200, 5);
+	background-color: #00C805;
 	padding: 14px 39px 14px 39px;
 	border-radius: 100px;
 }
