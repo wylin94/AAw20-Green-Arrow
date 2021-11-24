@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineCheck, AiOutlinePlus } from "react-icons/ai";
+import { NavLink, useHistory } from "react-router-dom";
 
 import { getAllStock } from '../../store/stock';
 import { getOneStock } from '../../store/stockDetail';
 import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists, createWatchlist, removeWatchlist } from '../../store/watchlist';
+import { getOneMonthGraph } from '../../store/stockGraph';
 import BuyForm from './BuyForm';
 import SellForm from './SellForm';
 import Graph from '../Graph';
@@ -14,11 +16,14 @@ import './StockDetail.css';
 
 function StockDetail() {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const { ticker } = useParams();
+	const stocks = useSelector(state => Object.values(state.stock));
 	const user_id = useSelector(state => state.session.user).id;
 	const stock = useSelector(state => state.stockDetail);
 	const watchlist = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user_id))?.find(ele => ele.ticker === ticker);
 	const onWatchlist = watchlist ? true : false;
+	const stockGraph = useSelector(state => Object.values(state.stockGraph));
 
 	const [buyForm, setBuyForm] = useState(true);
 	const [sellForm, setSellForm] = useState(false);
@@ -29,7 +34,17 @@ function StockDetail() {
 		dispatch(getWatchlists());
 		dispatch(getAllStock());
 		dispatch(getOneStock(ticker.toLowerCase()));
+		dispatch(getOneMonthGraph());
 	}, [dispatch, ticker]);
+
+	useEffect(() => {
+		if (stocks.length > 0) {
+			if (!stocks.find(ele => ticker === ele.symbol)) {
+				history.push("/pageNotFound")
+			}
+		}
+	}, [dispatch, ticker, stocks]);
+
 
 	const handleShowBuyForm = () => {
 		setSellForm(false)
@@ -63,18 +78,25 @@ function StockDetail() {
 						<div className='sdGraphBalanceContainer'>
 
 							<div className='sdGraphCompanyName'>{stock?.companyName}</div>
-							<div className='sdGraphStockPrice'>${((stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+							<div className='sdGraphStockPrice'>
+								${((stock?.iexAskPrice !== 0) ? 
+								stock?.iexAskPrice : 
+								stock?.iexClose)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 							<div className='sdGraphBalanceChangeContainer'>
-								<div className='sdGraphBalanceChangeAmount'>{stock.change?.toString()[0] === '-' && '-'}
-									${(stock.change?.toString()[0] === '-') ? stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","):stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
-									{' '}({(stock.changePercent) ? (stock.changePercent * 100).toFixed(2) : 0}%)
+								<div className='sdGraphBalanceChangeAmount'>
+									{stock.change?.toString()[0] === '-' && '-'}
+									${(stock.change?.toString()[0] === '-') ? 
+									stock.change?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 
+									stock.change?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}  
+									{' '}
+									({(stock.changePercent) ? (stock.changePercent * 100).toFixed(2) : 0}%)
 								</div>
 								<div className='sdGraphBalanceChangeToday'>Today</div>
 							</div>
 
 						</div>
 						<div className='sdGraphStockGraph'>
-							<Graph />
+							<Graph stockGraph={stockGraph}/>
 						</div>
 
 						<div className='pfGraphShareOwnedStatContainer'>

@@ -16,7 +16,9 @@ function Portfolio() {
 	const stocks = useSelector(state => Object.values(state.stock));
 	const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
 	const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
-	const stockDetailAll = useSelector(state => state.stockDetailAll);
+	const stockDetailAll = useSelector(state => Object.values(state.stockDetailAll));
+	const stockDetailAllObject = useSelector(state => (state.stockDetailAll));
+
 
 	// TOTAL PROFOLIO BALANCE //
 	const findStockPrice = ticker => {
@@ -24,21 +26,7 @@ function Portfolio() {
 		return (stock?.askPrice !== 0) ? stock?.askPrice : stock?.lastSalePrice;
 	}
 	const portfoliosRunningBalance = portfolios?.reduce((a, b) => a + (findStockPrice(b.ticker) * b.share), 0);
-
-
-
-
-	// COMBINED TOTAL CHANGE OF PORTFOLIO //
-	// const findStockChange = async ticker => {
-	// 	dispatch(getOneStock(ticker.toLowerCase()))
-		
-	// }
-
-	// const totalChange = portfolios?.reduce((a, b) => a + (findStockChange(b.ticker).change * b.share), 0);
-	// console.log('totalChange', totalChange)
 	
-
-
 
 	// TO COMBINE MULTIPLE LINE OF PORFOLIOS WITH SAME TICKER //
 	const combinedPortfolios = () => {
@@ -62,12 +50,32 @@ function Portfolio() {
 	}
 	
 
+	// COMBINED TOTAL CHANGE OF PORTFOLIO //
+	let arrayOfTicker = []
+	combinedPortfolios()?.forEach(portfolios => arrayOfTicker.push(portfolios.ticker))
+	const totalCombinedChange = () => {
+		let result = 0;
+		combinedPortfolios().forEach(portfolio => {
+			result = result + (portfolio.share * stockDetailAllObject[portfolio.ticker]?.change);
+		})
+		return result;
+	}
+
+
+
 	useEffect(() => {
 		dispatch(getPortfolios());
 		dispatch(getWatchlists());
 		dispatch(getAllStock());
 	}, [dispatch]);
 
+	useEffect(() => {
+		if(arrayOfTicker.length > 0 && stockDetailAll.length < arrayOfTicker.length) {
+			dispatch(getStockDetailAll(arrayOfTicker));
+		}
+	}, [dispatch, arrayOfTicker, stockDetailAll]);
+	
+	
 	return(
 		<div className='pfWrapper'>
 			<div className='pfContainer'>
@@ -76,15 +84,26 @@ function Portfolio() {
 					<div className='pfGraphSection'>
 						<div className='pfGraphBalanceContainer'>
 
-							<div className='pfGraphBalanceTotal'>${(portfoliosRunningBalance) ? (user.buying_power + portfoliosRunningBalance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 0}</div>
+							<div className='pfGraphBalanceTotal'>
+								${(portfoliosRunningBalance) ? 
+								(user.buying_power + portfoliosRunningBalance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 
+								0}
+							</div>
 							<div className='pfGraphBalanceChangeContainer'>
-								<div className='pfGraphBalanceChangeAmount'>change percentage</div>
+								<div className='pfGraphBalanceChangeAmount'>
+									{totalCombinedChange()?.toString()[0] === '-' && '-'}
+									${(totalCombinedChange()?.toString()[0] === '-') ? 
+									totalCombinedChange()?.toFixed(2).slice(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : 
+									totalCombinedChange()?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 
+									{' '} 
+									({((totalCombinedChange() / ( totalCombinedChange() + user.buying_power + portfoliosRunningBalance)) * 100).toFixed(2)}%)
+								</div>
 								<div className='pfGraphBalanceChangeToday'>Today</div>
 							</div>
 
 						</div>
 						<div className='pfGraphStockGraph'>
-							<Graph />
+							{/* <Graph /> */}
 						</div>
 
 						<div className='pfGraphBuyingPowerContainer'>
@@ -114,11 +133,12 @@ function Portfolio() {
 											<div className='pfStockListItemChart'>chart here</div>
 										</div>
 										<div className='pfStockListItemPriceContainer'>
-											<div className='pfStockListItemPrice'>{
+											<div className='pfStockListItemPrice'>${
 												((stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice !== 0) ?
 													stocks.find(stock => stock.symbol === portfolio.ticker)?.askPrice : 
 													stocks.find(stock => stock.symbol === portfolio.ticker)?.lastSalePrice)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 											}</div>
+											<div className='pfStockListItemPercent' id={(stockDetailAllObject[portfolio.ticker]?.changePercent < 0) ? 'pfStockListItemPercentNegative':'pfStockListItemPercentPositive'}>{(stockDetailAllObject[portfolio.ticker]?.changePercent * 100).toFixed(2)}%</div>
 										</div>
 									</div>
 								</NavLink>
@@ -140,11 +160,12 @@ function Portfolio() {
 											<div className='pfWatchlistItemChart'>chart here</div>
 										</div>
 										<div className='pfWatchlistItemPriceContainer'>
-											<div className='pfWatchlistItemPrice'>{
+											<div className='pfWatchlistItemPrice'>${
 												((stocks.find(stock => stock.symbol === watchlist.ticker)?.askPrice !== 0) ?
 													stocks.find(stock => stock.symbol === watchlist.ticker)?.askPrice : 
 													stocks.find(stock => stock.symbol === watchlist.ticker)?.lastSalePrice)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 											}</div>
+											<div className='pfWatchlistItemPercent' id={(stockDetailAllObject[watchlist.ticker]?.changePercent < 0) ? 'pfWatchlistItemPercentNegative':'pfWatchlistItemPercentPositive'}>{(stockDetailAllObject[watchlist.ticker]?.changePercent * 100).toFixed(2)}%</div>
 										</div>
 									</div>
 								</NavLink>
