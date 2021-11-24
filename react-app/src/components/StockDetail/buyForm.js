@@ -31,9 +31,12 @@ const BuyForm = () => {
 	}
 
 	if(disableBuy === false) {
-		if(purchase_price * shares > current_buying_power) {
+		if((purchase_price * shares > current_buying_power)) {
 			setDisableBuy(true);
 		}
+		// if (current_buying_power === 0) {
+		// 	setDisableBuy(true);
+		// }
 	} else if (disableBuy === true) {
 		if (purchase_price * shares <= current_buying_power)
 			setDisableBuy(false)

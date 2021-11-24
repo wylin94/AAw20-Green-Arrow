@@ -8,7 +8,7 @@ import { getAllStock } from '../../store/stock';
 import { getOneStock } from '../../store/stockDetail';
 import { getPortfolios } from '../../store/portfolio';
 import { getWatchlists, createWatchlist, removeWatchlist } from '../../store/watchlist';
-import { getOneMonthGraph } from '../../store/stockGraph';
+import { getOneDayGraph, getRangeGraph } from '../../store/stockGraph';
 import BuyForm from './BuyForm';
 import SellForm from './SellForm';
 import Graph from '../Graph';
@@ -27,15 +27,23 @@ function StockDetail() {
 
 	const [buyForm, setBuyForm] = useState(true);
 	const [sellForm, setSellForm] = useState(false);
-	const [check, setCheck] = useState(onWatchlist);
+	const [watchCheck, setWatchCheck] = useState(onWatchlist);
+	const [oneDButton, setOneDButton] = useState(false);
+	const [oneWButton, setOneWButton] = useState(true);
+	const [oneMButton, setOneMButton] = useState(false);
+	const [threeMButton, setThreeMButton] = useState(false);
+	const [oneYButton, setOneYButton] = useState(false);
+	const [threeYButton, setThreeYButton] = useState(false);
+
 
 	useEffect(() => {
 		dispatch(getPortfolios());
 		dispatch(getWatchlists());
 		dispatch(getAllStock());
 		dispatch(getOneStock(ticker.toLowerCase()));
-		dispatch(getOneMonthGraph());
+		dispatch(getRangeGraph('5d'));
 	}, [dispatch, ticker]);
+	// console.log(new Date().toISOString().slice(0, 10))
 
 	useEffect(() => {
 		if (stocks.length > 0) {
@@ -45,6 +53,61 @@ function StockDetail() {
 		}
 	}, [dispatch, ticker, stocks]);
 
+
+	const handleGraphRange1d = () => {
+		setOneDButton(true);
+		setOneWButton(false);
+		setOneMButton(false);
+		setThreeMButton(false);
+		setOneYButton(false);
+		setThreeYButton(false);
+		dispatch(getOneDayGraph('20211124'));
+	}
+	const handleGraphRange5d = () => {
+		setOneDButton(false);
+		setOneWButton(true);
+		setOneMButton(false);
+		setThreeMButton(false);
+		setOneYButton(false);
+		setThreeYButton(false);
+		dispatch(getRangeGraph('5d'));
+	}
+	const handleGraphRange1m = () => {
+		setOneDButton(false);
+		setOneWButton(false);
+		setOneMButton(true);
+		setThreeMButton(false);
+		setOneYButton(false);
+		setThreeYButton(false);
+		dispatch(getRangeGraph('1m'));
+	}
+	const handleGraphRange3m = () => {
+		setOneDButton(false);
+		setOneWButton(false);
+		setOneMButton(false);
+		setThreeMButton(true);
+		setOneYButton(false);
+		setThreeYButton(false);
+		dispatch(getRangeGraph('3m'));
+	}
+	const handleGraphRange1y = () => {
+		setOneDButton(false);
+		setOneWButton(false);
+		setOneMButton(false);
+		setThreeMButton(false);
+		setOneYButton(true);
+		setThreeYButton(false);
+		dispatch(getRangeGraph('1y'));
+	}
+	const handleGraphRange5y = () => {
+		setOneDButton(false);
+		setOneWButton(false);
+		setOneMButton(false);
+		setThreeMButton(false);
+		setOneYButton(false);
+		setThreeYButton(true);
+		dispatch(getRangeGraph('5y'));
+	}
 
 	const handleShowBuyForm = () => {
 		setSellForm(false)
@@ -60,11 +123,11 @@ function StockDetail() {
 		e.preventDefault();
 		if (!watchlist) {
 			const watchlist = await dispatch(createWatchlist({user_id, ticker}));
-			setCheck(true);
+			setWatchCheck(true);
 			// if (watchlist) {console.log('do something')};
 		} else {
 			const watchlistToDelete = await dispatch(removeWatchlist(watchlist.id));
-			setCheck(false);
+			setWatchCheck(false);
 			// if (watchlistToDelete) {console.log('do something')};
 		}
 	}
@@ -75,8 +138,8 @@ function StockDetail() {
 
 				<div className='sdStockFeed'>
 					<div className='sdGraphSection'>
-						<div className='sdGraphBalanceContainer'>
 
+						<div className='sdGraphBalanceContainer'>
 							<div className='sdGraphCompanyName'>{stock?.companyName}</div>
 							<div className='sdGraphStockPrice'>
 								${((stock?.iexAskPrice !== 0) ? 
@@ -93,10 +156,18 @@ function StockDetail() {
 								</div>
 								<div className='sdGraphBalanceChangeToday'>Today</div>
 							</div>
-
 						</div>
+
 						<div className='sdGraphStockGraph'>
 							<Graph stockGraph={stockGraph}/>
+							<div className='sdGraphStockGraphButtonContainer'>
+								<button className='sdGraphStockGraphButton' id={oneDButton?'graphButtonHighlight':''} onClick={handleGraphRange1d}>1D</button>
+								<button className='sdGraphStockGraphButton' id={oneWButton?'graphButtonHighlight':''} onClick={handleGraphRange5d}>1W</button>
+								<button className='sdGraphStockGraphButton' id={oneMButton?'graphButtonHighlight':''} onClick={handleGraphRange1m}>1M</button>
+								<button className='sdGraphStockGraphButton' id={threeMButton?'graphButtonHighlight':''} onClick={handleGraphRange3m}>3M</button>
+								<button className='sdGraphStockGraphButton' id={oneYButton?'graphButtonHighlight':''} onClick={handleGraphRange1y}>1Y</button>
+								<button className='sdGraphStockGraphButton' id={threeYButton?'graphButtonHighlight':''} onClick={handleGraphRange5y}>5Y</button>
+							</div>
 						</div>
 
 						<div className='pfGraphShareOwnedStatContainer'>
@@ -141,7 +212,7 @@ function StockDetail() {
 					</div>
 
 					<div className='sdAddToWatchContainer'>
-						<button className='sdAddToWatchButton' onClick={handleShuffleToWatchlist}>{check?(<div><AiOutlineCheck /></div>):(<div><AiOutlinePlus /></div>)} Add to Watchlist</button>
+						<button className='sdAddToWatchButton' onClick={handleShuffleToWatchlist}>{watchCheck?(<div><AiOutlineCheck /></div>):(<div><AiOutlinePlus /></div>)} Add to Watchlist</button>
 					</div>
 
 				</div>	
