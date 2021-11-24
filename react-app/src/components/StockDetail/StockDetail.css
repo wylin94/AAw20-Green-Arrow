@@ -8,7 +8,7 @@
 	display: flex;
 	min-width: 1050px;
 	max-width: 1050px;
-	margin-top: 38px;
+	margin-top: 32px;
 }
 
 /************ STOCK FEED *************/
@@ -26,7 +26,7 @@
 	flex-direction: column;
 	gap: 5px;
 	/* background-color: yellow; */
-	margin-bottom: 45px;
+	margin: 5px 0px 40px 0px;
 }
 
 .sdGraphCompanyName, .sdGraphStockPrice {
@@ -57,9 +57,35 @@
 	/* border: 1px solid black; */
 }
 
+.sdGraphStockGraphButtonContainer {
+	display: flex;
+	border-bottom: 1px solid rgb(228, 228, 228);
+	height: 48px;
+	/* gap: 10px; */
+	margin-top: 20px;
+}
+
+.sdGraphStockGraphButton {
+	border: none;
+	background-color: white;
+	font-weight: bold;
+	margin: 0px 5px;
+}
+
+.sdGraphStockGraphButton:hover {
+	cursor: pointer;
+	color: #00C805;
+}
+
+#graphButtonHighlight {
+	color: #00C805;
+	border-bottom: 1px solid #00C805;
+}
+
 .pfGraphShareOwnedStatContainer {
 	display: flex;
 	gap: 13px;
+	margin-top: 55px;
 }
 
 .pfGraphMarketValueContainer, .pfGraphAverageContainer {
