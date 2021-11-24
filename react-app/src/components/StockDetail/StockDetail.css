@@ -14,7 +14,6 @@
 /************ STOCK FEED *************/
 
 .sdStockFeed {
-	/* border: 1px solid black; */
 	width: 68%;
 }
 
@@ -26,7 +25,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-	background-color: yellow;
+	/* background-color: yellow; */
+	margin-bottom: 45px;
 }
 
 .sdGraphCompanyName, .sdGraphStockPrice {
@@ -50,8 +50,11 @@
 	color: #6A7278;
 }
 
+/**************** GRAPH *****************/
+
 .sdGraphStockGraph {
-	background-color: lightcyan;
+	/* background-color: lightcyan; */
+	/* border: 1px solid black; */
 }
 
 .pfGraphShareOwnedStatContainer {
@@ -71,7 +74,6 @@
 .sdSidePanel {
 	width: 26.2%;
 	margin-left: 55px;
-
 }
 
 .sdBuySellFormContainer {
@@ -84,7 +86,6 @@
 .sdSidePanelBuySellButtonContainer {
 	display: flex;
 	align-items: center;
-	/* justify-content: center; */
 	height: 52px;
 	border-bottom: 1px solid rgb(228, 228, 228);
 	padding-left: 20px;
@@ -107,13 +108,10 @@
 #sdSidePanelBuyHighlight, #sdSidePanelSellHighlight {
 	color: #00C805;
 	border-bottom: 1px solid #00C805;
-	/* margin-bottom: 10px; */
 }
-
 
 .sdOrder {
 	width: 100%;
-
 }
 
 .sdAddToWatchContainer {

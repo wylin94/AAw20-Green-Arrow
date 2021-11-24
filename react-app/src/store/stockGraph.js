@@ -1,20 +1,20 @@
 //////////// TYPE ////////////
-const LOAD = 'stockGraph/LOAD'
+const LOAD = 'graph/LOAD'
 
 /////////// ACTION /////////////
 
-const loadStockGraph = stockGraph => ({
+const loadGraph = oneMonthGraph => ({
     type: LOAD,
-	stockGraph
+	oneMonthGraph
 })
 
 /////////// THUNK /////////////
 
-export const getStockGrah = () => async (dispatch) => {
-	const response = await fetch('https://sandbox.iexapis.com/stable/tops?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34');
+export const getOneMonthGraph = () => async (dispatch) => {
+	const response = await fetch('https://sandbox.iexapis.com/stable/stock/aapl/chart/1m?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34');
 	if (response.ok) {
-		const stocks = await response.json();
-		dispatch(loadStockGraph(stocks));
+		const oneMonthGraph = await response.json();
+		dispatch(loadGraph(oneMonthGraph));
 	}
 };
 
@@ -22,8 +22,7 @@ export const getStockGrah = () => async (dispatch) => {
 const stockGraphReducer = (state = {}, action) => {
 	switch (action.type) {
 		case LOAD:
-			let newState = {...state, ...action.stocks };
-			return newState;
+			return {...action.oneMonthGraph };
 		default:
 			return state;
 	}
