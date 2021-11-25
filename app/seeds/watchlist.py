@@ -16,12 +16,10 @@ def seed_watchlists():
     watchlist6 = Watchlist(
         user_id=2, ticker='BABA')
     watchlist7 = Watchlist(
-        user_id=2, ticker='FEYE')
-    watchlist8 = Watchlist(
         user_id=2, ticker='SQ')
-    watchlist9 = Watchlist(
+    watchlist8 = Watchlist(
         user_id=2, ticker='MRVL')
-    watchlist10 = Watchlist(
+    watchlist9 = Watchlist(
         user_id=2, ticker='AAPL')
 
     db.session.add(watchlist1)
@@ -33,7 +31,6 @@ def seed_watchlists():
     db.session.add(watchlist7)
     db.session.add(watchlist8)
     db.session.add(watchlist9)
-    db.session.add(watchlist10)
 
     db.session.commit()
 

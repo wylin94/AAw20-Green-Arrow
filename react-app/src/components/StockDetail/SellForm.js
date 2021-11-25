@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
-import { createPortfolio } from '../../store/portfolio';
 import { buyingPower } from '../../store/session';
 import { removePortfolio } from '../../store/portfolio';
 import { editPortfolio } from '../../store/portfolio';
@@ -20,43 +19,40 @@ const SellForm = () => {
 	const shareAvailable = portfolios?.filter(ele => ele.ticker === ticker).reduce((a, b) => a + b.share, 0); 
 	const current_buying_power = user?.buying_power;
 	const new_buying_power = current_buying_power + (sell_price * shares);
-	const [disableSell, setDisableSell] = useState(false)
+	const [disableSell, setDisableSell] = useState(false);
 
 	let sharesToSell = shares;
 	const handleSellSubmit = async (e) => {
 		e.preventDefault();
 		for (let i = 0; i < portfolios.length; i++) {
-			const portfolio_id = portfolios[i].id
+			const portfolio_id = portfolios[i].id;
 			if (sharesToSell !== 0) {
 				if (portfolios[i].ticker === ticker && portfolios[i].share <= sharesToSell) {
-					await dispatch(removePortfolio(portfolios[i].id))
-					sharesToSell = sharesToSell - portfolios[i].share
+					await dispatch(removePortfolio(portfolios[i].id));
+					sharesToSell = sharesToSell - portfolios[i].share;
 					if (sharesToSell === 0) {
 						await dispatch(buyingPower({user_id, new_buying_power}));
-					}
+					};
 					// i = 0
 				} else if (portfolios[i].ticker === ticker && portfolios[i].share > sharesToSell) {
-					const share = portfolios[i].share - sharesToSell
-					const last = await dispatch(editPortfolio({portfolio_id, share}))
+					const share = portfolios[i].share - sharesToSell;
+					const last = await dispatch(editPortfolio({portfolio_id, share}));
 					if (last) {
 						await dispatch(buyingPower({user_id, new_buying_power}));
-					}
+					};
 					setShares('');
-					break
+					break;
 				}
-			}
+			};
 			setShares('');
-		}
-	}
+		};
+	};
 
 	if(disableSell === false) {
-		if(shareAvailable < shares) {
-			setDisableSell(true);
-		}
+		if(shareAvailable < shares) {setDisableSell(true);};
 	} else if (disableSell === true) {
-		if (shareAvailable >= shares)
-			setDisableSell(false)
-	}
+		if (shareAvailable >= shares) {setDisableSell(false);};
+	};
 	
 	return(
 		<>
@@ -82,10 +78,10 @@ const SellForm = () => {
 				</div>
 				<div className='sfEstimatedCredit'>
 					<div className='sfEstimatedCreditHeader'>Estimated Credit</div>
-					<div className='sfEstimatedCreditText'>${!shares ? 0:(sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div className='sfEstimatedCreditText'>${!shares ? 0 : (sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				{disableSell && <div>Not Enough Shares</div>}
-				<button className='sfSellButton' id={disableSell?'sfSellDisable':''} disabled={disableSell} type='submit'>Sell</button>
+				<button className='sfSellButton' id={disableSell ? 'sfSellDisable' : ''} disabled={disableSell} type='submit'>Sell</button>
 				<div className='sfShareAvailableContainer'>
 					<div className='sfShareAvailable'>{shareAvailable?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Share{shareAvailable > 1 && 's'} Available</div>
 				</div>

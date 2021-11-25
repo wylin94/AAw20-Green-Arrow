@@ -1,10 +1,11 @@
-import './Graph.css'
 import { Line } from 'react-chartjs-2';
+
+import './Graph.css'
 
 
 function Graph({stockGraph}) {
-	const xLabel = stockGraph.map(ele => ele.label)
-	const yLable = stockGraph.map(ele => ele.close)
+	const xLabel = stockGraph?.map(ele => ele.label)
+	const yLable = stockGraph?.map(ele => ele.close)
 
 	const data = {
 		labels: [...xLabel],
@@ -69,9 +70,9 @@ function Graph({stockGraph}) {
 	};
 
 	return(
-		<div className='graphContainer'>
+		<>
 			<Line data={data} options={options} />
-		</div>
+		</>
 	)
 }
 

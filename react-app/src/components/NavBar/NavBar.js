@@ -5,7 +5,7 @@ import { useHistory, useLocation } from "react-router";
 import { CgSearch } from "react-icons/cg";
 
 import ProfileButton from './ProfileButton';
-import './NavBar.css'
+import './NavBar.css';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -19,14 +19,12 @@ const NavBar = () => {
   // USELOCATION TO SCROLL TO MEET DEVELOPER WHEN ON DIFFERENT PAGE//
   useEffect(()=> {
     if (location.hash) {
-        let elem = document.getElementById(location.hash.slice(1))
-        if (elem) {
-          elem.scrollIntoView({behavior: "smooth"})
-        }
+      let elem = document.getElementById(location.hash.slice(1));
+      if (elem) {elem.scrollIntoView({behavior: "smooth"});};
     } else {
-    window.scrollTo({top:0,left:0, behavior: "smooth"})
-    }
-  }, [location,])
+      window.scrollTo({top:0,left:0, behavior: "smooth"});
+    };
+  }, [location,]);
 
   return (
     <>

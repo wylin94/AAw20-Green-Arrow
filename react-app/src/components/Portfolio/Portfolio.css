@@ -51,7 +51,7 @@
 	color: #6A7278;
 }
 
-.pfGraphStockGraph {
+.pfGraphStockGraphContainer {
 	background-color: lightcyan;
 }
 
@@ -130,7 +130,7 @@
 .pfStockListItemLeft, .pfWatchlistItemLeft {
 	display: flex;
 	height: 37px;
-	gap: 10px;
+	gap: 5px;
 	/* background-color: yellow; */
 }
 
@@ -155,9 +155,10 @@
 	font-size: 13px;
 }
 
-.pfStockListItemChart, .pfWatchlistItemChart {
-	border: 1px solid grey;
-	width: 70px;
+.pfStockListItemGraph, .pfWatchlistItemGraph {
+	/* border: 1px solid grey; */
+	height: auto;
+	width: 75px;
 	/* width: 40% */
 }
 

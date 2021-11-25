@@ -12,14 +12,14 @@ const BuyForm = () => {
 	const user_id = user.id;
 
 	const stock = useSelector(state => state.stockDetail);
-	const purchase_price = (stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose
+	const purchase_price = (stock?.iexAskPrice !== 0) ? stock?.iexAskPrice:stock?.iexClose;
 
 	const { ticker } = useParams();
 	const [shares, setShares] = useState('');
-	const [disableBuy, setDisableBuy] = useState(false)
+	const [disableBuy, setDisableBuy] = useState(false);
 
-	const current_buying_power = user?.buying_power
-	const new_buying_power = current_buying_power - (purchase_price * shares)
+	const current_buying_power = user?.buying_power;
+	const new_buying_power = current_buying_power - (purchase_price * shares);
 
 	const handleBuySubmit = async (e) => {
 		e.preventDefault();
@@ -27,19 +27,17 @@ const BuyForm = () => {
 		if (newPortfolio) {
 			await dispatch(buyingPower({user_id, new_buying_power}));
 			setShares('');
-		}
+		};
 	}
 
 	if(disableBuy === false) {
-		if((purchase_price * shares > current_buying_power)) {
+		if(purchase_price * shares > current_buying_power) {
 			setDisableBuy(true);
-		}
-		// if (current_buying_power === 0) {
-		// 	setDisableBuy(true);
-		// }
+		};
 	} else if (disableBuy === true) {
-		if (purchase_price * shares <= current_buying_power)
-			setDisableBuy(false)
+		if (purchase_price * shares <= current_buying_power) {
+			setDisableBuy(false);
+		};
 	}
 
 	return(
@@ -68,10 +66,10 @@ const BuyForm = () => {
 
 				<div className='bfEstimatedCost'>
 					<div className='bfEstimatedCostHeader'>Estimated Cost</div>
-					<div className='bfEstimatedCostText'>${!shares ? 0:(purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+					<div className='bfEstimatedCostText'>${!shares ? 0 : (purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
 				{disableBuy && <div>Not Enough Buying Power</div>}
-				<button className='bfBuyButton' id={disableBuy?'bfBuyDisable':''} disabled={disableBuy} type='submit'>Buy</button>
+				<button className='bfBuyButton' id={disableBuy ? 'bfBuyDisable' : ''} disabled={disableBuy} type='submit'>Buy</button>
 				<div className='bfBuyingPowerAvailableContainer'>
 					<div className='bfBuyingPowerAvailable'>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>
 				</div>
