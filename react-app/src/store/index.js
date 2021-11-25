@@ -6,7 +6,10 @@ import watchlist from './watchlist';
 import stock from './stock';
 import stockDetail from './stockDetail';
 import stockDetailAll from './stockDetailAll';
+import watchlistDetailAll from './watchlistDetailAll';
 import stockGraph from './stockGraph';
+import stockGraphAll from './stockGraphAll';
+import watchlistGraphAll from './watchlistGraphAll';
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +18,10 @@ const rootReducer = combineReducers({
   stock,
   stockDetail,
   stockDetailAll,
+  watchlistDetailAll,
   stockGraph,
+  stockGraphAll,
+  watchlistGraphAll,
 });
 
 
