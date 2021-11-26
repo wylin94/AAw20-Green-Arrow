@@ -32,6 +32,7 @@ export const getPortfolios = () => async (dispatch) => {
 		const portfolios = await response.json();
 		portfolios.portfolios.sort((first, second) => first.id - second.id )
 		dispatch(load(portfolios));
+		return portfolios;
 	}
 };
 
