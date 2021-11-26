@@ -25,6 +25,7 @@ export const getWatchlists = () => async (dispatch) => {
 	if (response.ok) {
 		const watchlists = await response.json();
 		dispatch(load(watchlists));
+		return watchlists;
 	}
 };
 

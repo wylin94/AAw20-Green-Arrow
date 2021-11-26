@@ -17,15 +17,20 @@ function Portfolio() {
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.session.user);
 	const stocks = useSelector(state => Object.values(state.stock));
-	const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
-	const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
+	// const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
+	// const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
+
 	const stockDetailAll = useSelector(state => Object.values(state.stockDetailAll));
 	const stockDetailAllObject = useSelector(state => state.stockDetailAll);
+
 	const watchlistDetailAll = useSelector(state => Object.values(state.watchlistDetailAll));
 	const watchlistDetailAllObject = useSelector(state => state.watchlistDetailAll);
 
 	const stockListGraph = useSelector(state => state.stockGraphAll);
-  const watchlistGraph = useSelector(state => state.watchlistGraphAll);
+	const watchlistGraph = useSelector(state => state.watchlistGraphAll);
+
+	const [portfolios, setPortfolios] = useState([]);
+	const [watchlists, setWatchlists] = useState([]);
 
 	// const [stockGraph, setStockGraph] = useState();
 	
@@ -70,7 +75,6 @@ function Portfolio() {
 		return result;
 	};
 
-
 	let arrayOfWatchlistTicker = [];
 	watchlists?.forEach(watchlist => arrayOfWatchlistTicker.push(watchlist.ticker));
 
@@ -87,8 +91,14 @@ function Portfolio() {
 	// }, [combinedPortfoliosResult]);
 
 	useEffect(() => {
-		dispatch(getPortfolios());
-		dispatch(getWatchlists());
+		dispatch(getPortfolios()).then(res => {
+			const result = res.portfolios.filter(ele => ele.user_id === user.id);
+			setPortfolios(result);
+		});
+		dispatch(getWatchlists()).then(res => {
+			const result = res.watchlists.filter(ele => ele.user_id === user.id);
+			setWatchlists(result);
+		});
 		dispatch(getAllStock());
 	}, [dispatch]);
 
@@ -97,14 +107,14 @@ function Portfolio() {
 			dispatch(getStockDetailAll(arrayOfPortfolioTicker));
 			dispatch(getStockGraphAll(arrayOfPortfolioTicker));
 		};
-	}, [dispatch, arrayOfPortfolioTicker, stockDetailAll.length]);
+	}, [dispatch, portfolios]);
 
 	useEffect(() => {
-		if(arrayOfWatchlistTicker.length > 0 && watchlistDetailAll.length < arrayOfWatchlistTicker.length) {
+		if(arrayOfWatchlistTicker.length > 0 && watchlistDetailAll.length <arrayOfWatchlistTicker.length) {
 			dispatch(getWatchlistDetailAll(arrayOfWatchlistTicker));
 			dispatch(getWatchlistGraphAll(arrayOfWatchlistTicker));
 		};
-	}, [dispatch, arrayOfWatchlistTicker, watchlistDetailAll.length]);
+	}, [dispatch, watchlists]);
 
 	
 	return(

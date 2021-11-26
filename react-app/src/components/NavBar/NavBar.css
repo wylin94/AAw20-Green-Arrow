@@ -5,7 +5,7 @@
 	align-items: center;
 	height: 63px;
 	z-index: 1;
-	/* box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, .2); */
+	box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, .2);
 	position: sticky;
 	top: 0;
 }
@@ -21,9 +21,11 @@
 
 .navLeft{
 	display: flex;
-	gap: 47px;
+
 	text-decoration: none;
 	align-items: center;
+	/* background-color: red; */
+	min-width: 50px;
 }
 
 .navLogoImage {
@@ -32,36 +34,105 @@
 
 .navSearchBarContainer {
 	display: flex;
-	min-width: 760px;
+	width: 760px;
+	min-width: 490px;
 	align-items: center;
+	height: 50px;
+	/* background-color: blue; */
 }
 
 .navSearchBarIcon {
 	display: flex;
+	align-items: center;
 	position: relative;
 	font-size: 24px;
-	right: 470px;
+	/* right: 470px; */
 	color: grey;
+	z-index: 1;
+	left: 10px;
 }
 
 .navSearchBar {
 	/* margin-left: 140px; */
+	position: absolute;
     border: 1px solid rgb(228, 228, 228);
 	border-radius: 5px;
 	width: 480px;
 	height: 35px;
 	text-indent: 40px;
 	outline-width: 0px;
+	/* box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1); */
+	/* transition: 2s; */
+}
+
+#NavSearchBarIncludesResult {
+	border: none;
+	border-radius: 5px 5px 0px 0px;
+	width: 480px;
+	height: 35px;
+	text-indent: 40px;
+	outline-width: 0px;
+	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
+	clip-path: inset(-40px -40px 0px -40px);
 }
 
 .navSearchBar:hover {
 	border: none;
+	/* outline-width: 0px; */
 	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
+	text-indent: 41px;
+}
+
+/* .navSearchBar:focus {
+	border: none;
+	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
+} */
+
+.navSearchBarResultContainer {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	width: 480px;
+	top: 49px;
+	/* z-index: 1; */
+	background-color: white;
+	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
+	/* box-shadow: 0px 50px 30px 0px rgba(0, 0, 0, .1); */
+	clip-path: inset(0px -40px -40px -40px);
+	border-radius: 0px 0px 5px 5px;
+}
+
+.navSearchBarResultHeader {
+	font-size: 13px;
+	color: grey;
+	margin: 15px 25px;
+}
+
+.navSearchBarResult {
+	display: flex;
+	flex-direction: column;
+}
+
+.navSearchBarResultItemLink {
+	text-decoration: none;
+	width: 100%;
+	padding: 6px 25px;
+}
+
+.navSearchBarResultItemLink:hover {
+	background-color: rgb(247, 247, 247);
+}
+
+.navSearchBarResultItem {
+	font-size: 13px;
+
 }
 
 .navRight{
 	display: flex;
 	gap: 25px;
+	/* background-color: #00C805; */
+	/* min-width: 100px; */
 }
 
 .navGitHub, .navLinkedIn, .navPortfolio {

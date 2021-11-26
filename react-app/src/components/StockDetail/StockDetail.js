@@ -13,6 +13,7 @@ import BuyForm from './BuyForm';
 import SellForm from './SellForm';
 import Graph from '../Graph';
 import './StockDetail.css';
+import { GiConsoleController } from 'react-icons/gi';
 
 
 function StockDetail() {
@@ -36,17 +37,14 @@ function StockDetail() {
 	const [oneYButton, setOneYButton] = useState(false);
 	const [threeYButton, setThreeYButton] = useState(false);
 
-	useEffect(() => {
-		if (stocks.length > 0) {
-			if (!stocks.find(ele => ticker === ele.symbol)) {history.push("/pageNotFound")};
-		};
-	}, [dispatch, ticker, stocks, history]);
 
 	useEffect(() => {
 		dispatch(getPortfolios());
 		dispatch(getWatchlists());
 		dispatch(getAllStock());
-		dispatch(getOneStock(ticker.toLowerCase()));
+		dispatch(getOneStock(ticker.toLowerCase())).then(
+			res => {if (!res) {history.push("/pageNotFound")}}
+		);
 		dispatch(getOneDayGraph(ticker, '20211124')); //hardcoded date, need to updated
 	}, [dispatch, ticker]);
 	// console.log(new Date().toISOString().slice(0, 10))
