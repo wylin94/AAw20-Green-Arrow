@@ -14,12 +14,13 @@ const NavBar = () => {
   const location = useLocation();
   const [searchInput, setSearchInput] = useState('');
   const [searchResult, setSearchResult] = useState([]);
+  console.log('*****', searchResult)
 
   useEffect(() => {
     const searchFetch = async () => {
       if (searchInput) {
+        // const response = await fetch(`https://cloud.iexapis.com/stable/search/${searchInput}?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
         const response = await fetch(`https://sandbox.iexapis.com/stable/search/${searchInput}?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
-        // const response = await fetch(`https://sandbox.iexapis.com/stable/ref-data/${searchInput}?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
         if (response.ok) {
           const searchResult = await response.json();
           setSearchResult(searchResult);
@@ -58,7 +59,7 @@ const NavBar = () => {
 
             <div className='navSearchBarContainer'>
               <label className='navSearchBarIcon'><CgSearch /></label>
-              <input className='navSearchBar' id={searchInput.length>0?'NavSearchBarIncludesResult':''}placeholder='Search' type='text' onChange={e => {setSearchInput(e.target.value)}}></input>
+              <input className='navSearchBar' id={searchInput.length>0?'NavSearchBarIncludesResult':''} placeholder='Search' type='text' onChange={e => {setSearchInput(e.target.value)}}></input>
               {/* <div className='navSearchBarIcon'><CgSearch /></div> */}
               {searchInput && <div className='navSearchBarResultContainer'>
                 <div className='navSearchBarResultHeader'>Stocks</div>

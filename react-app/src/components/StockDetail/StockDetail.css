@@ -72,8 +72,9 @@
 
 .sdGraphStockGraphButton {
 	border: none;
-	background-color: white;
+	background-color: transparent;
 	font-weight: bold;
+	
 	margin: 0px 5px;
 }
 
@@ -83,17 +84,21 @@
 }
 
 #graphButtonHighlight {
+	position: relative;
+	background-color: transparent;
+	top: 3px;
 	color: #00C805;
-	border-bottom: 1px solid #00C805;
+	border-bottom: 2px solid #00C805;
+	padding-bottom: 6px;
 }
 
-.pfGraphShareOwnedStatContainer {
+.sdGraphShareOwnedStatContainer {
 	display: flex;
 	gap: 13px;
 	margin-top: 55px;
 }
 
-.pfGraphMarketValueContainer, .pfGraphAverageContainer {
+.sdGraphMarketValueContainer, .sdGraphAverageContainer {
 	border: 1px solid rgb(228, 228, 228);
 	width: 331px;
 	height: 179px;
@@ -101,9 +106,52 @@
 
 /*********** PORTFOLIO LIST ***********/
 
+.sdCompanyInfoSection {
+	padding: 0 20px;
+}
+
+.sdCompanyInfoHeader {
+	font-size: 25px;
+	font-weight: 500;
+	padding: 70px 0px 20px 0px;
+	border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.sdCompanyInfoDes {
+	padding: 25px 0px;
+	font-size: 15px;
+	line-height: 23px;
+}
+
+.sdCompanyInfoBody {
+	display: flex;
+	gap: 100px;
+	/* justify-content: space-between; */
+}
+
+.sdCompanyItem {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.sdCompanyInfoItemHead {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.sdCompanyInfoItemData {
+	font-size: 13px;
+}
+
+/*********** PORTFOLIO LIST ***********/
+
 
 .sdSidePanel {
+	position: sticky;
+	top: 101px;
 	width: 26.2%;
+	height: 520px;
 	margin-left: 55px;
 }
 

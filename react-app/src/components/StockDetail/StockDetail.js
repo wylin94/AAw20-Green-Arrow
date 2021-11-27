@@ -36,18 +36,9 @@ function StockDetail() {
 	const [threeMButton, setThreeMButton] = useState(false);
 	const [oneYButton, setOneYButton] = useState(false);
 	const [threeYButton, setThreeYButton] = useState(false);
-
-
-	useEffect(() => {
-		dispatch(getPortfolios());
-		dispatch(getWatchlists());
-		dispatch(getAllStock());
-		dispatch(getOneStock(ticker.toLowerCase())).then(
-			res => {if (!res) {history.push("/pageNotFound")}}
-		);
-		dispatch(getOneDayGraph(ticker, '20211124')); //hardcoded date, need to updated
-	}, [dispatch, ticker]);
-	// console.log(new Date().toISOString().slice(0, 10))
+	const [news, setNews] = useState([]);
+	const [companyInfo, setCompanyInfo] = useState([]);
+	console.log('*****', companyInfo);
 
 	const handleGraphRange = (ticker, oneD, oneW, oneM, threeM, oneY, threeY) => {
 		setOneDButton(oneD);
@@ -79,13 +70,47 @@ function StockDetail() {
 		};
 	};
 
+	useEffect(() => {
+		dispatch(getPortfolios());
+		dispatch(getWatchlists());
+		dispatch(getAllStock());
+		dispatch(getOneStock(ticker.toLowerCase())).then(
+			res => {if (!res) {history.push("/pageNotFound")}}
+		);
+		dispatch(getOneDayGraph(ticker, '20211124')); //hardcoded date, need to updated
+	}, [dispatch, ticker]);
+	// console.log(new Date().toISOString().slice(0, 10))
+
+	useEffect(() => {
+		const getNews = async () => {
+			const response = await fetch(`https://cloud.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=pk_b594792b9ef34e0e96c77e7d19984f80`);
+			// const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
+			if (response.ok) {
+				const news = await response.json();
+				setNews(news);
+			};
+		};
+		getNews();
+	}, []);
+
+	useEffect(() => {
+		const getCompanyInfo = async () => {
+			const response = await fetch(`https://cloud.iexapis.com/stable/stock/${ticker}/company?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
+			// const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
+			if (response.ok) {
+				const companyInfo = await response.json();
+				setCompanyInfo(companyInfo);
+			};
+		};
+		getCompanyInfo();
+	}, [])
+
 	return(
 		<div className='sdWrapper'>
 			<div className='sdContainer'>
 
 				<div className='sdStockFeed'>
 					<div className='sdGraphSection'>
-
 						<div className='sdGraphBalanceContainer'>
 							<div className='sdGraphCompanyName'>{stock?.companyName}</div>
 							<div className='sdGraphStockPrice'>
@@ -103,7 +128,6 @@ function StockDetail() {
 								<div className='sdGraphBalanceChangeToday'>Today</div>
 							</div>
 						</div>
-
 						<div className='sdGraphStockGraph'>
 							<div className='sdGraphSockGraphContainer'>
 								<Graph stockGraph={stockGraph}/>
@@ -139,9 +163,8 @@ function StockDetail() {
 									5Y</button>
 							</div>
 						</div>
-
-						<div className='pfGraphShareOwnedStatContainer'>
-							<div className='pfGraphMarketValueContainer'>
+						<div className='sdGraphShareOwnedStatContainer'>
+							<div className='sdGraphMarketValueContainer'>
 								<div>Your market value</div>
 								<div>amount</div>
 								<div>
@@ -153,7 +176,7 @@ function StockDetail() {
 									<div>amount</div>
 								</div>
 							</div>
-							<div className='pfGraphAverageContainer'>
+							<div className='sdGraphAverageContainer'>
 								<div>Your average cost</div>
 								<div>amount</div>
 								<div>
@@ -162,9 +185,50 @@ function StockDetail() {
 								</div>
 							</div>
 						</div>
-
 					</div>
-					<div className='sdNewsSection'>
+					
+					<div className='sdCompanyInfoSection'>
+						<div className='sdCompanyInfoHeader'>About</div>
+						<div className='sdCompanyInfoDes'>{companyInfo.description}</div>
+						<div className='sdCompanyInfoBody'>
+							<div className='sdCompanyItem'>
+								<div className='sdCompanyInfoItemHead'>CEO</div>
+								<div className='sdCompanyInfoItemData'>{companyInfo.CEO}</div>
+							</div>
+							<div className='sdCompanyItem'>
+								<div className='sdCompanyInfoItemHead'>Employees</div>
+								<div className='sdCompanyInfoItemData'>{companyInfo.employees?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+							</div>
+							<div className='sdCompanyItem'>
+								<div className='sdCompanyInfoItemHead'>Headquarters</div>
+								<div className='sdCompanyInfoItemData'>{companyInfo.city}, {companyInfo.country}</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div className='pfNewsSection'>
+						<div className='pfNewsHeader'>News</div>
+						<div className='pfNewsBody'>
+							{news.map(article => {
+								return (
+									<a className='pfNewsArticleLink' key={article.subkey} href={article.qmUrl}>
+										<div className='pfNewsArticleContainer'>
+											<div className='pfNewsArticleText'>
+												<div className='pfNewsArticleProvider'>{article.provider}</div>
+												<div className='pfNewsArticleHeadline'>{article.headline}</div>
+												<div className='pfNewsArticleRelated'>{article.related}</div>
+											</div>
+											<div 
+												className='pfNewsArticleImageContainer'
+												style={{  backgroundImage: `url(  ${article.imageUrl}  )`  }}>
+											</div>
+											{/* {article.imageUrl && <img className='pfNewsArticleImage' src={article.imageUrl} alt={`${article.related} news`}></img>} */}
+										</div>
+									</a>
+								)
+							})}
+						</div>
 					</div>
 				</div>
 
@@ -182,23 +246,20 @@ function StockDetail() {
 								onClick={() => handleShowBuySellForm(false, true)}>
 								Sell {stock.symbol}</button>
 						</div>
-
 						<div className='sdOrder'>
 							{buyForm && <BuyForm />}
 							{sellForm && <SellForm />}
 						</div>
 					</div>
-
 					<div className='sdAddToWatchContainer'>
 						<button className='sdAddToWatchButton' 
 							onClick={handleShuffleToWatchlist}>
 							{watchCheck ? (<div><AiOutlineCheck /></div>) : (<div><AiOutlinePlus /></div>)} Add to Watchlist</button>
 					</div>
+				</div>
 
-				</div>	
 			</div>
 		</div>
-
 	)
 }
 

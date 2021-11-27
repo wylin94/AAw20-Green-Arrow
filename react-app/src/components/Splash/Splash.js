@@ -87,7 +87,7 @@ function Splash() {
 						<div className='splashFourthBodyContainer'>
 							<div className='splashFourthBodyOne'>
 								<div className='splashFourthBodyOneHeader'>Invest in the Best </div>
-								<div className='splashFourthBodyOneText'>Choose how much you want to invest, and you will recieve your maximum return from Jack.</div>
+								<div className='splashFourthBodyOneText'>Pick your winning stock now and you will recieve your maximum return from Jack.</div>
 							</div>
 							<div className='splashFourthBodyTwo'>
 								<div className='splashFourthBodyTwoHeader'>Build Your Company</div>
