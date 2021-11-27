@@ -27,7 +27,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-	background-color: yellow;
+	/* background-color: yellow; */
+	margin: 5px 0px 40px 0px;
 }
 
 .pfGraphBalanceTotal {
@@ -51,9 +52,18 @@
 	color: #6A7278;
 }
 
-.pfGraphStockGraphContainer {
-	background-color: lightcyan;
+.sdGraphStockGraph {
+	/* background-color: lightcyan; */
+	/* border: 1px solid black; */
 }
+
+.pfGraphStockGraphContainer {
+    height: 196px;
+    width: 676px;
+}
+
+
+
 
 .pfGraphBuyingPowerContainer {
 	display: flex;
@@ -72,18 +82,119 @@
 
 
 .pfNewsSection {
+	padding: 0 20px;
+}
 
+.pfNewsHeader {
+	font-size: 25px;
+	font-weight: 500;
+	padding: 70px 0px 20px 0px;
+	border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.pfNewsBody {
+
+}
+
+
+.pfNewsArticleLink {
+	text-decoration: none;
+	background-color: red;
+	height: auto;
+	border-bottom: 1px solid rgb(228, 228, 228);
+	padding: 25px 0px;
+}
+
+.pfNewsArticleLink:hover {
+	/* background-color: rgb(247, 247, 247); */
+}
+
+
+
+.pfNewsArticleContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: auto;
+	border-bottom: 1px solid rgb(228, 228, 228);
+	padding: 25px 0px;
+}
+
+.pfNewsArticleContainer:hover {
+	background-color: rgb(247, 247, 247);
+}
+
+
+
+
+
+
+
+.pfNewsArticleBody {
+	/* display: flex; */
+	/* flex-direction: row; */
+	/* justify-content: space-between; */
+}
+
+.pfNewsArticleText {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	max-width: 480px;
+	/* background-color: #00C805; */
+}
+
+.pfNewsArticleProvider {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.pfNewsArticleHeadline {
+	font-size: 15px;
+	/* background-color: #00C805; */
+}
+
+.pfNewsArticleRelated {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.pfNewsArticleImageContainer {
+	/* background-color: red; */
+	background-size: cover;
+	background-position: center center;
+	width: 130px;
+	height: 100px;
+	border-radius: 5px;
+}
+
+.pfNewsArticleImage {
+	border: 1px solid black;
+	width: 170px;
+	border-radius: 5px;
 }
 
 /*********** PORTFOLIO LIST ***********/
 
 
 .pfPortfolioList {
+	position: sticky;
+	top: 101px;
 	border: 1px solid rgb(228, 228, 228);
+	border-radius: 5px;
 	box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, .1);
 	/* flex: 0.3; */
 	width: 26.2%;
 	margin-left: 55px;
+	max-height: 80vh;
+	overflow: scroll;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+
+.pfPortfolioList::-webkit-scrollbar {
+	display: none;
 }
 
 .pfStockListHeaderContainer, .pfWatchListHeaderContainer {
