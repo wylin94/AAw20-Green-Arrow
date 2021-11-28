@@ -79,6 +79,17 @@
 	font-weight: bold;
 }
 
+.sfErrorNotEnoughContainer {
+	height: 20px;
+}
+
+.sfErrorNotEnough {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+	margin: 0px 25px;
+}
+
 .sfSellButton {
     border: none;
 	background-color: #00C805;
@@ -88,7 +99,7 @@
     /* width: 80%; */
     font-size: 13px;
     font-weight: bold;
-	margin: 20px 25px 35px 25px;
+	margin: 15px 25px 20px 25px;
 }
 
 .sfsellButton:hover {

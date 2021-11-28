@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/User/UsersList';
 import User from './components/User/User';
+import Profile from './components/User';
 import Portfolio from './components/Portfolio';
 import Splash from './components/Splash';
 import StockDetail from './components/StockDetail';
@@ -37,31 +38,40 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
+
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
+
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+
         <ProtectedRoute path='/stocks/:ticker' exact={true} >
           <NavBar />
           <StockDetail />
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
+
+        {/* <ProtectedRoute path='/users' exact={true} >
           <NavBar />
           <UsersList />
-        </ProtectedRoute>
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
         </ProtectedRoute> */}
+
+        <ProtectedRoute path='/profile' exact={true} >
+          <NavBar />
+          <Profile />
+        </ProtectedRoute>
+        
         <Route path='/' exact={true} >
           <NavBar />
           {sessionUser ? (<Portfolio />):(<Splash />)}
         </Route>
+
         <Route>
           <NavBar />
 					<PageNotFound />
 				</Route>
+
       </Switch>
 
     </BrowserRouter>

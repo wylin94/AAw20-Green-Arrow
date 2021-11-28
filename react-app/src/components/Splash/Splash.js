@@ -1,13 +1,25 @@
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineInfoCircle, AiOutlineGithub } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
-import { SiJavascript, SiReact, SiPython, SiHtml5, SiCss3, SiFlask, SiPostgresql, SiDocker } from "react-icons/si";
+import { SiJavascript, SiReact, SiRedux, SiPython, SiHtml5, SiCss3, SiFlask, SiPostgresql, SiDocker } from "react-icons/si";
 
 import './Splash.css'
 
 function Splash() {
+	const [name, setName] = useState(true);
+	const [design, setDesign] = useState(false);
+	const [implementation, setImplementation] = useState(false);
+
+	const handleMyDesignClick = (name, design, implementation) => {
+		setName(name);
+		setDesign(design);
+		setImplementation(implementation);
+	};
+
 	return(
 		<div className='splashWrapper'>
+
 			<div className='splashFirstSection'>
 				<div className='splashFirstSectionContainer'>
 					<div className='splashFirstLeft'>
@@ -26,9 +38,11 @@ function Splash() {
 					</div>
 				</div>
 			</div>
+
 			<div className='splashSecondSection'>
 				<div className='splashSecondSectionText'>See what you can do with 1 million dollars.</div>
 			</div>
+
 			<div className='splashThirdSection'>
 				<div className='splashThirdSectionContainer'>
 					<div className='splashThirdLeft'>
@@ -68,11 +82,12 @@ function Splash() {
 						</div>
 						<div className='splashThirdDiscloseContainer'>
 							<div className='splashThirdDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashThirdDiscloseText'>Not a real trading platform</div>
+							<div className='splashThirdDiscloseText'>Not a real million dollar</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<div className='splashFourthSection' id='meetDeveloper'>
 				<div className='splashFourthSectionContainer'>
 					<div className='splashFourthLeft'>
@@ -87,20 +102,20 @@ function Splash() {
 						<div className='splashFourthBodyContainer'>
 							<div className='splashFourthBodyOne'>
 								<div className='splashFourthBodyOneHeader'>Invest in the Best </div>
-								<div className='splashFourthBodyOneText'>Pick your winning stock now and you will recieve your maximum return from Jack.</div>
+								<div className='splashFourthBodyOneText'>Lock in your winning investment now, and recieve your maximum return from Jack.</div>
 							</div>
 							<div className='splashFourthBodyTwo'>
 								<div className='splashFourthBodyTwoHeader'>Build Your Company</div>
 								<div className='splashFourthBodyTwoText'>Customize your team by placing Jack in the appropriate role and watch your company grow.</div>
 							</div>
 							<div className='splashFourthBodyThree'>
-								<div className='splashFourthBodyThreeHeader'>Work in Real Time</div>
+								<div className='splashFourthBodyThreeHeader'>Result in Real Time</div>
 								<div className='splashFourthBodyThreeText'>Jack works from market open to market close, after-hours working is now available. You can always count on him.</div>
 							</div>
 						</div>
 						<div className='splashFourthDiscloseContainer'>
 							<div className='splashFourthDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashFourthDiscloseText'>A real and a serious developer</div>
+							<div className='splashFourthDiscloseText'>A real person and a serious developer</div>
 						</div>
 					</div>
 					<div className='splashFourthRight'>
@@ -108,30 +123,81 @@ function Splash() {
 					</div>
 				</div>
 			</div>
+
+
+
 			<div className='splashFifthSection'>
 				<div className='splashFifthSectionContainer'>
-					<div className='splashFifthLeft'>
-						<img className='splashFifthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSection.png'} alt='POW!'></img>
-					</div>
+
 					<div className='splashFifthRight'>
-						<div className='splashFifthHeader'>GreenArrow is built with these technologies</div>
-						<div className='splashFifthIconContainer'>
-							<div className='splashFifthIconGroup1'>
+						<img className='splashFifthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashSixthSection.jpg'} alt='Design'></img>
+					</div>
+
+
+
+					<div className='splashFifthRight'>
+
+						<div className='splashFifthHeaderContainer'>
+							<div className='splashFifthHeaderName'>My Design</div>
+							<div className='splashFifthSubHeaderContainer'>
+								<div className='splashFifthSubHeader' id={name?'designHighlight':''} onClick={() => handleMyDesignClick(true, false, false)}>The Name</div>
+								<div className='splashFifthSubHeader' id={design?'designHighlight':''} onClick={() => handleMyDesignClick(false, true, false)}>Design</div>
+								<div className='splashFifthSubHeader' id={implementation?'designHighlight':''} onClick={() => handleMyDesignClick(false, false, true)}>Future Implementation</div>
+							</div>
+						</div>
+
+						<div className='splashFifthBodyContainer'>
+							{name && <div className='splashFifthBodyText'>The name GreenArrow, refers to the fictional superhero Green Arrow who appears in comic books published by DC Comics. Green Arrow is an archer who uses his skills to fight crime and sometimes shown dressed like the charactor Robin Hood, hence why the site is named GreenArrow.  The name GreenArrow also refers to the green up arrow when stocks goes up.</div>}
+							{name && <div><a className="splashFifthBodyButton" href='https://en.wikipedia.org/wiki/Green_Arrow'>Learn about DC Green Arrow</a></div>}
+							{design && <div className='splashFifthBodyText'>GreenArrow is a Robinhood clone.  The core design and UI of the site borrows ideas from Robinhood with some added twists.  The Robinhood green stays unchanged to match the DC charactor Green Arrow, and the stock's green up arrow.</div>}
+							{design && <div><a className="splashFifthBodyButton" href='https://robinhood.com'>Learn about Robinhood</a></div>}
+							{implementation && <div className='splashFifthBodyText'>• Improve responsive design<br/>• Create named watchlist functionality<br/>• Profile page<br/>• Add responsive color theme when stock is up or down<br/>• Implement transaction table to create a functional total balance graph on profile page</div>}
+						</div>
+
+						<div className='splashFifthDiscloseContainer'>
+							<div className='splashFifthDiscloseIcon'><AiOutlineInfoCircle /></div>
+							<div className='splashFifthDiscloseText'>Fun facts about GreenArrow</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+
+
+
+
+			<div className='splashSixthSection'>
+				<div className='splashSixthSectionContainer'>
+					<div className='splashSixthLeft'>
+						<div className='splashSixthHeader'>GreenArrow is built with these technologies</div>
+						<div className='splashSixthIconContainer'>
+							<div className='splashSixthIconGroup1'>
 								<SiJavascript />
 								<SiReact />
+								<SiRedux />
 								<SiPython />
 								<SiHtml5 />
 							</div>
-							<div className='splashFifthIconGroup2'>
+							<div className='splashSixthIconGroup2'>
 								<SiCss3 />
 								<SiFlask />
 								<SiPostgresql />
+								<i class="devicon-sqlalchemy-plain"></i>
 								<SiDocker />
 							</div>
 						</div>
 					</div>
+					<div className='splashSixthRight'>
+						<img className='splashSixthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSection.png'} alt='POW!'></img>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	)
 }
