@@ -80,7 +80,9 @@ const SellForm = () => {
 					<div className='sfEstimatedCreditHeader'>Estimated Credit</div>
 					<div className='sfEstimatedCreditText'>${!shares ? 0 : (sell_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
-				{disableSell && <div>Not Enough Shares</div>}
+				<div className='sfErrorNotEnoughContainer'>
+					{disableSell && <div className='sfErrorNotEnough'>Not Enough Shares</div>}
+				</div>
 				<button className='sfSellButton' id={disableSell ? 'sfSellDisable' : ''} disabled={disableSell} type='submit'>Sell</button>
 				<div className='sfShareAvailableContainer'>
 					<div className='sfShareAvailable'>{shareAvailable?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Share{shareAvailable > 1 && 's'} Available</div>

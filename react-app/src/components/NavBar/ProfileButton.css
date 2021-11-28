@@ -85,6 +85,14 @@
     background-color: white;
     font-size: 25px;
     padding-left: 23px;
+    text-decoration: none;
+}
+
+#profileDropdownButton-profile {
+    display: flex;
+    font-size: 22px;
+    padding-left: 24px;
+    gap: 2px;
 }
 
 #showMeTheMillion {

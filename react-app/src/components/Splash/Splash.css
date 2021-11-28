@@ -4,7 +4,7 @@
     position: relative;
 }
 
-/* FIRST SECTION */
+/****************** FIRST SECTION *****************/
 
 .splashFirstSection {
     display: flex;
@@ -93,7 +93,7 @@
     width: 450px;
 }
 
-/* SECOND SECTION */
+/****************** SECOND SECTION *****************/
 
 .splashSecondSection {
     display: flex;
@@ -108,7 +108,7 @@
     font-size: 19px;
 }
 
-/* THIRD SECTION */
+/****************** THIRD SECTION *****************/
 
 .splashThirdSection {
     display: flex;
@@ -205,13 +205,14 @@
     color: #6A7278;
 }
 
-/* FOURTH SECTION */
+/****************** FOURTH SECTION *****************/
 
 .splashFourthSection {
     display: flex;
     background-color: #F0EBE6;
     height: 530px;
     justify-content: center;
+    border-bottom: 1px solid black;
 }
 
 .splashFourthSectionContainer {
@@ -336,50 +337,172 @@
     border-radius: 300px;
 }
 
-/* FIFTH SECTION */
+
+/****************** FIFTH SECTION *****************/
 
 .splashFifthSection {
     display: flex;
-    background-color: black;
-    height: 680px;
+    background-color: white;
+    height: 700px;
     justify-content: center;
 }
 
 .splashFifthSectionContainer {
     display: flex;
     width: 80%;
-    gap: 20px;
+    gap: 80px;
     justify-content: center;
     align-items: center;
     /* background-color: blue; */
 }
 
-.splashFifthLeft {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    /* max-width: 900px; */
-    /* min-width: 500px; */
-}
-
 .splashFifthImage {
-    width: 500px;
+    width: 350px;
 }
 
 .splashFifthRight {
     display: flex;
     flex-direction: column;
+    gap: 55px;
+    /* max-width: 900px; */
+    /* width: 600px; */
+    /* justify-content: center; */
+    /* background-color: yellow; */
+}
+
+.splashFifthHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* background-color: lightgreen; */
+}
+
+.splashFifthHeaderName {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.splashFifthSubHeaderContainer {
+    display: flex;
+    gap: 30px;
+}
+
+.splashFifthSubHeader {
+    font-size: 24px;
+    font-weight: 500;
+    color: #888c8f;
+    border: none;
+    background-color: transparent;
+}
+
+.splashFifthSubHeader:hover {
+    color: rgb(68, 205, 88);
+	cursor: pointer;
+}
+
+#designHighlight {
+    color: black;
+}
+
+.splashFifthBodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+    min-width: 500px;
+    min-height: 250px;
+    /* background-color: lightblue; */
+}
+
+.splashFifthBodyText {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.splashFifthBodyButton {
+    background-color: black;
+    color: white;
+    /* width: 305px; */
+    padding: 16px 39px 16px 39px;
+	border-radius: 100px;
+    font-size: 17px;
+	text-decoration: none;
+	font-weight: bold;
+    /* overflow: hidden; */
+    white-space: nowrap;
+}
+
+.splashFifthBodyButton:hover {
+    cursor: pointer;
+    background-color: rgb(45, 45, 45);
+}
+
+.splashFifthDiscloseContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.splashFifthDiscloseIcon {
+    display: flex;
+    font-size: 32px;
+    color: #6A7278;
+}
+
+.splashFifthDiscloseText {
+    font-size: 19px;
+    font-weight: 600;
+    color: #6A7278;
+}
+
+/****************** SIXTH SECTION *****************/
+
+.splashSixthSection {
+    display: flex;
+    background-color: black;
+    height: 680px;
     justify-content: center;
 }
 
-.splashFifthHeader {
+.splashSixthSectionContainer {
+    display: flex;
+    width: 80%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lightcyan; */
+}
+
+.splashSixthRight {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* max-width: 900px; */
+    /* min-width: 500px; */
+    /* background-color: blue; */
+}
+
+.splashSixthImage {
+    width: 500px;
+}
+
+.splashSixthLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+    min-width: 580px;
+}
+
+.splashSixthHeader {
     font-size: 30px;
     font-weight: 500;
     color: white;
     margin-bottom: 30px;
 }
 
-.splashFifthIconContainer {
+.splashSixthIconContainer {
     display: flex;
     flex-direction: column;
     /* gap: 20px; */
@@ -387,7 +510,7 @@
     /* background-color: blue; */
 }
 
-.splashFifthIconGroup1, .splashFifthIconGroup2 {
+.splashSixthIconGroup1, .splashSixthIconGroup2 {
     display: flex;
     font-size: 70px;
     color: white;

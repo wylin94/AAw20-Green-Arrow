@@ -1,0 +1,31 @@
+.profileWrapper {
+	display: flex;
+	justify-content: center;
+	height: auto;
+}
+
+.profileContainer {
+	display: flex;
+	min-width: 1050px;
+	max-width: 1050px;
+	margin-top: 32px;
+    background-color: yellow;
+}
+
+.profileLeft {
+	width: 68%;
+    background-color: blue;
+}
+
+.profileHeader {
+    display: flex;
+    background-color: red;
+}
+
+.profileHeaderImage {
+
+}
+
+.profileHeaderNameContainer {
+
+}

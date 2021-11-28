@@ -22,7 +22,7 @@ const LoginForm = () => {
 
   const handleDemoSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('warrenbuffett@aa.io', 'password'));
+    const data = await dispatch(login('jordanbelfort@wolfofwallstreet.com', 'password'));
     if (data) {
       setErrors(data)
     }
@@ -74,7 +74,7 @@ const LoginForm = () => {
             />
           </div>
           <div className='loginFormForgot' >Forgot your password?</div>
-          <div>
+          <div className='loginFormErrorContainer'>
             {errors.map((error, ind) => (
               <div className='loginFormError' key={ind}>{error}</div>
             ))}

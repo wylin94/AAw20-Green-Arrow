@@ -87,6 +87,17 @@
     text-indent: 9px;
 }
 
+.signUpFormErrorContainer {
+    height: 35px;
+    /* background-color: blue; */
+}
+
+.signUpFormError {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+}
+
 .signUpFormSubmitButton {
     border: none;
 	background-color: #00C805;
@@ -96,7 +107,7 @@
     width: 148px;
     font-size: 13px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .signUpFormAlreadyStarted {
@@ -121,7 +132,7 @@
     font-weight: bold;
     position:relative;
     left: 170px;
-    bottom: 109px;
+    bottom: 87px;
 }
 
 .signUpFormSubmitButton:hover, .signUpFormDemoButton:hover {

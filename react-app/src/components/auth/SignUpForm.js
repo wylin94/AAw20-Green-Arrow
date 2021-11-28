@@ -27,7 +27,7 @@ const SignUpForm = () => {
 
   const handleDemoSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('warrenbuffett@aa.io', 'password'));
+    const data = await dispatch(login('jordanbelfort@wolfofwallstreet.com', 'password'));
     if (data) {
       setErrors(data)
     }
@@ -108,26 +108,29 @@ const SignUpForm = () => {
                 required={true}
               ></input>
             </div>
+
+            <div className='signUpFormErrorContainer'>
+              {errors.map((error, ind) => (
+                <div className='signUpFormError' key={ind}>{error}</div>
+              ))}
+            </div>
+
             <button className='signUpFormSubmitButton' type='submit'>Continue</button>
             <div className='signUpFormAlreadyStarted'>
               Already have an account?
               <NavLink className='signUpFormAlreadyStartedLink' to='/login' exact={true} activeClassName='active'> Log in here</NavLink>
             </div>
-            <div>
+            {/* <div>
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
-            </div>
+            </div> */}
           </form>
           <form onSubmit={handleDemoSubmit}>
             <button className='signUpFormDemoButton' type="submit">Demo</button>
           </form>
           <div className='signUpFormDisclosure'>
-            <div className='signUpFormDisclosureDetail'>All investments involve risk, including the possible loss of principal. Investors should consider their investment objectives and risks carefully before investing.</div>
-            <div className='signUpFormDisclosureDetail'>Commission-free trading means $0 commission trading on self-directed individual cash or margin brokerage accounts that trade U.S. listed securities via mobile devices or web. Keep in mind, other fees such as trading (non-commission) fees, Gold subscription fees, wire transfer fees, and paper statement fees may apply to your brokerage account. Please see GreenArrow Financial’s fee schedule to learn more.</div>
-            <div className='signUpFormDisclosureDetail'>Securities trading offered through GreenArrow Financial LLC. Brokerage clearing services offered through GreenArrow Securities, LLC. Both are subsidiaries of GreenArrow Markets, Inc.</div>
-            <div className='signUpFormDisclosureDetail'>Check the background of GreenArrow Financial LLC and GreenArrow Securities, LLC on FINRA’s BrokerCheck.</div>
-            <div className='signUpFormDisclosureDetail'>GreenArrow Terms & Conditions Disclosure Library Contact Us FAQ</div>
+            <div className='signUpFormDisclosureDetail'>Q: How do you thank Green Arrow for saving your life? A: With greenbacks! Q: How does Green Arrow know he's been cuckolded by Batman? A: When Canarys hatch a few Robins Q: What's the difference between Green Arrow and a unicorn? A: Nothing, they're both fictional characters Q: What did Catwoman say to Green Arrow? A: "You make me quiver." Q: What did Green Arrow say to Spider Man? A: "Don't bug me." Q: Why did Green Arrow flush the toilet? A: Because it was his duty! Q: What did Green Arrow say when he hit a bull? A: I got a bullseye. Q: What does Green Arrow wear with his suit? A: A bow tie. Q: What does Green Arrow put in his beverages? A: Just ice.</div>
             <div className='signUpFormDisclosureDetail'>© 2021 GreenArrow. No rights reserved.</div>
           </div>
         </div>
@@ -135,16 +138,16 @@ const SignUpForm = () => {
       <div className='signUpFormRight'>
         <div className='SignUpFormRightWrapper'>
           <div className='signUpformRightContainer'>
-            <div className='signUpFormRightHeader'>Commission-free trading</div>
-            <div className='signUpFormRightBody'>Break free from commission-fees and make unlimited commission-free trades in stocks, funds, and options with Robinhood Financial. Other fees may apply. View our fee schedule to learn more.</div>
+            <div className='signUpFormRightHeader'>Risk-free trading</div>
+            <div className='signUpFormRightBody'>Break free from risks and make unlimited risk-free trades in stocks with GreenArrow Financial. No fees may apply. View our splash page to learn more.</div>
           </div>
           <div className='signUpformRightContainer'>
             <div className='signUpFormRightHeader'>Account Protection</div>
-            <div className='signUpFormRightBody'>Robinhood Financial is a member of SIPC. Securities in your account protected up to $500,000. For details, please see www.sipc.org.</div>
+            <div className='signUpFormRightBody'>GreenArrow Financial is not a member of SIPC. Securities in your account is not real so there is no need for SIPC. If you played the game Monopoly before, you know what it means. For details, please see <a href='https://en.wikipedia.org/wiki/Monopoly_money'>Monopoly money</a>.</div>
           </div>
           <div className='signUpformRightContainer'>
             <div className='signUpFormRightHeader'>Stay on top of your portfolio</div>
-            <div className='signUpFormRightBody'>Set up customized news and notifications to stay on top of your assets as casually or as relentlessly as you like. Controlling the flow of info is up to you.</div>
+            <div className='signUpFormRightBody'>Set up customized watchlist  to stay on top of your assets as casually or as relentlessly as you like. Controlling the flow of info is up to you.</div>
           </div>
         </div>
       </div>

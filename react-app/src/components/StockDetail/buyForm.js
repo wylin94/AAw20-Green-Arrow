@@ -23,7 +23,7 @@ const BuyForm = () => {
 
 	const handleBuySubmit = async (e) => {
 		e.preventDefault();
-		const newPortfolio = await dispatch(createPortfolio({user_id, ticker, share:shares , purchase_price}));
+		const newPortfolio = await dispatch(createPortfolio({user_id, ticker, share:shares, purchase_price}));
 		if (newPortfolio) {
 			await dispatch(buyingPower({user_id, new_buying_power}));
 			setShares('');
@@ -68,7 +68,9 @@ const BuyForm = () => {
 					<div className='bfEstimatedCostHeader'>Estimated Cost</div>
 					<div className='bfEstimatedCostText'>${!shares ? 0 : (purchase_price * shares)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 				</div>
-				{disableBuy && <div>Not Enough Buying Power</div>}
+				<div className='bfErrorNotEnoughBuyingPowerContainer'>
+					{disableBuy && <div className='bfErrorNotEnoughBuyingPower'>Not Enough Buying Power</div>}
+				</div>
 				<button className='bfBuyButton' id={disableBuy ? 'bfBuyDisable' : ''} disabled={disableBuy} type='submit'>Buy</button>
 				<div className='bfBuyingPowerAvailableContainer'>
 					<div className='bfBuyingPowerAvailable'>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} buying power available</div>

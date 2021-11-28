@@ -14,7 +14,6 @@ const NavBar = () => {
   const location = useLocation();
   const [searchInput, setSearchInput] = useState('');
   const [searchResult, setSearchResult] = useState([]);
-  console.log('*****', searchResult)
 
   useEffect(() => {
     const searchFetch = async () => {

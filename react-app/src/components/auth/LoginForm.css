@@ -64,6 +64,10 @@
     font-size: 13px;
 }
 
+.loginFormErrorContainer {
+    height: 40px;
+}
+
 .loginFormError {
     font-size: 13px;
     font-weight: bold;
@@ -79,7 +83,7 @@
     width: 140px;
     font-size: 13px;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .loginFormDemoButton {

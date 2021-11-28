@@ -67,12 +67,22 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 15px 25px 15px 25px; 
-
 }
 
 .bfEstimatedCostHeader {
 	font-size: 14px;
 	font-weight: bold;
+}
+
+.bfErrorNotEnoughBuyingPowerContainer {
+	height: 20px;
+}
+
+.bfErrorNotEnoughBuyingPower {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+	margin: 0px 25px;
 }
 
 .bfBuyButton {
@@ -84,7 +94,7 @@
     /* width: 80%; */
     font-size: 13px;
     font-weight: bold;
-	margin: 20px 25px 35px 25px;
+	margin: 15px 25px 20px 25px;
 }
 
 .bfBuyButton:hover {
