@@ -22,7 +22,9 @@ const LoginForm = () => {
 
   const handleDemoSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('jordanbelfort@wolfofwallstreet.com', 'password'));
+    const demoEmail = ['jordanbelfort@wolfofwallstreet.com', 'warrenbuffett@birkshire.com', 'bernieMadoff@berniemadoffinvestmentsecurities.com'];
+    const randomDemoEmail = demoEmail[Math.floor(Math.random() * demoEmail.length)];
+    const data = await dispatch(login(randomDemoEmail, 'password'));
     if (data) {
       setErrors(data)
     }

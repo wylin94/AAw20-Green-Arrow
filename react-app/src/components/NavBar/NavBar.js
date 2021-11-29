@@ -65,7 +65,7 @@ const NavBar = () => {
                 <div className='navSearchBarResult'>
                   {searchResult.map(stock => {
                     return (
-                      <NavLink className='navSearchBarResultItemLink' key={stock.symbol} to={`/stocks/${stock.symbol}`}>
+                      <NavLink className='navSearchBarResultItemLink' key={stock.symbol} to={`/stocks/${stock.symbol}`} onClick={() => setSearchInput('')}>
                         <div className='navSearchBarResultItem'>{stock.symbol}</div>
                       </NavLink>
                     )

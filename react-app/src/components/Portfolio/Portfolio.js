@@ -18,7 +18,7 @@ function Portfolio() {
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.session.user);
 	const stocks = useSelector(state => Object.values(state.stock));
-	// const portfolios = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
+	const portfoliosChange = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
 	// const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
 
 	const stockDetailAll = useSelector(state => Object.values(state.stockDetailAll));
@@ -72,14 +72,15 @@ function Portfolio() {
 		};
 		return result;
 	};
-	const combinedPortfoliosResult = combinedPortfolios();
+	let combinedPortfoliosResult = combinedPortfolios();
+	// let combinedPortfoliosResult;
 
 	// COMBINED TOTAL CHANGE OF PORTFOLIO //
 	let arrayOfPortfolioTicker = [];
 	combinedPortfoliosResult?.forEach(portfolio => arrayOfPortfolioTicker.push(portfolio.ticker));
 	const totalCombinedChange = () => {
 		let result = 0;
-		combinedPortfoliosResult.forEach(portfolio => {
+		combinedPortfoliosResult?.forEach(portfolio => {
 			result = result + (portfolio.share * stockDetailAllObject[portfolio.ticker]?.change);
 		})
 		return result;
@@ -145,24 +146,26 @@ function Portfolio() {
 
 	useEffect(() => {
 		const getNews = async () => {
-			// const response = await fetch(`https://cloud.iexapis.com/stable/time-series/news/?range=last-week&limit=15&token=pk_b594792b9ef34e0e96c77e7d19984f80`);
-			const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
+			const response = await fetch(`https://cloud.iexapis.com/stable/time-series/news/?range=last-week&limit=15&token=pk_b594792b9ef34e0e96c77e7d19984f80`);
+			// const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
 			if (response.ok) {
 				const news = await response.json();
 				setNews(news);
 			};
 		};
 		getNews();
-	}, [])
+	}, []);
 
+	// useEffect(() => {
+	// 	console.log('change', portfoliosChange)
+	// 	combinedPortfoliosResult = combinedPortfolios();
+	// }, [portfoliosChange]);
 	
 	return(
 		<div className='pfWrapper'>
 			<div className='pfContainer'>
-
 				<div className='pfStockFeed'>
 					<div className='pfGraphSection'>
-
 						<div className='pfGraphBalanceContainer'>
 							<div className='pfGraphBalanceTotal'>
 								${(portfoliosRunningBalance) ? 
@@ -178,7 +181,6 @@ function Portfolio() {
 								<div className='pfGraphBalanceChangeToday'>Today</div>
 							</div>
 						</div>
-
 						<div className='pfGraphStockGraph'>
 							<div className='pfGraphStockGraphContainer'>
 								<Graph stockGraph={stockGraph}/>
@@ -214,14 +216,12 @@ function Portfolio() {
 									5Y</button>
 							</div>
 						</div>
-						
 						<div className='pfGraphBuyingPowerContainer'>
 							<div className='pfGraphBuyingPowerText'>Buying Power</div>
 							<div className='pfGraphBuyingPowerAmount'>
 								${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
 						</div>
 					</div>
-					
 					<div className='pfNewsSection'>
 						<div className='pfNewsHeader'>News</div>
 						<div className='pfNewsBody'>
@@ -229,7 +229,6 @@ function Portfolio() {
 								return (
 									<a className='pfNewsArticleLink' key={article.subkey} href={article.qmUrl}>
 										<div className='pfNewsArticleContainer'>
-
 											<div className='pfNewsArticleText'>
 												<div className='pfNewsArticleProvider'>{article.provider}</div>
 												<div className='pfNewsArticleHeadline'>{article.headline}</div>
@@ -237,20 +236,16 @@ function Portfolio() {
 											</div>
 											<div 
 												className='pfNewsArticleImageContainer'
-												style={{  backgroundImage: `url(  ${article.imageUrl}  )`  }}>
+												style={{backgroundImage:`url(${article.imageUrl})`}}>
 											</div>
-
 											{/* {article.imageUrl && <img className='pfNewsArticleImage' src={article.imageUrl} alt={`${article.related} news`}></img>} */}
-
 										</div>
 									</a>
 								)
 							})}
 						</div>
 					</div>
-
 				</div>
-
 				<div className='pfPortfolioList'>
 					<div className='pfStockListHeaderContainer'>
 						<div className='pfStockListHeader'>Stocks</div>

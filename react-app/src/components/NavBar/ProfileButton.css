@@ -110,14 +110,38 @@
     /* font-weight: 600; */
 }
 
-
-
-
-/* .profileDropdownLogout {
+.profileDropdownModalContainer{
+    /* border: 1px solid black; */
+    /* background-color: blue; */
     display: flex;
-    padding: 10px 20px 20px 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 410px;
+    height: 270px;
+    padding: 25px;
 }
 
-.profileDropdownLogoutIcon {
-    font-size: 25px;
-} */
+.profileDropdownModalHeader {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.profileDropdownModalBody {
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.profileDropdownModalCloseButton {
+    background-color: black;
+    border: none;
+    border-radius: 5px;;
+    color: white;
+    font-weight: bold;
+    height: 48px;
+}
+
+.profileDropdownModalCloseButton:hover {
+    cursor: pointer;
+    background-color: rgb(45, 45, 45);
+}

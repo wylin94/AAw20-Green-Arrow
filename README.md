@@ -43,7 +43,7 @@ Before you begin, please check the following Wiki documents:
 ## Future Implementations
 * Improve responsive design
 * Create named watchlist functionality
-* Profile page
+* Functional profile page
 * Add responsive color theme when stock is up or down
 * Implement transaction table to create a functional total balance graph on profile page
 
