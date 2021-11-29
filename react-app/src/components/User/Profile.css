@@ -9,23 +9,61 @@
 	min-width: 1050px;
 	max-width: 1050px;
 	margin-top: 32px;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .profileLeft {
 	width: 68%;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .profileHeader {
     display: flex;
-    background-color: red;
+    /* background-color: red; */
+	margin: 30px 25px 30px 25px;
+	gap: 25px;
 }
 
 .profileHeaderImage {
-
+	width: 75px;
+	border-radius: 100px;
 }
 
 .profileHeaderNameContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
 
+.profileHeaderName {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.profileHeaderNameMoto {
+	font-size: 16px;
+	color: grey;
+}
+
+.profileStat {
+	display: flex;
+	flex-direction: column;
+	gap: 37px;
+	/* background-color: yellow; */
+	margin: 30px 25px 30px 40px;
+}
+
+.profileStatItem {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
+}
+
+.profileStaItemHeader {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.profileStaItemStat {
+	font-size: 15px;
 }

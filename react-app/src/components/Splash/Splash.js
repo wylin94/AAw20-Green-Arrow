@@ -151,7 +151,7 @@ function Splash() {
 							{name && <div><a className="splashFifthBodyButton" href='https://en.wikipedia.org/wiki/Green_Arrow'>Learn about DC Green Arrow</a></div>}
 							{design && <div className='splashFifthBodyText'>GreenArrow is a Robinhood clone.  The core design and UI of the site borrows ideas from Robinhood with some added twists.  The Robinhood green stays unchanged to match the DC charactor Green Arrow, and the stock's green up arrow.</div>}
 							{design && <div><a className="splashFifthBodyButton" href='https://robinhood.com'>Learn about Robinhood</a></div>}
-							{implementation && <div className='splashFifthBodyText'>• Improve responsive design<br/>• Create named watchlist functionality<br/>• Profile page<br/>• Add responsive color theme when stock is up or down<br/>• Implement transaction table to create a functional total balance graph on profile page</div>}
+							{implementation && <div className='splashFifthBodyText'>• Improve responsive design<br/>• Create named watchlist functionality<br/>• Functional profile page<br/>• Add responsive color theme when stock is up or down<br/>• Implement transaction table to create a functional total balance graph on profile page</div>}
 						</div>
 
 						<div className='splashFifthDiscloseContainer'>

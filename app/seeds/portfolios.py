@@ -2,19 +2,33 @@ from app.models import db, Portfolio
 
 
 def seed_portfolios():
-    portfolio5 = Portfolio(
-        user_id=1, ticker='MRVL', share=20, purchase_price=73.82)
-    portfolio6 = Portfolio(
-        user_id=1, ticker='AAPL', share=10, purchase_price=149.99)
-
     portfolio1 = Portfolio(
-        user_id=2, ticker='KO', share=100, purchase_price=55.46)
+        user_id=1, ticker='GME', share=900, purchase_price=200.50)
     portfolio2 = Portfolio(
-        user_id=2, ticker='AAPL', share=10, purchase_price=150.93)
+        user_id=1, ticker='AMC', share=700, purchase_price=38.00)
     portfolio3 = Portfolio(
-        user_id=2, ticker='FB', share=20, purchase_price=342.55)
+        user_id=1, ticker='BGFV', share=100, purchase_price=25.84)
     portfolio4 = Portfolio(
-        user_id=2, ticker='AMZN', share=10, purchase_price=3543.50)
+        user_id=1, ticker='CGC', share=100, purchase_price=11.62)
+    portfolio5 = Portfolio(
+        user_id=1, ticker='CRON', share=10, purchase_price=4.64)
+    portfolio6 = Portfolio(
+        user_id=1, ticker='TLRY', share=200, purchase_price=10.73)
+    portfolio7 = Portfolio(
+        user_id=1, ticker='GRWG', share=650, purchase_price=17.87)  
+    
+    portfolio8 = Portfolio(
+        user_id=2, ticker='BRK.B', share=900, purchase_price=55.46)
+    portfolio9 = Portfolio(
+        user_id=2, ticker='KO', share=500, purchase_price=55.46)
+    portfolio10 = Portfolio(
+        user_id=2, ticker='AAPL', share=900, purchase_price=150.93)
+    portfolio11 = Portfolio(
+        user_id=2, ticker='BAC', share=500, purchase_price=45.63)
+    portfolio12 = Portfolio(
+        user_id=2, ticker='KHC', share=350, purchase_price=34.69)
+    portfolio13 = Portfolio(
+        user_id=2, ticker='VZ', share=100, purchase_price=51.73)
 
     db.session.add(portfolio1)
     db.session.add(portfolio2)
@@ -22,7 +36,13 @@ def seed_portfolios():
     db.session.add(portfolio4)
     db.session.add(portfolio5)
     db.session.add(portfolio6)
-
+    db.session.add(portfolio7)
+    db.session.add(portfolio8)
+    db.session.add(portfolio9)
+    db.session.add(portfolio10)
+    db.session.add(portfolio11)
+    db.session.add(portfolio12)
+    db.session.add(portfolio13)
 
     db.session.commit()
 
