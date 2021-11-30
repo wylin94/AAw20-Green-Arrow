@@ -6,10 +6,13 @@ GreenArrow, a Robinhood clone, is a popular stock trading platform whose mission
 The name GreenArrow, refers to the fictional superhero Green Arrow who appears in comic books published by DC Comics. Green Arrow is an archer who uses his skills to fight crime and sometimes shown dressed like the charactor Robin Hood, hence why the site is named GreenArrow.  The name GreenArrow also refers to the green up arrow when stocks goes up.
 
 ### Splash Page View
+![](https://github.com/wylin94/Green-Arrow/blob/main/react-app/public/images/README1.png?raw=true)
 
 ### Profile Page View
+![](https://github.com/wylin94/Green-Arrow/blob/main/react-app/public/images/README2.png?raw=true)
 
 ### Stock Page View
+![](https://github.com/wylin94/Green-Arrow/blob/main/react-app/public/images/README3.png?raw=true)
 
 
 ## Prerequisites
@@ -45,6 +48,7 @@ Before you begin, please check the following Wiki documents:
 * Create named watchlist functionality
 * Functional profile page
 * Add responsive color theme when stock is up or down
+* Dark Mode
 * Implement transaction table to create a functional total balance graph on profile page
 
 
