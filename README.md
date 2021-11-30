@@ -7,6 +7,7 @@ The name GreenArrow, refers to the fictional superhero Green Arrow who appears i
 
 ### Splash Page View
 ![](https://github.com/wylin94/Green-Arrow/blob/main/react-app/public/images/README1.png?raw=true)
+![](https://github.com/wylin94/Green-Arrow/blob/main/react-app/public/images/README-1.gif?raw=true)
 
 ### Profile Page View
 ![](https://github.com/wylin94/Green-Arrow/blob/main/react-app/public/images/README2.png?raw=true)
