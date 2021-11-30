@@ -74,21 +74,28 @@
 	font-weight: bold;
 }
 
-.bfErrorNotEnoughBuyingPowerContainer {
+.bfErrorContainer {
 	height: 20px;
 }
 
-.bfErrorNotEnoughBuyingPower {
+.bfError {
     font-size: 13px;
     font-weight: bold;
     color: red;
 	margin: 0px 25px;
 }
 
-.bfBuyButton {
-    border: none;
+.bfBuyConfirmMessage {
+    font-size: 13px;
+    font-weight: bold;
+	margin: 0px 25px;
+}
+
+.bfReviewButton {
+	border: none;
 	background-color: #00C805;
-	padding: 17px 50px 17px 50px;
+	padding: 16.5px 0px;
+	text-align: center;
 	border-radius: 5px;
     color: white;
     /* width: 80%; */
@@ -97,8 +104,26 @@
 	margin: 15px 25px 20px 25px;
 }
 
-.bfBuyButton:hover {
+.bfReviewButton:hover {
 	background-color: rgb(0, 181, 6);
+	cursor: pointer;
+}
+
+.bfBuyConfirmButton {
+    border: none;
+	background-color: #FF5000;
+	padding: 17px 0px;
+	text-align: center;
+	border-radius: 5px;
+    color: white;
+    /* width: 80%; */
+    font-size: 13px;
+    font-weight: bold;
+	margin: 15px 25px 20px 25px;
+}
+
+.bfBuyConfirmButton:hover {
+	background-color: #df4700;
 	cursor: pointer;
 }
 

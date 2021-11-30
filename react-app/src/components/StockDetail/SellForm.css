@@ -79,21 +79,28 @@
 	font-weight: bold;
 }
 
-.sfErrorNotEnoughContainer {
+.sfErrorContainer {
 	height: 20px;
 }
 
-.sfErrorNotEnough {
+.sfError {
     font-size: 13px;
     font-weight: bold;
     color: red;
 	margin: 0px 25px;
 }
 
-.sfSellButton {
-    border: none;
+.sfSellConfirmMessage {
+    font-size: 13px;
+    font-weight: bold;
+	margin: 0px 25px;
+}
+
+.sfReviewButton {
+	border: none;
 	background-color: #00C805;
-	padding: 17px 50px 17px 50px;
+	padding: 16.5px 0px;
+	text-align: center;
 	border-radius: 5px;
     color: white;
     /* width: 80%; */
@@ -102,8 +109,26 @@
 	margin: 15px 25px 20px 25px;
 }
 
-.sfSellButton:hover {
+.sfReviewButton:hover {
 	background-color: rgb(0, 181, 6);
+	cursor: pointer;
+}
+
+.sfSellConfirmButton {
+    border: none;
+	background-color: #FF5000;
+	padding: 17px 0px;
+	text-align: center;
+	border-radius: 5px;
+    color: white;
+    /* width: 80%; */
+    font-size: 13px;
+    font-weight: bold;
+	margin: 15px 25px 20px 25px;
+}
+
+.sfSellConfirmButton:hover {
+	background-color: #df4700;
 	cursor: pointer;
 }
 
