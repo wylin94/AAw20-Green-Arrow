@@ -137,7 +137,7 @@ const SignUpForm = () => {
           </form>
           <div className='signUpFormDisclosure'>
             <div className='signUpFormDisclosureDetail'>Q: How do you thank Green Arrow for saving your life? A: With greenbacks! Q: How does Green Arrow know he's been cuckolded by Batman? A: When Canarys hatch a few Robins Q: What's the difference between Green Arrow and a unicorn? A: Nothing, they're both fictional characters Q: What did Catwoman say to Green Arrow? A: "You make me quiver." Q: What did Green Arrow say to Spider Man? A: "Don't bug me." Q: Why did Green Arrow flush the toilet? A: Because it was his duty! Q: What did Green Arrow say when he hit a bull? A: I got a bullseye. Q: What does Green Arrow wear with his suit? A: A bow tie. Q: What does Green Arrow put in his beverages? A: Just ice.</div>
-            <div className='signUpFormDisclosureDetail'>© 2021 GreenArrow. No rights reserved.</div>
+            <div className='signUpFormDisclosureDetail'>© 2021 GreenArrow. All rights reserved.</div>
           </div>
         </div>
       </div>
