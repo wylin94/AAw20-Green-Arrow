@@ -49,13 +49,11 @@ const NavBar = () => {
       {sessionUser ? (
         <nav className='navWrapper'>
           <div className='navContainer'>
-
             <div className='navLeft'>
               <NavLink to='/' exact={true} activeClassName='active'>
                 <img className='navLogoImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/logo.png'} alt='GreenArrow Logo'></img>
               </NavLink>
             </div>
-
             <div className='navSearchBarContainer'>
               <label className='navSearchBarIcon'><CgSearch /></label>
               <input className='navSearchBar' id={searchInput.length>0?'NavSearchBarIncludesResult':''} placeholder='Search' type='text' onChange={e => {setSearchInput(e.target.value)}}></input>
@@ -82,7 +80,6 @@ const NavBar = () => {
                 </div>
               </div>}
             </div>
-
             <div className='navRight'>
               <a className='navGitHub' href='https://github.com/wylin94'>GitHub</a>
               <a className='navLinkedIn' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>

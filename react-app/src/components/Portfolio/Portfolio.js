@@ -18,7 +18,7 @@ function Portfolio() {
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.session.user);
 	const stocks = useSelector(state => Object.values(state.stock));
-	const portfoliosChange = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
+	// const portfoliosChange = useSelector(state => state.portfolio.portfolios?.filter(ele => ele.user_id === user.id));
 	// const watchlists = useSelector(state => state.watchlist.watchlists?.filter(ele => ele.user_id === user.id));
 
 	const stockDetailAll = useSelector(state => Object.values(state.stockDetailAll));
@@ -157,11 +157,11 @@ function Portfolio() {
 	}, []);
 
 	// const [test, setTest] = useState([]);
-	useEffect(() => {
+	// useEffect(() => {
 		// console.log('change', portfoliosChange)
 		// setTest(portfoliosChange)
 		// combinedPortfoliosResult = combinedPortfolios();
-	}, [portfoliosChange]);
+	// }, [portfoliosChange]);
 	
 	return(
 		<div className='pfWrapper'>
