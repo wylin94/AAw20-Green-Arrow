@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 
 import { signUp, login } from '../../store/session';
@@ -11,18 +11,23 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const buying_power = 1000000;
+  const [passwordNotMatch, setPasswordNotMatch] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    const buying_power = 1000000;
+    const profile_image = 'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/Avatar.png';
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password, buying_power));
+      setPasswordNotMatch(false);
+      const data = await dispatch(signUp(username, email, password, buying_power, profile_image));
       if (data) {
         setErrors(data)
-      }
-    }
+      };
+    } else {
+      setPasswordNotMatch(true);
+    };
   };
 
   const handleDemoSubmit = async (e) => {
@@ -32,8 +37,8 @@ const SignUpForm = () => {
     const data = await dispatch(login(randomDemoEmail, 'password'));
     if (data) {
       setErrors(data)
-    }
-  }
+    };
+  };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -53,7 +58,7 @@ const SignUpForm = () => {
 
   if (user) {
     return <Redirect to='/' />;
-  }
+  };
 
   return (
     <div className='signUpFormWrapper'>
@@ -110,13 +115,12 @@ const SignUpForm = () => {
                 required={true}
               ></input>
             </div>
-
             <div className='signUpFormErrorContainer'>
               {errors.map((error, ind) => (
                 <div className='signUpFormError' key={ind}>{error}</div>
               ))}
+              {passwordNotMatch && <div className='signUpFormError'>password: Password do not match</div>}
             </div>
-
             <button className='signUpFormSubmitButton' type='submit'>Continue</button>
             <div className='signUpFormAlreadyStarted'>
               Already have an account?
@@ -153,9 +157,6 @@ const SignUpForm = () => {
           </div>
         </div>
       </div>
-
-
-
     </div>
   );
 };

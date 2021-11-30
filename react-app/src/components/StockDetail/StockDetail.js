@@ -83,8 +83,8 @@ function StockDetail() {
 
 	useEffect(() => {
 		const getNews = async () => {
-			const response = await fetch(`https://cloud.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=pk_b594792b9ef34e0e96c77e7d19984f80`);
-			// const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
+			// const response = await fetch(`https://cloud.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=pk_b594792b9ef34e0e96c77e7d19984f80`);
+			const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
 			if (response.ok) {
 				const news = await response.json();
 				setNews(news);
@@ -95,8 +95,8 @@ function StockDetail() {
 
 	useEffect(() => {
 		const getCompanyInfo = async () => {
-			const response = await fetch(`https://cloud.iexapis.com/stable/stock/${ticker}/company?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
-			// const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
+			// const response = await fetch(`https://cloud.iexapis.com/stable/stock/${ticker}/company?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
+			const response = await fetch(`https://sandbox.iexapis.com/stable/time-series/news/${ticker}?range=last-week&limit=15&token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
 			if (response.ok) {
 				const companyInfo = await response.json();
 				setCompanyInfo(companyInfo);
@@ -108,7 +108,6 @@ function StockDetail() {
 	return(
 		<div className='sdWrapper'>
 			<div className='sdContainer'>
-
 				<div className='sdStockFeed'>
 					<div className='sdGraphSection'>
 						<div className='sdGraphBalanceContainer'>
@@ -186,7 +185,6 @@ function StockDetail() {
 							</div>
 						</div> */}
 					</div>
-					
 					<div className='sdCompanyInfoSection'>
 						<div className='sdCompanyInfoHeader'>About</div>
 						<div className='sdCompanyInfoDes'>{companyInfo.description}</div>
@@ -205,8 +203,6 @@ function StockDetail() {
 							</div>
 						</div>
 					</div>
-
-
 					<div className='pfNewsSection'>
 						<div className='pfNewsHeader'>News</div>
 						<div className='pfNewsBody'>
@@ -231,7 +227,6 @@ function StockDetail() {
 						</div>
 					</div>
 				</div>
-
 				<div className='sdSidePanel'>
 					<div className='sdBuySellFormContainer'>
 						<div className='sdSidePanelBuySellButtonContainer'>
@@ -257,7 +252,6 @@ function StockDetail() {
 							{watchCheck ? (<div><AiOutlineCheck /></div>) : (<div><AiOutlinePlus /></div>)} Add to Watchlist</button>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	)
