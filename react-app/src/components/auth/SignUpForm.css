@@ -159,6 +159,7 @@
     align-items: center;
     background-color: #F5F8FA;
     width: 40%;
+    height: 100vh;
 }
 
 .SignUpFormRightWrapper {
