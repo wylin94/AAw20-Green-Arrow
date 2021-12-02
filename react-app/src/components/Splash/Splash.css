@@ -356,8 +356,22 @@
     /* background-color: blue; */
 }
 
+.splashFifthLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	box-shadow: 20px 20px 30px 5px rgba(0, 0, 0, .1);
+    min-width: 350px;
+    min-height: 450px;
+}
+
 .splashFifthImage {
     width: 350px;
+}
+
+.splashFifthImagePhase1, .splashFifthImagePhase2 {
+    width: 200px;
+    transition: all 2s ease;
 }
 
 .splashFifthRight {
@@ -390,7 +404,7 @@
 .splashFifthSubHeader {
     font-size: 24px;
     font-weight: 500;
-    color: #888c8f;
+    color: #a3a8ac;
     border: none;
     background-color: transparent;
 }

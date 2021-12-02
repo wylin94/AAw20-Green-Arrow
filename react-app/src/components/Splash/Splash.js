@@ -126,8 +126,11 @@ function Splash() {
 
 			<div className='splashFifthSection'>
 				<div className='splashFifthSectionContainer'>
-					<div className='splashFifthRight'>
-						<img className='splashFifthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashSixthSection.jpg'} alt='Design'></img>
+					<div className='splashFifthLeft'>
+						{/* <img className='splashFifthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashSixthSection.jpg'} alt='Design'></img> */}
+						{design && <img className='splashFifthImagePhase1' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSectionPhase1.jpg'} alt='Design'></img>}
+						{implementation && <img className='splashFifthImagePhase2' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSectionPhase2.jpg'} alt='Design'></img>}
+
 					</div>
 					<div className='splashFifthRight'>
 						<div className='splashFifthHeaderContainer'>
@@ -139,9 +142,9 @@ function Splash() {
 							</div>
 						</div>
 						<div className='splashFifthBodyContainer'>
-							{name && <div className='splashFifthBodyText'>The name GreenArrow, refers to the fictional superhero Green Arrow who appears in comic books published by DC Comics. Green Arrow is an archer who uses his skills to fight crime and sometimes shown dressed like the charactor Robin Hood, hence why the site is named GreenArrow.  The name GreenArrow also refers to the green up arrow when stocks goes up.</div>}
+							{name && <div className='splashFifthBodyText'>The name GreenArrow, refers to the fictional superhero Green Arrow who appears in comic books published by DC Comics. Green Arrow is an archer who uses his skills to fight crime and sometimes shown dressed like the charactor Robin Hood, hence why the site is named GreenArrow.  The name GreenArrow also refers to the green up arrow when stocks is up.</div>}
 							{name && <div><a className="splashFifthBodyButton" href='https://en.wikipedia.org/wiki/Green_Arrow'>Learn about DC Green Arrow</a></div>}
-							{design && <div className='splashFifthBodyText'>GreenArrow is a Robinhood clone.  The core design and UI of the site borrows ideas from Robinhood with some added twists.  The Robinhood green stays unchanged to match the DC charactor Green Arrow, and the stock's green up arrow.</div>}
+							{design && <div className='splashFifthBodyText'>GreenArrow is a Robinhood clone.  The core design and the UI/UX of the site borrows ideas from Robinhood with some added twists.  The Robinhood green stays unchanged to match the DC charactor Green Arrow, and the stock's green up arrow.</div>}
 							{design && <div><a className="splashFifthBodyButton" href='https://robinhood.com'>Learn about Robinhood</a></div>}
 							{implementation && <div className='splashFifthBodyText'>• Improve responsive design<br/>• Create named watchlist functionality<br/>• Functional profile page<br/>• Add responsive color theme when stock is up or down<br/>• Night mode<br/>• Implement transaction table to create a functional total balance graph on profile page</div>}
 						</div>
