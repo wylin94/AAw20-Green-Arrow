@@ -32,6 +32,22 @@ const LoginForm = () => {
   //   }
   // }
 
+  const handleDemoBernieSubmit = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('bernieMadoff@berniemadoffinvestmentsecurities.com', 'password'));
+    if (data) {
+      setErrors(data)
+    };
+  };
+
+  const handleDemoElonSubmit = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('elonmusk@tesla.com', 'password'));
+    if (data) {
+      setErrors(data)
+    };
+  };
+
   const handleDemoJordanSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login('jordanbelfort@wolfofwallstreet.com', 'password'));
@@ -42,15 +58,15 @@ const LoginForm = () => {
 
   const handleDemoWarrenSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('warrenbuffett@birkshire.com', 'password'));
+    const data = await dispatch(login('warrenbuffett@berkshirehathaway.com', 'password'));
     if (data) {
       setErrors(data)
     };
   };
 
-  const handleDemoBernieSubmit = async (e) => {
+  const handleDemoWallStreetBetsSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('bernieMadoff@berniemadoffinvestmentsecurities.com', 'password'));
+    const data = await dispatch(login('WallStreetBets@reddit.com', 'password'));
     if (data) {
       setErrors(data)
     };
@@ -119,20 +135,7 @@ const LoginForm = () => {
           <Modal onClose={() => setDemoModal(false)}>
             <div className='signUpDemoModalContainer'>
               <div className='signUpDemoModalHeader'>Choose Your Demo Login</div>
-              <div className='signUpDemoModalItem' onClick={handleDemoJordanSubmit}>
-                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-JordanBelfort.jpeg' alt='Warren Buffett'></img>
-                <div className='signUpDemoModalBody'>
-                  <div className='signUpDemoModalName'>Jordan Belfort</div>
-                  <div className='signUpDemoModalMotto'>Sell me this pen</div>
-                </div>
-              </div>
-              <div className='signUpDemoModalItem' onClick={handleDemoWarrenSubmit}>
-                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WarrenBuffett.jpeg' alt='Warren Buffett'></img>
-                <div className='signUpDemoModalBody'>
-                  <div className='signUpDemoModalName'>Warren Buffett</div>
-                  <div className='signUpDemoModalMotto'>It’s far better to buy a wonderful company at a fair price, than a fair company at a wonderful price.</div>
-                </div>
-              </div>
+
               <div className='signUpDemoModalItem' onClick={handleDemoBernieSubmit}>
                 <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-BernieMadoff.jpeg' alt='Warren Buffett'></img>
                 <div className='signUpDemoModalBody'>
@@ -140,6 +143,39 @@ const LoginForm = () => {
                   <div className='signUpDemoModalMotto'>The whole government is a Ponzi scheme!</div>
                 </div>
               </div>
+
+              <div className='signUpDemoModalItem' onClick={handleDemoElonSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-ElonMusk.jpg' alt='Bernie Madoff'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>Elon Musk</div>
+                  <div className='signUpDemoModalMotto'>Am considering taking Tesla private at $420. Funding secured.</div>
+                </div>
+              </div>
+
+              <div className='signUpDemoModalItem' onClick={handleDemoJordanSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-JordanBelfort.jpeg' alt='Warren Buffett'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>Jordan Belfort</div>
+                  <div className='signUpDemoModalMotto'>Sell me this pen.</div>
+                </div>
+              </div>
+
+              <div className='signUpDemoModalItem' onClick={handleDemoWarrenSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WarrenBuffett.jpeg' alt='Warren Buffett'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>Warren Buffett</div>
+                  <div className='signUpDemoModalMotto'>It’s far better to buy a wonderful company at a fair price, than a fair company at a wonderful price.</div>
+                </div>
+              </div>
+
+              <div className='signUpDemoModalItem' onClick={handleDemoWallStreetBetsSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WallStreetBets.jpg' alt='WallStreetBets'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>WallStreetBets</div>
+                  <div className='signUpDemoModalMotto'>Send Robinhood to the ground and GME to the moon!!! Oh wait... this is GreenArrow.</div>
+                </div>
+              </div>
+
               <button className='signUpDemoModalCloseButton' onClick={() => {setDemoModal(false)}}>Cancel</button>
             </div>
           </Modal>

@@ -9,6 +9,24 @@ def seed_users():
     #     password='password', 
     #     buying_power=100000)
 
+    bernieMadoff = User(
+        username='Bernie Madoff',
+        email='bernieMadoff@berniemadoffinvestmentsecurities.com',
+        password='password',
+        buying_power=2,
+        profile_image='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-BernieMadoff.jpeg',
+        motto='The whole government is a Ponzi scheme!',
+    )
+
+    elonMusk = User(
+        username='Elon Musk',
+        email='elonmusk@tesla.com',
+        password='password',
+        buying_power=87013452,
+        profile_image='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-ElonMusk.jpg',
+        motto='Am considering taking Tesla private at $420. Funding secured.',
+    )
+
     jordanBelfort = User(
         username='Jordan Belfort', 
         email='jordanbelfort@wolfofwallstreet.com', 
@@ -20,26 +38,28 @@ def seed_users():
 
     warrentBuffett = User(
         username='Warren Buffett', 
-        email='warrenbuffett@birkshire.com', 
+        email='warrenbuffett@berkshirehathaway.com', 
         password='password', 
-        buying_power=85450664,
+        buying_power=95450664,
         profile_image='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WarrenBuffett.jpeg',
         motto='It’s far better to buy a wonderful company at a fair price, than a fair company at a wonderful price.',
     )
 
-    bernieMadoff = User(
-        username='Bernie Madoff', 
-        email='bernieMadoff@berniemadoffinvestmentsecurities.com', 
-        password='password', 
-        buying_power=2,
-        profile_image='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-BernieMadoff.jpeg',
-        motto='The whole government is a Ponzi scheme!',
+    wallStreetBets = User(
+        username='WallStreetBets',
+        email='WallStreetBets@reddit.com',
+        password='password',
+        buying_power=11273993,
+        profile_image='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WallStreetBets.jpg',
+        motto='Send Robinhood to the ground and GME to the moon!!! Oh wait... this is GreenArrow.',
     )
     
     # db.session.add(demo)
+    db.session.add(bernieMadoff)
+    db.session.add(elonMusk)
     db.session.add(jordanBelfort)
     db.session.add(warrentBuffett)
-    db.session.add(bernieMadoff)
+    db.session.add(wallStreetBets)
 
     db.session.commit()
 
