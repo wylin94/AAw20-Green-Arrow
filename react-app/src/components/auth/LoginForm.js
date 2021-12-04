@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, NavLink } from 'react-router-dom';
 
 import { login } from '../../store/session';
+import { Modal } from '../../context/Modal';
 import './LoginForm.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showDemoModal, setDemoModal] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -20,15 +22,39 @@ const LoginForm = () => {
     }
   };
 
-  const handleDemoSubmit = async (e) => {
+  // const handleDemoSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const demoEmail = ['jordanbelfort@wolfofwallstreet.com', 'warrenbuffett@birkshire.com', 'bernieMadoff@berniemadoffinvestmentsecurities.com'];
+  //   const randomDemoEmail = demoEmail[Math.floor(Math.random() * demoEmail.length)];
+  //   const data = await dispatch(login(randomDemoEmail, 'password'));
+  //   if (data) {
+  //     setErrors(data)
+  //   }
+  // }
+
+  const handleDemoJordanSubmit = async (e) => {
     e.preventDefault();
-    const demoEmail = ['jordanbelfort@wolfofwallstreet.com', 'warrenbuffett@birkshire.com', 'bernieMadoff@berniemadoffinvestmentsecurities.com'];
-    const randomDemoEmail = demoEmail[Math.floor(Math.random() * demoEmail.length)];
-    const data = await dispatch(login(randomDemoEmail, 'password'));
+    const data = await dispatch(login('jordanbelfort@wolfofwallstreet.com', 'password'));
     if (data) {
       setErrors(data)
-    }
-  }
+    };
+  };
+
+  const handleDemoWarrenSubmit = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('warrenbuffett@birkshire.com', 'password'));
+    if (data) {
+      setErrors(data)
+    };
+  };
+
+  const handleDemoBernieSubmit = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('bernieMadoff@berniemadoffinvestmentsecurities.com', 'password'));
+    if (data) {
+      setErrors(data)
+    };
+  };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -87,9 +113,37 @@ const LoginForm = () => {
             <NavLink className='loginFormCreateAccountLink' to='/sign-up' exact={true} activeClassName='active'> Create an account</NavLink>
           </div>
         </form>
-        <form onSubmit={handleDemoSubmit}>
-          <button className='loginFormDemoButton' type="submit">Demo</button>
-        </form>
+
+        <button className='loginFormDemoButton' onClick={() => setDemoModal(true)}>Demo</button>
+        {showDemoModal && (
+          <Modal onClose={() => setDemoModal(false)}>
+            <div className='signUpDemoModalContainer'>
+              <div className='signUpDemoModalHeader'>Choose Your Demo Login</div>
+              <div className='signUpDemoModalItem' onClick={handleDemoJordanSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-JordanBelfort.jpeg' alt='Warren Buffett'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>Jordan Belfort</div>
+                  <div className='signUpDemoModalMotto'>Sell me this pen</div>
+                </div>
+              </div>
+              <div className='signUpDemoModalItem' onClick={handleDemoWarrenSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WarrenBuffett.jpeg' alt='Warren Buffett'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>Warren Buffett</div>
+                  <div className='signUpDemoModalMotto'>It’s far better to buy a wonderful company at a fair price, than a fair company at a wonderful price.</div>
+                </div>
+              </div>
+              <div className='signUpDemoModalItem' onClick={handleDemoBernieSubmit}>
+                <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-BernieMadoff.jpeg' alt='Warren Buffett'></img>
+                <div className='signUpDemoModalBody'>
+                  <div className='signUpDemoModalName'>Bernie Madoff</div>
+                  <div className='signUpDemoModalMotto'>The whole government is a Ponzi scheme!</div>
+                </div>
+              </div>
+              <button className='signUpDemoModalCloseButton' onClick={() => {setDemoModal(false)}}>Cancel</button>
+            </div>
+          </Modal>
+        )}
       </div>
     </div>
   );
