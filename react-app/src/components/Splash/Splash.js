@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineInfoCircle, AiOutlineGithub } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
+import { RiProfileLine } from "react-icons/ri";
 import { SiJavascript, SiReact, SiRedux, SiPython, SiHtml5, SiCss3, SiFlask, SiPostgresql, SiDocker } from "react-icons/si";
 
 import './Splash.css'
@@ -94,8 +95,9 @@ function Splash() {
 						<div className='splashFourthHeaderContainer'>
 							<div className='splashFourthHeaderNameContainer'>
 								<div className='splashFourthHeaderName'>Introducing Jack Lin</div>
-								<a className='splashFourthGithub' href='https://github.com/wylin94'><AiOutlineGithub/></a>
+								{/* <a className='splashFourthGithub' href='https://github.com/wylin94'><AiOutlineGithub/></a>
 								<a className='splashFourthLinkedIn' href='https://www.linkedin.com/in/wylin94/'><BsLinkedin /></a>
+								<a className='splashFourthPortfolio' href='https://wylin94.github.io/'><RiProfileLine /></a> */}
 							</div>
 							<div className='splashFourthHeader'>Invest in Jack and collect your profit</div>
 						</div>
@@ -114,8 +116,13 @@ function Splash() {
 							</div>
 						</div>
 						<div className='splashFourthDiscloseContainer'>
-							<div className='splashFourthDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashFourthDiscloseText'>A real person and a serious developer</div>
+							{/* <div className='splashFourthDiscloseIcon'><AiOutlineInfoCircle /></div> */}
+							<a className='splashFourthPortfolio' href='https://wylin94.github.io/'><RiProfileLine /></a>
+							<div className='splashFourthDiscloseText'>A real person</div>
+							<a className='splashFourthGithub' href='https://github.com/wylin94'><AiOutlineGithub/></a>
+							<div className='splashFourthDiscloseText'>and a serious developer</div>
+							<a className='splashFourthLinkedIn' href='https://www.linkedin.com/in/wylin94/'><BsLinkedin /></a>
+							<div className='splashFourthDiscloseText'>and this is his LinkedIn</div>
 						</div>
 					</div>
 					<div className='splashFourthRight'>
@@ -130,7 +137,6 @@ function Splash() {
 						{/* <img className='splashFifthImage' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashSixthSection.jpg'} alt='Design'></img> */}
 						{design && <img className='splashFifthImagePhase1' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSectionPhase1.jpg'} alt='Design'></img>}
 						{implementation && <img className='splashFifthImagePhase2' src={'https://wyl-greenarrow.s3.us-west-1.amazonaws.com/SplashFifthSectionPhase2.jpg'} alt='Design'></img>}
-
 					</div>
 					<div className='splashFifthRight'>
 						<div className='splashFifthHeaderContainer'>
@@ -150,7 +156,7 @@ function Splash() {
 						</div>
 						<div className='splashFifthDiscloseContainer'>
 							<div className='splashFifthDiscloseIcon'><AiOutlineInfoCircle /></div>
-							<div className='splashFifthDiscloseText'>Fun facts about GreenArrow</div>
+							<div className='splashFifthDiscloseText'>A well thought-out design</div>
 						</div>
 					</div>
 				</div>
@@ -175,6 +181,10 @@ function Splash() {
 								<i class="devicon-sqlalchemy-plain"></i>
 								<SiDocker />
 							</div>
+						</div>
+						<div className='splashThirdDiscloseContainer'>
+							<div className='splashThirdDiscloseIcon'><AiOutlineInfoCircle /></div>
+							<div className='splashThirdDiscloseText'>POW! POW! POW!</div>
 						</div>
 					</div>
 					<div className='splashSixthRight'>
