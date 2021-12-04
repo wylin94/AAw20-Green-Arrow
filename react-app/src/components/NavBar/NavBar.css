@@ -135,13 +135,13 @@
 	/* min-width: 100px; */
 }
 
-.navGitHub, .navLinkedIn, .navPortfolio {
+.navJackLin, .navGitHub, .navLinkedIn, .navPortfolio {
 	font-size: 13px;
 	font-weight: 700;
 	text-decoration: none;
 }
 
-.navGitHub:hover, .navLinkedIn:hover, .navPortfolio:hover {
+.navJackLin:hover, .navGitHub:hover, .navLinkedIn:hover, .navPortfolio:hover {
 	color: rgb(68, 205, 88);
 	cursor: pointer;
 }

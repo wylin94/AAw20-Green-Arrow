@@ -36,6 +36,7 @@ Before you begin, please check the following Wiki documents:
 ### Frontend:
 * React
 * Redux
+* React-chartjs-2
 * JavaScript
 * HTML
 * Vanilla CSS

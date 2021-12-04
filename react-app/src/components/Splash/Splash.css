@@ -251,28 +251,6 @@
     font-weight: 500;
 }
 
-.splashFourthGithub, .splashFourthLinkedIn {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-}
-
-.splashFourthLinkedIn {
-    font-size: 26px;
-}
-
-.splashFourthGithub:hover {
-    color: rgb(0, 200, 5);
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.splashFourthLinkedIn:hover {
-    color: rgb(0, 99, 220);
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
 .splashFourthHeader {
     font-size: 18px;
     color: grey;
@@ -311,10 +289,33 @@
     gap: 12px;
 }
 
-.splashFourthDiscloseIcon {
+.splashFourthGithub, .splashFourthLinkedIn, .splashFourthPortfolio {
     display: flex;
-    font-size: 32px;
+    align-items: center;
+    font-size: 30px;
     color: #6A7278;
+}
+
+.splashFourthLinkedIn {
+    font-size: 26px;
+}
+
+.splashFourthGithub:hover {
+    color: #6e5494;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.splashFourthLinkedIn:hover {
+    color: rgb(0, 99, 220);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.splashFourthPortfolio:hover {
+    color: rgb(0, 200, 5);
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .splashFourthDiscloseText {
@@ -507,13 +508,14 @@
     justify-content: center;
     /* background-color: red; */
     min-width: 580px;
+    gap: 55px;
 }
 
 .splashSixthHeader {
     font-size: 30px;
     font-weight: 500;
     color: white;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .splashSixthIconContainer {
@@ -530,4 +532,23 @@
     color: white;
     gap: 50px;
     margin: 20px 0px 20px 0px;
+}
+
+.splashThirdDiscloseContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.splashThirdDiscloseIcon {
+    display: flex;
+    font-size: 32px;
+    color: #6A7278;
+}
+
+.splashThirdDiscloseText {
+    font-size: 19px;
+    font-weight: 600;
+    color: #6A7278;
 }
