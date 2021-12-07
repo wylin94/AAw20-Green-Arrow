@@ -51,7 +51,7 @@ def seed_users():
         password='password',
         buying_power=11273993,
         profile_image='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WallStreetBets.jpg',
-        motto='Send Robinhood to the ground and GME to the moon!!! Oh wait... this is GreenArrow.',
+        motto='Send Robinhood to the ground and GME to the moon!',
     )
     
     # db.session.add(demo)

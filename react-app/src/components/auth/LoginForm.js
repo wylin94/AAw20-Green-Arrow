@@ -172,7 +172,7 @@ const LoginForm = () => {
                 <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WallStreetBets.jpg' alt='WallStreetBets'></img>
                 <div className='signUpDemoModalBody'>
                   <div className='signUpDemoModalName'>WallStreetBets</div>
-                  <div className='signUpDemoModalMotto'>Send Robinhood to the ground and GME to the moon!!! Oh wait... this is GreenArrow.</div>
+                  <div className='signUpDemoModalMotto'>Send Robinhood to the ground and GME to the moon!</div>
                 </div>
               </div>
 
