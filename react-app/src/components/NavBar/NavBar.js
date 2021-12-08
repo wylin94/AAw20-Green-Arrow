@@ -18,8 +18,8 @@ const NavBar = () => {
   useEffect(() => {
     const searchFetch = async () => {
       if (searchInput) {
-        // const response = await fetch(`https://cloud.iexapis.com/stable/search/${searchInput}?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
-        const response = await fetch(`https://sandbox.iexapis.com/stable/search/${searchInput}?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
+        const response = await fetch(`https://cloud.iexapis.com/stable/search/${searchInput}?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
+        // const response = await fetch(`https://sandbox.iexapis.com/stable/search/${searchInput}?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
         if (response.ok) {
           const searchResult = await response.json();
           setSearchResult(searchResult);
