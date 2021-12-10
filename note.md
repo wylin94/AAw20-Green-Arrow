@@ -17,3 +17,13 @@ jobs:
       run: heroku container:push -a myherokuappname web
     - name: Release
       run: heroku container:release -a myherokuappname web
+
+
+
+
+front-end:
+npm start
+
+back-end:
+pipenv shell
+flask run
