@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import UploadPicture from '../UploadPicture/UploadPicture';
 
 import './Profile.css';
 
@@ -40,6 +41,7 @@ function Profile() {
 						</div>
 					</div>
 					<div className='profileRight'>
+						{/* <UploadPicture /> */}
 					</div>
 				</div>
 		</div>

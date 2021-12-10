@@ -3,7 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { AiOutlineInfoCircle, AiOutlineGithub } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
 import { RiProfileLine } from "react-icons/ri";
+import { ImProfile } from "react-icons/im";
+import { CgProfile } from "react-icons/cg";
 import { SiJavascript, SiReact, SiRedux, SiPython, SiHtml5, SiCss3, SiFlask, SiPostgresql, SiDocker } from "react-icons/si";
+
 
 import './Splash.css'
 
@@ -117,12 +120,12 @@ function Splash() {
 						</div>
 						<div className='splashFourthDiscloseContainer'>
 							{/* <div className='splashFourthDiscloseIcon'><AiOutlineInfoCircle /></div> */}
-							<a className='splashFourthPortfolio' href='https://wylin94.github.io/'><RiProfileLine /></a>
+							<a className='splashFourthPortfolio' href='https://wylin94.github.io/'><CgProfile /></a>
 							<div className='splashFourthDiscloseText'>A real person</div>
 							<a className='splashFourthGithub' href='https://github.com/wylin94'><AiOutlineGithub/></a>
-							<div className='splashFourthDiscloseText'>and a serious developer</div>
+							<div className='splashFourthDiscloseText'>A serious developer</div>
 							<a className='splashFourthLinkedIn' href='https://www.linkedin.com/in/wylin94/'><BsLinkedin /></a>
-							<div className='splashFourthDiscloseText'>and this is his LinkedIn</div>
+							<div className='splashFourthDiscloseText'>And this is his LinkedIn</div>
 						</div>
 					</div>
 					<div className='splashFourthRight'>
