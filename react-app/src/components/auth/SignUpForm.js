@@ -4,6 +4,7 @@ import { Redirect, NavLink } from 'react-router-dom';
 
 import { signUp, login } from '../../store/session';
 import { Modal } from '../../context/Modal';
+import DemoButton from './DemoButton';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -13,7 +14,6 @@ const SignUpForm = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [passwordNotMatch, setPasswordNotMatch] = useState(false);
-  const [showDemoModal, setDemoModal] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -31,58 +31,6 @@ const SignUpForm = () => {
       setPasswordNotMatch(true);
     };
   };
-
-  // const handleDemoSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const demoEmail = ['jordanbelfort@wolfofwallstreet.com', 'warrenbuffett@birkshire.com', 'bernieMadoff@berniemadoffinvestmentsecurities.com'];
-  //   const randomDemoEmail = demoEmail[Math.floor(Math.random() * demoEmail.length)];
-  //   const data = await dispatch(login(randomDemoEmail, 'password'));
-  //   if (data) {
-  //     setErrors(data)
-  //   };
-  // };
-
-  const handleDemoBernieSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login('bernieMadoff@berniemadoffinvestmentsecurities.com', 'password'));
-    if (data) {
-      setErrors(data)
-    };
-  };
-
-  const handleDemoElonSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login('elonmusk@tesla.com', 'password'));
-    if (data) {
-      setErrors(data)
-    };
-  };
-
-  const handleDemoJordanSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login('jordanbelfort@wolfofwallstreet.com', 'password'));
-    if (data) {
-      setErrors(data)
-    };
-  };
-
-  const handleDemoWarrenSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login('warrenbuffett@berkshirehathaway.com', 'password'));
-    if (data) {
-      setErrors(data)
-    };
-  };
-
-  const handleDemoWallStreetBetsSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login('WallStreetBets@reddit.com', 'password'));
-    if (data) {
-      setErrors(data)
-    };
-  };
-
-
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -165,67 +113,15 @@ const SignUpForm = () => {
               ))}
               {passwordNotMatch && <div className='signUpFormError'>password: Password do not match</div>}
             </div>
-            <button className='signUpFormSubmitButton' type='submit'>Continue</button>
+            <div className='signUpFormButtonContainer'>
+              <button className='signUpFormSubmitButton' type='submit'>Continue</button>
+            </div>
             <div className='signUpFormAlreadyStarted'>
               Already have an account?
               <NavLink className='signUpFormAlreadyStartedLink' to='/login' exact={true} activeClassName='active'> Log in here</NavLink>
             </div>
-            {/* <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div> */}
           </form>
-          <button className='signUpFormDemoButton' onClick={() => setDemoModal(true)}>Demo</button>
-          {showDemoModal && (
-            <Modal onClose={() => setDemoModal(false)}>
-              <div className='signUpDemoModalContainer'>
-                <div className='signUpDemoModalHeader'>Choose Your Demo Login</div>
-
-                <div className='signUpDemoModalItem' onClick={handleDemoBernieSubmit}>
-                  <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-BernieMadoff.jpeg' alt='Bernie Madoff'></img>
-                  <div className='signUpDemoModalBody'>
-                    <div className='signUpDemoModalName'>Bernie Madoff</div>
-                    <div className='signUpDemoModalMotto'>The whole government is a Ponzi scheme!</div>
-                  </div>
-                </div>
-
-                <div className='signUpDemoModalItem' onClick={handleDemoElonSubmit}>
-                  <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-ElonMusk.jpg' alt='Bernie Madoff'></img>
-                  <div className='signUpDemoModalBody'>
-                    <div className='signUpDemoModalName'>Elon Musk</div>
-                    <div className='signUpDemoModalMotto'>Am considering taking Tesla private at $420. Funding secured.</div>
-                  </div>
-                </div>
-
-                <div className='signUpDemoModalItem' onClick={handleDemoJordanSubmit}>
-                  <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-JordanBelfort.jpeg' alt='Jordan Belfort'></img>
-                  <div className='signUpDemoModalBody'>
-                    <div className='signUpDemoModalName'>Jordan Belfort</div>
-                    <div className='signUpDemoModalMotto'>Sell me this pen.</div>
-                  </div>
-                </div>
-
-                <div className='signUpDemoModalItem' onClick={handleDemoWarrenSubmit}>
-                  <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WarrenBuffett.jpeg' alt='Warren Buffett'></img>
-                  <div className='signUpDemoModalBody'>
-                    <div className='signUpDemoModalName'>Warren Buffett</div>
-                    <div className='signUpDemoModalMotto'>It’s far better to buy a wonderful company at a fair price, than a fair company at a wonderful price.</div>
-                  </div>
-                </div>
-
-                <div className='signUpDemoModalItem' onClick={handleDemoWallStreetBetsSubmit}>
-                  <img className='signUpDemoModalImage' src='https://wyl-greenarrow.s3.us-west-1.amazonaws.com/profile-WallStreetBets.jpg' alt='WallStreetBets'></img>
-                  <div className='signUpDemoModalBody'>
-                    <div className='signUpDemoModalName'>WallStreetBets</div>
-                    <div className='signUpDemoModalMotto'>Send Robinhood to the ground and GME to the moon!</div>
-                  </div>
-                </div>
-
-                <button className='signUpDemoModalCloseButton' onClick={() => {setDemoModal(false)}}>Cancel</button>
-              </div>
-            </Modal>
-          )}
+          <DemoButton />
           <div className='signUpFormDisclosure'>
             <div className='signUpFormDisclosureDetail'>Q: How do you thank Green Arrow for saving your life? A: With greenbacks! Q: How does Green Arrow know he's been cuckolded by Batman? A: When Canarys hatch a few Robins Q: What's the difference between Green Arrow and a unicorn? A: Nothing, they're both fictional characters Q: What did Catwoman say to Green Arrow? A: "You make me quiver." Q: What did Green Arrow say to Spider Man? A: "Don't bug me." Q: Why did Green Arrow flush the toilet? A: Because it was his duty! Q: What did Green Arrow say when he hit a bull? A: I got a bullseye. Q: What does Green Arrow wear with his suit? A: A bow tie. Q: What does Green Arrow put in his beverages? A: Just ice.</div>
             <div className='signUpFormDisclosureDetail'>© 2021 GreenArrow. All rights reserved.</div>
