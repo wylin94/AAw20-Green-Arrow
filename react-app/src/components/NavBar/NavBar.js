@@ -99,7 +99,7 @@ const NavBar = () => {
               </div>}
             </div>
             <div className='navRight'>
-              <a className='navJackLin' href='https://wylin94.github.io/'>Jack Lin</a>
+              <a className='navJackLin' href='https://wylin94.github.io/'>About the Developer</a>
               <a className='navGitHub' href='https://github.com/wylin94'>GitHub</a>
               <a className='navLinkedIn' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
               <NavLink className='navPortfolio' to='/' exact={true} activeClassName='active'>Portfolio</NavLink>
