@@ -48,18 +48,6 @@ function ProfileButton() {
     };
   };
 
-  // const handleSurpriseSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const new_buying_power = user.buying_power + Math.floor(Math.random() * 1000000);
-  //   const response = await dispatch(buyingPower({user_id, new_buying_power}));
-  //   if (response.ok) {
-  //     setShowSurpriseMeModal(true);
-  //   };
-  // };
-
-  // RANDOMIZED TICKER AND SHARE FOR SURPRISE BUTTON //
-
-
   const handleSurpriseSubmit = async (e) => {
     e.preventDefault();
     const ticker = stocks[Math.floor(Math.random() * stocks.length)]?.symbol;
@@ -88,6 +76,10 @@ function ProfileButton() {
       setShowMenu(false);
     };
     document.addEventListener('click', closeMenu);
+    const preventBubble = document.getElementById('preventBubble')
+    preventBubble.addEventListener('click', (e) => {
+      e.stopPropagation();
+    })
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -97,15 +89,17 @@ function ProfileButton() {
       {showMenu && (
         <div className='profileDropdownContainer'>
           <div className='profileDropdown'>
-            <div className='profileDropdownName'>{user.username}</div>
-            <div className='profileDropdownValueContainer'>
-              <div className='profileDropdownPortfolioValue'>
-                <div className='profileDropdownPortfolioValueAmount'>${(user.buying_power + portfoliosRunningBalance)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-                <div className='profileDropdownPortfolioValueText'>Portfolio Value</div>
-              </div>
-              <div className='profileDropdownBuyingPower'>
-                <div className='profileDropdownBuyingPowerAmount'>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
-                <div className='profileDropdownBuyingPowerText'>Buying Power</div>
+            <div id='preventBubble'>
+              <div className='profileDropdownName'>{user.username}</div>
+              <div className='profileDropdownValueContainer'>
+                <div className='profileDropdownPortfolioValue'>
+                  <div className='profileDropdownPortfolioValueAmount'>${(user.buying_power + portfoliosRunningBalance)?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+                  <div className='profileDropdownPortfolioValueText'>Portfolio Value</div>
+                </div>
+                <div className='profileDropdownBuyingPower'>
+                  <div className='profileDropdownBuyingPowerAmount'>${user.buying_power?.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
+                  <div className='profileDropdownBuyingPowerText'>Buying Power</div>
+                </div>
               </div>
             </div>
             <NavLink className='profileDropdownButton' id='profileDropdownButton-profile' to='/profile'>

@@ -14,10 +14,12 @@ const NavBar = () => {
   const location = useLocation();
   const [searchInput, setSearchInput] = useState('');
   const [searchResult, setSearchResult] = useState([]);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     const searchFetch = async () => {
       if (searchInput) {
+        setShowSearch(true);
         const response = await fetch(`https://cloud.iexapis.com/stable/search/${searchInput}?token=pk_b594792b9ef34e0e96c77e7d19984f80`);
         // const response = await fetch(`https://sandbox.iexapis.com/stable/search/${searchInput}?token=Tpk_c924ab8d178f4d0681afac7b5eb34c34`);
         if (response.ok) {
@@ -27,7 +29,18 @@ const NavBar = () => {
       };
     }
     searchFetch();
-  }, [searchInput])
+    document.addEventListener('click', () => setShowSearch(false));
+    return () => document.removeEventListener("click", () => setShowSearch(false));
+  }, [searchInput]);
+
+  const handleSearchResultClick = () => {
+    setSearchInput('');
+    document.getElementById('NavSearchBarIncludesResult').value = '';
+  }
+
+  const handleInputBarClick = () => {
+    setShowSearch(true);
+  }
 
   // const handleMeetClick = (e) => {
   //   const albumNav = document.querySelector("#meetDeveloper");
@@ -56,14 +69,19 @@ const NavBar = () => {
             </div>
             <div className='navSearchBarContainer'>
               <label className='navSearchBarIcon'><CgSearch /></label>
-              <input className='navSearchBar' id={searchInput.length>0?'NavSearchBarIncludesResult':''} placeholder='Search' type='text' onChange={e => {setSearchInput(e.target.value)}}></input>
-              {/* <div className='navSearchBarIcon'><CgSearch /></div> */}
-              {searchInput && <div className='navSearchBarResultContainer'>
+              <input 
+                className='navSearchBar' 
+                id={(searchInput.length>0&&showSearch)?'NavSearchBarIncludesResult':''} 
+                placeholder='Search' 
+                type='text' 
+                onChange={e => {setSearchInput(e.target.value)}}>
+              </input>
+              {showSearch && <div className='navSearchBarResultContainer'>
                 <div className='navSearchBarResultHeader'>Stocks</div>
                 <div className='navSearchBarResult'>
                   {searchResult.map(stock => {
                     return (
-                      <NavLink className='navSearchBarResultItemLink' key={stock.symbol} to={`/stocks/${stock.symbol}`} onClick={() => setSearchInput('')}>
+                      <NavLink className='navSearchBarResultItemLink' key={stock.symbol} to={`/stocks/${stock.symbol}`} onClick={handleSearchResultClick}>
                         <div className='navSearchBarResultItem'>{stock.symbol}</div>
                       </NavLink>
                     )
