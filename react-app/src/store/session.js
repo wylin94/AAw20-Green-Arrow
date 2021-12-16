@@ -2,6 +2,7 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const EDIT_BUYINGPOWER =  'session/EDIT_BUYINGPOWER';
+const EDIT_PROFILEIMAGE =  'session/EDIT_PROFILEIMAGE';
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -10,12 +11,17 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
-})
+});
 
 const editBuyingPower = (user) => ({
   type: EDIT_BUYINGPOWER,
   user
-})
+});
+
+const editProfileImage = (user) => ({
+  type: EDIT_PROFILEIMAGE,
+  user
+});
 
 const initialState = { user: null };
 
@@ -118,6 +124,24 @@ export const buyingPower = ({user_id, new_buying_power}) => async (dispatch) => 
   }
 }
 
+export const profileImage = ({user_id, formData}) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/users/${user_id}/profile_image`, {
+      method: "PATCH",
+      body: formData,
+    });
+    if (response.ok) {
+      const user = await response.json();
+      dispatch(editProfileImage(user));
+      return user;
+    } else {
+      throw response;
+    }
+  } catch (e) {
+    return e;
+  }
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
@@ -126,6 +150,8 @@ export default function reducer(state = initialState, action) {
       return { user: null }
     case EDIT_BUYINGPOWER:
       return { ...state, user: {...state.user, buying_power: action.user.buying_power}}
+    case EDIT_PROFILEIMAGE:
+      return { ...state, user: {...state.user, profile_image: action.user.profile_image}}
     default:
       return state;
   }

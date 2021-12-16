@@ -38,10 +38,6 @@ const NavBar = () => {
     document.getElementById('NavSearchBarIncludesResult').value = '';
   }
 
-  const handleInputBarClick = () => {
-    setShowSearch(true);
-  }
-
   // const handleMeetClick = (e) => {
   //   const albumNav = document.querySelector("#meetDeveloper");
   //   albumNav.scrollIntoView({behavior: "smooth"})

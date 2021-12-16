@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineInfoCircle, AiOutlineGithub } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
-import { RiProfileLine } from "react-icons/ri";
-import { ImProfile } from "react-icons/im";
 import { CgProfile } from "react-icons/cg";
-import { SiJavascript, SiReact, SiRedux, SiPython, SiHtml5, SiCss3, SiFlask, SiPostgresql, SiDocker } from "react-icons/si";
-
 
 import './Splash.css'
 
@@ -171,18 +167,19 @@ function Splash() {
 						<div className='splashSixthHeader'>GreenArrow is built with these technologies</div>
 						<div className='splashSixthIconContainer'>
 							<div className='splashSixthIconGroup1'>
-								<SiJavascript />
-								<SiReact />
-								<SiRedux />
-								<SiPython />
-								<SiHtml5 />
+								<i className="devicon-javascript-plain colored"></i>
+								<i className="devicon-react-original-wordmark colored"></i>
+								<i className="devicon-redux-original colored"></i>
+								<i className="devicon-python-plain-wordmark colored"></i>
+								<i className="devicon-html5-plain-wordmark colored"></i>
+								<i className="devicon-css3-plain-wordmark colored"></i>
 							</div>
 							<div className='splashSixthIconGroup2'>
-								<SiCss3 />
-								<SiFlask />
-								<SiPostgresql />
-								<i class="devicon-sqlalchemy-plain"></i>
-								<SiDocker />
+								<i className="devicon-flask-original-wordmark"></i>
+								<i className="devicon-postgresql-plain-wordmark colored"></i>
+								<i className="devicon-sqlalchemy-original-wordmark"></i>
+								<i className="devicon-docker-plain-wordmark colored"></i>
+								<i className="devicon-amazonwebservices-plain-wordmark colored"></i>
 							</div>
 						</div>
 						<div className='splashThirdDiscloseContainer'>
