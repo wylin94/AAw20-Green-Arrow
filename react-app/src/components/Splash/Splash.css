@@ -169,19 +169,25 @@
     line-height: 25px;
 }
 
-.splashThirdBodyOne, .splashThirdBodyTwo, .splashThirdBodyThree {
+.splashThirdBodyOne, 
+.splashThirdBodyTwo, 
+.splashThirdBodyThree {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-.splashThirdBodyOneHeader, .splashThirdBodyTwoHeader, .splashThirdBodyThreeHeader {
+.splashThirdBodyOneHeader, 
+.splashThirdBodyTwoHeader, 
+.splashThirdBodyThreeHeader {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.splashThirdBodyOneText, .splashThirdBodyTwoText, .splashThirdBodyThreeText {
+.splashThirdBodyOneText, 
+.splashThirdBodyTwoText, 
+.splashThirdBodyThreeText {
     font-size: 18px;
     line-height: 25px;
 }
@@ -263,7 +269,9 @@
     /* background-color: red; */
 }
 
-.splashFourthBodyOne, .splashFourthBodyTwo, .splashFourthBodyThree {
+.splashFourthBodyOne, 
+.splashFourthBodyTwo, 
+.splashFourthBodyThree {
     display: flex;
     flex-direction: column;
     max-width: 250px;
@@ -271,13 +279,17 @@
     /* align-items: center; */
 }
 
-.splashFourthBodyOneHeader, .splashFourthBodyTwoHeader, .splashFourthBodyThreeHeader {
+.splashFourthBodyOneHeader, 
+.splashFourthBodyTwoHeader, 
+.splashFourthBodyThreeHeader {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.splashFourthBodyOneText, .splashFourthBodyTwoText, .splashFourthBodyThreeText {
+.splashFourthBodyOneText, 
+.splashFourthBodyTwoText, 
+.splashFourthBodyThreeText {
     font-size: 18px;
     line-height: 25px;
 }
@@ -289,7 +301,9 @@
     gap: 12px;
 }
 
-.splashFourthGithub, .splashFourthLinkedIn, .splashFourthPortfolio {
+.splashFourthGithub, 
+.splashFourthLinkedIn, 
+.splashFourthPortfolio {
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -370,7 +384,8 @@
     width: 350px;
 }
 
-.splashFifthImagePhase1, .splashFifthImagePhase2 {
+.splashFifthImagePhase1, 
+.splashFifthImagePhase2 {
     width: 200px;
     transition: all 2s ease;
 }
@@ -526,11 +541,12 @@
     /* background-color: blue; */
 }
 
-.splashSixthIconGroup1, .splashSixthIconGroup2 {
+.splashSixthIconGroup1, 
+.splashSixthIconGroup2 {
     display: flex;
     font-size: 70px;
     color: white;
-    gap: 50px;
+    gap: 30px;
     margin: 20px 0px 20px 0px;
 }
 

@@ -80,7 +80,12 @@ function ProfileButton() {
     preventBubble.addEventListener('click', (e) => {
       e.stopPropagation();
     })
-    return () => document.removeEventListener("click", closeMenu);
+    return () => {
+      document.removeEventListener("click", closeMenu)
+      preventBubble.removeEventListener('click', (e) => {
+        e.stopPropagation();
+      })
+    };
   }, [showMenu]);
 
   return (

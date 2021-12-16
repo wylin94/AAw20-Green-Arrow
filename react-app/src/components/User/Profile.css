@@ -19,6 +19,7 @@
 
 .profileHeader {
     display: flex;
+	position: relative;
     /* background-color: red; */
 	margin: 30px 25px 30px 25px;
 	gap: 25px;

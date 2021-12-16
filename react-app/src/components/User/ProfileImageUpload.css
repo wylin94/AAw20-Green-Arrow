@@ -1,0 +1,26 @@
+.imageUploadForm {
+    position: absolute;
+    left: 55px;
+    top: 55px;
+}
+
+.imageUploadInput {
+    display: none;
+}
+
+.imageUploadIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 26px;
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.imageUploadIcon:hover {
+    cursor: pointer;
+}
