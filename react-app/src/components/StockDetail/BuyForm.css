@@ -10,7 +10,10 @@
 	margin: 0 25px 25px 25px; 
 }
 
-.bfInvestInHeader, .bfInvestInText, .bfSharesHeader, .bfMarketPriceHeader {
+.bfInvestInHeader, 
+.bfInvestInText, 
+.bfSharesHeader, 
+.bfMarketPriceHeader {
 	font-size: 14px;
 }
 
@@ -41,7 +44,8 @@
     font-size: 14px;
 }
 
-.bfSharesInput::-webkit-outer-spin-button, .bfSharesInput::-webkit-inner-spin-button {
+.bfSharesInput::-webkit-outer-spin-button, 
+.bfSharesInput::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 
@@ -58,7 +62,8 @@
 	padding-bottom: 15px; 
 }
 
-.bfMarketPriceText, .bfEstimatedCostText {
+.bfMarketPriceText, 
+.bfEstimatedCostText {
 	font-size: 13px;
 	font-weight: bold;
 }

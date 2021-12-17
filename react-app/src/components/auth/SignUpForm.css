@@ -136,7 +136,8 @@
     bottom: 87px;
 }
 
-.signUpFormSubmitButton:hover, .signUpFormDemoButton:hover {
+.signUpFormSubmitButton:hover, 
+.signUpFormDemoButton:hover {
 	background-color: rgb(0, 181, 6);
 	cursor: pointer;
 }

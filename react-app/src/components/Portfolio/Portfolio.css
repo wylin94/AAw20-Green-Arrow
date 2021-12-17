@@ -200,7 +200,8 @@
 	display: none;
 }
 
-.pfStockListHeaderContainer, .pfWatchListHeaderContainer {
+.pfStockListHeaderContainer, 
+.pfWatchListHeaderContainer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -208,19 +209,22 @@
 	border-bottom: 1px solid rgb(228, 228, 228);
 }
 
-.pfStockListHeader, .pfWatchlistHeader {
+.pfStockListHeader, 
+.pfWatchlistHeader {
 	font-weight: bold;
 	font-size: 15px;
 	width: 83%;
 	/* margin-left: 25px; */
 }
 
-.pfStockListBody, .pfWatchlistBody {
+.pfStockListBody, 
+.pfWatchlistBody {
 	display: flex;
 	flex-direction: column;
 }
 
-.pfStockListItemNav, .pfWatchlistItemNav {
+.pfStockListItemNav, 
+.pfWatchlistItemNav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -230,25 +234,29 @@
 	/* background-color: lightblue; */
 }
 
-.pfStockListItemNav:hover, .pfWatchlistItemNav:hover {
+.pfStockListItemNav:hover, 
+.pfWatchlistItemNav:hover {
 	background-color: rgb(247, 247, 247);
 }
 
-.pfStockListItem, .pfWatchlistItem {
+.pfStockListItem, 
+.pfWatchlistItem {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 83%;
 }
 
-.pfStockListItemLeft, .pfWatchlistItemLeft {
+.pfStockListItemLeft, 
+.pfWatchlistItemLeft {
 	display: flex;
 	height: 37px;
 	gap: 5px;
 	/* background-color: yellow; */
 }
 
-.pfStockListItemTickerContainer, .pfWatchlistItemTickerContainer {
+.pfStockListItemTickerContainer, 
+.pfWatchlistItemTickerContainer {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
@@ -260,7 +268,8 @@
 	justify-content: center;
 }
 
-.pfStockListItemTicker, .pfWatchlistItemTicker {
+.pfStockListItemTicker, 
+.pfWatchlistItemTicker {
 	font-size: 13px;
 	font-weight: bold;
 }
@@ -269,14 +278,16 @@
 	font-size: 13px;
 }
 
-.pfStockListItemGraph, .pfWatchlistItemGraph {
+.pfStockListItemGraph, 
+.pfWatchlistItemGraph {
 	/* border: 1px solid grey; */
 	height: auto;
 	width: 75px;
 	/* width: 40% */
 }
 
-.pfStockListItemPriceContainer, .pfWatchlistItemPriceContainer {
+.pfStockListItemPriceContainer, 
+.pfWatchlistItemPriceContainer {
 	/* width: 15%; */
 	display: flex;
 	flex-direction: column;
@@ -286,22 +297,26 @@
 	/* background-color: aquamarine; */
 }
 
-.pfStockListItemPrice, .pfWatchlistItemPrice {
+.pfStockListItemPrice, 
+.pfWatchlistItemPrice {
 	font-size: 13px;
 	/* background-color: yellow; */
 }
 
-.pfStockListItemPercent, .pfWatchlistItemPercent {
+.pfStockListItemPercent, 
+.pfWatchlistItemPercent {
 	font-size: 13px;
 	/* background-color: aquamarine; */
 	text-align: right;
 }
 
-#pfStockListItemPercentNegative, #pfWatchlistItemPercentNegative {
+#pfStockListItemPercentNegative, 
+#pfWatchlistItemPercentNegative {
 	color: #FF5000;
 }
 
-#pfStockListItemPercentPositive, #pfWatchlistItemPercentPositive {
+#pfStockListItemPercentPositive, 
+#pfWatchlistItemPercentPositive {
 	color: #00C805;
 }
 

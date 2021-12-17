@@ -29,7 +29,8 @@
 	margin: 5px 0px 40px 0px;
 }
 
-.sdGraphCompanyName, .sdGraphStockPrice {
+.sdGraphCompanyName, 
+.sdGraphStockPrice {
 	font-size: 30px;
 	font-weight: 500;
 }
@@ -74,7 +75,6 @@
 	border: none;
 	background-color: transparent;
 	font-weight: bold;
-	
 	margin: 0px 5px;
 }
 
@@ -98,7 +98,8 @@
 	margin-top: 55px;
 }
 
-.sdGraphMarketValueContainer, .sdGraphAverageContainer {
+.sdGraphMarketValueContainer, 
+.sdGraphAverageContainer {
 	border: 1px solid rgb(228, 228, 228);
 	width: 331px;
 	height: 179px;
@@ -171,7 +172,8 @@
 	gap: 10px;
 }
 
-.sdSidePanelBuy, .sdSidePanelSell {
+.sdSidePanelBuy, 
+.sdSidePanelSell {
 	border: none;
 	background-color: white;
 	font-size: 15px;
@@ -179,12 +181,14 @@
 	height: 100%;
 }
 
-.sdSidePanelBuy:hover, .sdSidePanelSell:hover {
+.sdSidePanelBuy:hover, 
+.sdSidePanelSell:hover {
 	color: #00C805;
 	cursor: pointer;
 }
 
-#sdSidePanelBuyHighlight, #sdSidePanelSellHighlight {
+#sdSidePanelBuyHighlight, 
+#sdSidePanelSellHighlight {
 	color: #00C805;
 	border-bottom: 1px solid #00C805;
 }
