@@ -135,14 +135,20 @@
 	/* min-width: 100px; */
 }
 
-.navJackLin, .navGitHub, .navLinkedIn, .navPortfolio {
+.navJackLin, 
+.navGitHub, 
+.navLinkedIn, 
+.navPortfolio {
 	font-size: 13px;
 	font-weight: 700;
 	text-decoration: none;
 	white-space: nowrap;
 }
 
-.navJackLin:hover, .navGitHub:hover, .navLinkedIn:hover, .navPortfolio:hover {
+.navJackLin:hover, 
+.navGitHub:hover, 
+.navLinkedIn:hover, 
+.navPortfolio:hover {
 	color: rgb(68, 205, 88);
 	cursor: pointer;
 }
@@ -191,12 +197,16 @@
 	width: 40px;
 }
 
-.splashNavGitHub, .splashNavLinkedIn, .splashNavMeet {
+.splashNavGitHub, 
+.splashNavLinkedIn, 
+.splashNavMeet {
 	font-size: 18px;
 	text-decoration: none;
 }
 
-.splashNavGitHub:hover, .splashNavLinkedIn:hover, .splashNavMeet:hover {
+.splashNavGitHub:hover, 
+.splashNavLinkedIn:hover, 
+.splashNavMeet:hover {
 	color: #00C805;
 	cursor: pointer;
 }
@@ -212,7 +222,8 @@
 	/* margin-right: 2px; */
 }
 
-.splashNavLogIn, .splashNavSignUp {
+.splashNavLogIn, 
+.splashNavSignUp {
 	font-size: 17px;
 	text-decoration: none;
 	font-weight: bold;

@@ -12,7 +12,10 @@
 	margin: 0 25px 25px 25px; 
 }
 
-.sfInvestInHeader, .sfInvestInText, .sfSharesHeader, .sfMarketPriceHeader {
+.sfInvestInHeader, 
+.sfInvestInText, 
+.sfSharesHeader, 
+.sfMarketPriceHeader {
 	font-size: 14px;
 }
 
@@ -43,7 +46,8 @@
     font-size: 14px;
 }
 
-.sfSharesInput::-webkit-outer-spin-button, .sfSharesInput::-webkit-inner-spin-button {
+.sfSharesInput::-webkit-outer-spin-button, 
+.sfSharesInput::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	/* margin: 0; */
 }
@@ -63,7 +67,8 @@
 	padding-bottom: 15px; 
 }
 
-.sfMarketPriceText, .sfEstimatedCreditText {
+.sfMarketPriceText, 
+.sfEstimatedCreditText {
 	font-size: 13px;
 	font-weight: bold;
 }

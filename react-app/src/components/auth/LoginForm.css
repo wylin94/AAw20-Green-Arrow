@@ -31,7 +31,8 @@
     /* background-color: rgb(219, 232, 237); */
 }
 
-.loginFormEmailSection, .loginFormPasswordSection {
+.loginFormEmailSection, 
+.loginFormPasswordSection {
     display: flex;
     flex-direction: column;
     gap: 15px;
