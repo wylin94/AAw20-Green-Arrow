@@ -44,11 +44,11 @@ const DemoButton = () => {
 	];
 
 	const handleDemoSubmit = async (email) => {
-    // e.preventDefault();
-    const data = await dispatch(login(email, 'password'));
-    // if (data) {
-    //   setErrors(data)
-    // };
+		// e.preventDefault();
+		const data = await dispatch(login(email, 'password'));
+		// if (data) {
+			// setErrors(data)
+		// };
 	};
 
 	return (
@@ -56,21 +56,21 @@ const DemoButton = () => {
 			<button className='demoButton' onClick={() => setDemoModal(true)}>Demo</button>
 			{showDemoModal && (
 				<Modal onClose={() => setDemoModal(false)}>
-				<div className='demoModalContainer'>
-					<div className='demoModalHeader'>Choose Your Demo Login</div>
-					{demoUsers.map(demoUser => {
-						return (
-							<div key={demoUser.email} className='demoModalItem' onClick={() => handleDemoSubmit(demoUser.email)}>
-								<img className='demoModalImage' src={demoUser.profile_image} alt={demoUser.username}></img>
-								<div className='demoModalBody'>
-									<div className='demoModalName'>{demoUser.username}</div>
-									<div className='demoModalMotto'>{demoUser.motto}</div>
+					<div className='demoModalContainer'>
+						<div className='demoModalHeader'>Choose Your Demo Login</div>
+						{demoUsers.map(demoUser => {
+							return (
+								<div key={demoUser.email} className='demoModalItem' onClick={() => handleDemoSubmit(demoUser.email)}>
+									<img className='demoModalImage' src={demoUser.profile_image} alt={demoUser.username}></img>
+									<div className='demoModalBody'>
+										<div className='demoModalName'>{demoUser.username}</div>
+										<div className='demoModalMotto'>{demoUser.motto}</div>
+									</div>
 								</div>
-							</div>
-						)
-					})}
-					<button className='demoModalCloseButton' onClick={() => {setDemoModal(false)}}>Cancel</button>
-				</div>
+							)
+						})}
+						<button className='demoModalCloseButton' onClick={() => {setDemoModal(false)}}>Cancel</button>
+					</div>
 				</Modal>
 			)}
 		</>
